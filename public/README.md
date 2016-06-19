@@ -50,7 +50,8 @@
 │   ├── components     // 可复用的 VUE 组件
 │   ├── pages          // 页面
 │   ├── filters.js     // 过滤器
-│   └── main.js        // Webpack 预编译入口，路由配置
+│   ├── main.js        // 入口
+│   └── routes.js      // 路由配置
 ├── static             // 构建好的文件
 ├── config             // 项目配置文件目录
 ├── test               // 测试文件目录
@@ -82,5 +83,5 @@ npm test
 
 ## 可参考项目
 
-- [vue-cnode](https://github.com/shinygang/Vue-cnodejs)
+- [vue-cnodejs](https://github.com/shinygang/Vue-cnodejs)
 - [vue-hackernews](https://github.com/vuejs/vue-hackernews)
