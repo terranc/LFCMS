@@ -10,8 +10,6 @@
   </header>
 </template>
 
-<style>
-.v-link-active {
-  color: red;
-}
+<style lang="scss">
+@import "src/assets/styles/components/NavigationBar.scss";
 </style>
