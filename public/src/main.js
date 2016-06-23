@@ -11,4 +11,6 @@ const router = new VueRouter({
   transitionOnLoad: true,
 });
 routerMap(router);
-router.start(Vue.extend({}), '#app');
+
+const App = Vue.extend({});
+router.start(App, '#app');

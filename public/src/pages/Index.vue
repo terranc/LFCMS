@@ -1,5 +1,5 @@
 <template>
-  <vue-helmet title='index'></vue-helmet>
+  <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div id="index">
     <navigation-bar></navigation-bar>
     <h1>{{ content }}</h1>
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       content: 'index page',
+      title: 'index',
     };
   },
   components: {

@@ -1,5 +1,5 @@
 <template>
-  <vue-helmet title='article'></vue-helmet>
+  <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div id="article">
     <navigation-bar></navigation-bar>
     <h1>{{ content }}</h1>
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       content: 'article page',
+      title: 'article',
     };
   },
   components: {
