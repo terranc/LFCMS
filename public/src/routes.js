@@ -17,4 +17,8 @@ export default function (router) {
       component: Article,
     },
   });
+
+  router.redirect({
+    '/': 'index',
+  });
 }
