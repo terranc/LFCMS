@@ -13,7 +13,13 @@ export default function (router) {
         require(['./pages/Setting'], resolve);
       },
     },
-    '/article': {
+    '/articles': {
+      name: 'articles',
+      component: (resolve) => {
+        require(['./pages/Articles'], resolve);
+      },
+    },
+    '/articles/:id': {
       name: 'article',
       component: (resolve) => {
         require(['./pages/Article'], resolve);

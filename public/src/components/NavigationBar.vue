@@ -4,7 +4,7 @@
       <ul>
         <li><a v-link="{name: 'index'}">Index</a></li>
         <li><a v-link="{name: 'setting'}">Setting</a></li>
-        <li><a v-link="{name: 'article'}">article</a></li>
+        <li><a v-link="{name: 'articles'}">article</a></li>
       </ul>
     </nav>
   </header>

@@ -1,9 +1,15 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <div>
+  <div id="articles">
     <navigation-bar></navigation-bar>
     <h1>{{ content }}</h1>
-    <p>{{ $route.params.id }}</p>
+    <div>
+      <ul>
+        <li><a href="" v-link="{name: 'article', params: {id: '1'}}">1</a></li>
+        <li><a href="" v-link="{name: 'article', params: {id: '2'}}">2</a></li>
+        <li><a href="" v-link="{name: 'article', params: {id: '3'}}">3</a></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -14,8 +20,8 @@ import VueHelmet from 'vue-helmet';
 export default {
   data() {
     return {
-      content: 'article page',
-      title: `article-${this.$route.params.id}`,
+      content: 'articles page',
+      title: 'articles',
     };
   },
   components: {
