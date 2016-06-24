@@ -1,20 +1,23 @@
-import Index from './pages/Index';
-import Article from './pages/Article';
-import Setting from './pages/Setting';
-
+/* eslint global-require:off */
 export default function (router) {
   router.map({
     '/index': {
       name: 'index',
-      component: Index,
+      component: (resolve) => {
+        require(['./pages/Index'], resolve);
+      },
     },
     '/setting': {
       name: 'setting',
-      component: Setting,
+      component: (resolve) => {
+        require(['./pages/Setting'], resolve);
+      },
     },
     '/article': {
       name: 'article',
-      component: Article,
+      component: (resolve) => {
+        require(['./pages/Article'], resolve);
+      },
     },
   });
 
