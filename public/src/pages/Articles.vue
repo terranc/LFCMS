@@ -9,6 +9,7 @@
         <li><a href="" v-link="{name: 'article', params: {id: '2'}}">2</a></li>
         <li><a href="" v-link="{name: 'article', params: {id: '3'}}">3</a></li>
       </ul>
+      <input type="" name="">
     </div>
   </div>
 </template>
