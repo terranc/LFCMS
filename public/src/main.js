@@ -6,7 +6,8 @@ import routerMap from './routes';
 Vue.use(VueRouter);
 const router = new VueRouter({
   hashbang: true,
-  history: false,
+  history: true,
+  abstract: false,
   saveScrollPosition: true,
   transitionOnLoad: true,
 });
