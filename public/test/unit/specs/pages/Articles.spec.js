@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import PageArticles from 'src/pages/Articles';
+import PageArticles from 'pages/Articles';
 
 describe('Articles.vue', () => {
   it('should render correct contents', () => {

@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Index from 'src/pages/Index';
+import Index from 'pages/Index';
 
 describe('Index.vue', () => {
   it('should render correct contents', () => {

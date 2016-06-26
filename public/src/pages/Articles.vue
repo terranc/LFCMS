@@ -1,21 +1,22 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div id="articles">
+    <x-header>{{ title }}</x-header>
+    <group :title='content'>
+      <cell title="Test article 1" is-link v-link="{name: 'article', params: {id: '1'}}"></cell>
+      <cell title="Test article 2" is-link v-link="{name: 'article', params: {id: '2'}}"></cell>
+      <cell title="Test article 3" is-link v-link="{name: 'article', params: {id: '3'}}"></cell>
+    </group>
     <navigation-bar></navigation-bar>
-    <h1>{{ content }}</h1>
-    <div>
-      <ul>
-        <li><a href="" v-link="{name: 'article', params: {id: '1'}}">1</a></li>
-        <li><a href="" v-link="{name: 'article', params: {id: '2'}}">2</a></li>
-        <li><a href="" v-link="{name: 'article', params: {id: '3'}}">3</a></li>
-      </ul>
-    </div>
   </div>
 </template>
 
 <script>
-import NavigationBar from '../components/NavigationBar';
+import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
+import XHeader from 'vux-components/x-header';
+import Group from 'vux-components/group';
+import Cell from 'vux-components/Cell';
 
 export default {
   data() {
@@ -25,8 +26,11 @@ export default {
     };
   },
   components: {
+    XHeader,
     VueHelmet,
     NavigationBar,
+    Group,
+    Cell,
   },
 };
 </script>

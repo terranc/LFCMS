@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Setting from 'src/pages/Setting';
+import Setting from 'pages/Setting';
 
 describe('Setting.vue', () => {
   it('should render correct contents', () => {
