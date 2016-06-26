@@ -28,6 +28,7 @@ import Switch from 'vux-components/switch';
 import XInput from 'vux-components/x-input';
 import XNumber from 'vux-components/x-number';
 import Calendar from 'vux-components/calendar';
+import XTextarea from 'vux-components/x-textarea';
 
 
 export default {
@@ -47,6 +48,7 @@ export default {
     Switch,
     Cell,
     Group,
+    XTextarea,
   },
 };
 </script>
