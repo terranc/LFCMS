@@ -19,7 +19,6 @@
 - [ ] 一个简单易配的route
 
 ## Server
-- [ ] ThinkPHP 5.0 重构
 - [ ] 整合Easy Wechat 
 > https://easywechat.org/
 
