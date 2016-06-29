@@ -19,7 +19,6 @@
 - [ ] 一个简单易配的route
 
 ## Server
-- [ ] ThinkPHP 5.0 重构
 - [ ] 整合Easy Wechat 
 > https://easywechat.org/
 
@@ -33,3 +32,7 @@
     - [ ] 权限管理
 - [ ] 通过Hook可以插件的形式扩展功能模块
 - [ ] 全站前台均采用API接口方式搭建
+
+
+# Licenses
+[MIT](https://en.wikipedia.org/wiki/MIT_License)
