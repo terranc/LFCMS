@@ -36,6 +36,7 @@
 <style lang="scss">
 @import "../assets/styles/lib/flexboxgrid.scss";
 @import "../assets/styles/pages/setting.scss";
+@import '~vux/dist/vux.css';
 </style>
 
 <script>
