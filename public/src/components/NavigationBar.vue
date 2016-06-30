@@ -1,23 +1,22 @@
 <template>
 <tabbar id="NavigationBar">
-  <tabbar-item v-link="{name: 'index'}" selected>
+  <tabbar-item v-link="{name: 'index'}">
     <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_button.png">
-    <span slot="label">Index</span>
+    <span slot="label">首页</span>
   </tabbar-item>
-  <tabbar-item show-dot v-link="{name: 'articles'}">
+  <tabbar-item v-link="{name: 'articles'}">
     <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_msg.png">
-    <span slot="label">Articles</span>
+    <span slot="label">文章</span>
   </tabbar-item>
   <tabbar-item v-link="{name: 'setting'}">
     <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_article.png">
-    <span slot="label">Setting</span>
+    <span slot="label">设置</span>
   </tabbar-item>
 </tabbar>
 </template>
 
 <style lang="scss">
 @import "../assets/styles/components/NavigationBar.scss";
-@import '~vux/dist/vux.css';
 </style>
 
 <script>

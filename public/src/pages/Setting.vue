@@ -2,41 +2,28 @@
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div id="setting">
     <main class="main">
-      <group class="content" title="I'm group title">
-        <cell title="cell" value="hello world" is-link></cell>
-        <x-input title="x-input"></x-input>
-        <switch title="switch"></switch>
-        <x-textarea placeholder="x-textarea"></x-textarea>
-        <calendar title="Calendar"></calendar>
+      <group class="content">
+        <cell title="账号与安全" is-link></cell>
       </group>
-      <group class="content" title="I'm another group title" title-color="green">
-        <cell title="cell" value="hello world" is-link></cell>
-        <x-input title="x-input"></x-input>
-        <x-number title="x-number"></x-number>
+      <group class="content">
+        <cell title="新消息通知" is-link></cell>
+        <cell title="隐私" is-link></cell>
+        <cell title="通用" is-link></cell>
       </group>
-      <group class="content" title="I'm group title">
-        <cell title="cell" value="hello world" is-link></cell>
-        <x-input title="x-input"></x-input>
-        <switch title="switch"></switch>
-        <x-textarea placeholder="x-textarea"></x-textarea>
-        <calendar title="Calendar"></calendar>
+      <group class="content">
+        <cell title="帮助与反馈" is-link></cell>
+        <cell title="关于微信" is-link></cell>
       </group>
-      <group class="content" title="I'm another group title" title-color="green">
-        <cell title="cell" value="hello world" is-link></cell>
-        <x-input title="x-input"></x-input>
-        <x-number title="x-number"></x-number>
+      <group class="content">
+        <cell title="退出登录" is-link></cell>
       </group>
     </main>
-    <footer class="footer">
-      <navigation-bar></navigation-bar>
-    </footer>
+    <navigation-bar></navigation-bar>
   </div>
 </template>
 
 <style lang="scss">
-@import "../assets/styles/lib/flexboxgrid.scss";
 @import "../assets/styles/pages/setting.scss";
-@import '~vux/dist/vux.css';
 </style>
 
 <script>
@@ -44,11 +31,7 @@ import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/Cell';
-import Switch from 'vux-components/switch';
-import XInput from 'vux-components/x-input';
-import XNumber from 'vux-components/x-number';
-import Calendar from 'vux-components/calendar';
-import XTextarea from 'vux-components/x-textarea';
+
 
 export default {
   data() {
@@ -60,13 +43,8 @@ export default {
   components: {
     VueHelmet,
     NavigationBar,
-    Calendar,
-    XNumber,
-    XInput,
-    Switch,
-    Cell,
     Group,
-    XTextarea,
+    Cell,
   },
 };
 </script>

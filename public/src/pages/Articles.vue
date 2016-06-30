@@ -11,7 +11,6 @@
 </template>
 
 <style lang="scss">
-@import '~vux/dist/vux.css';
 </style>
 
 <script>

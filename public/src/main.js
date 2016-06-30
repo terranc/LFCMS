@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routerMap from './routes';
+import App from './components/App';
 
 
 Vue.use(VueRouter);
@@ -13,5 +14,4 @@ const router = new VueRouter({
 });
 routerMap(router);
 
-const App = Vue.extend({});
-router.start(App, '#app');
+router.start(App, 'app');

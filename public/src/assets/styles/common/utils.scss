@@ -1,0 +1,140 @@
+// 
+// font size
+// 
+.h1,.h2,.h3,.h4,.h5,.h6{
+  font-weight: normal;
+}
+.h6{
+  font-size: $fzExplain;
+}
+.h5{
+  font-size: $fzNormal;
+}
+.h4{
+  font-size: $fzPrimary;
+}
+.h3{
+  font-size: $fzTitle;
+}
+.h2{
+  font-size: $fzBlock;
+}
+.h1{
+  font-size: $fzBlockTitle;
+}
+.thin{
+  font-weight: 100;
+}
+
+// 
+// utilities
+// 
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+}
+.affix {
+  position: fixed;
+}
+.text-right{
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
+.text-center{
+  text-align: center;
+}
+.text-cut{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.img-circle {
+  border-radius: 50%;
+}
+
+.noBorder{
+  border: none !important;
+}
+
+.clearfix:before,
+.clearfix:after{
+  content: " ";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+
+// 
+// color
+// 
+.text-empty {
+  color: $empty;
+}
+.text-pale {
+  color: $pale;
+}
+
+.text-dark {
+  color: $dark;
+}
+
+.text-base {
+  color: $base;
+}
+
+.text-light {
+  color: $light;
+}
+
+.text-active {
+  color: $active;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-success {
+  color: $success;
+}
