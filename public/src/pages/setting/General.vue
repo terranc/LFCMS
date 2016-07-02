@@ -36,7 +36,7 @@
 import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
-import Cell from 'vux-components/Cell';
+import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 
 

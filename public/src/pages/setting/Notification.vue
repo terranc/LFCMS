@@ -46,7 +46,7 @@ import NavigationBar from 'components/NavigationBar';
 import XExplanation from 'components/vux_extension/XExplanation';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
-import Cell from 'vux-components/Cell';
+import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 import Flexbox from 'vux-components/flexbox';
 import FlexboxItem from 'vux-components/flexbox-item';

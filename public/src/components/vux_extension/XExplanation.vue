@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cell bgc-base x-explanation ">
+  <div class="weui_cell bgc-base x-explanation">
     <slot></slot>
   </div>
 </template>
