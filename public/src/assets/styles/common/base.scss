@@ -6,13 +6,13 @@ body {
   overflow-x: hidden;
 }
 
-a{
+a {
   transition: color .3s, opacity .3s, background-color .3s;
 }
-a:hover{
+a:hover {
   text-decoration:none;
 }
-a:focus{
+a:focus {
   outline: none;
   text-decoration:none;
 }

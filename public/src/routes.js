@@ -10,7 +10,31 @@ export default function (router) {
     '/setting': {
       name: 'setting',
       component: (resolve) => {
-        require(['./pages/Setting'], resolve);
+        require(['./pages/setting/Index'], resolve);
+      },
+    },
+    '/setting/account': {
+      name: 'account',
+      component: (resolve) => {
+        require(['./pages/setting/Account'], resolve);
+      },
+    },
+    '/setting/notification': {
+      name: 'notification',
+      component: (resolve) => {
+        require(['./pages/setting/Notification'], resolve);
+      },
+    },
+    '/setting/privacy': {
+      name: 'privacy',
+      component: (resolve) => {
+        require(['./pages/setting/Privacy'], resolve);
+      },
+    },
+    '/setting/general': {
+      name: 'general',
+      component: (resolve) => {
+        require(['./pages/setting/General'], resolve);
       },
     },
     '/articles': {

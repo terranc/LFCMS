@@ -1,5 +1,5 @@
 <template>
-<tabbar id="NavigationBar">
+<tabbar id="navigation-bar">
   <tabbar-item v-link="{name: 'index'}">
     <img slot="icon" src="https://o84lhz5xo.qnssl.com/master/src/assets/demo/icon_nav_button.png">
     <span slot="label">首页</span>

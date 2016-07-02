@@ -1,21 +1,21 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <div id="setting">
-    <main class="main">
-      <group class="content">
-        <cell title="账号与安全" is-link></cell>
+  <div class="wrapper" id="setting">
+    <main class="main main-footer">
+      <group>
+        <cell title="账号与安全" v-link="{name: 'account'}" is-link></cell>
       </group>
-      <group class="content">
-        <cell title="新消息通知" is-link></cell>
-        <cell title="隐私" is-link></cell>
-        <cell title="通用" is-link></cell>
+      <group>
+        <cell title="新消息通知" v-link="{name: 'notification'}" is-link></cell>
+        <cell title="隐私" v-link="{name: 'privacy'}" is-link></cell>
+        <cell title="通用" v-link="{name: 'general'}" is-link></cell>
       </group>
-      <group class="content">
+      <group>
         <cell title="帮助与反馈" is-link></cell>
         <cell title="关于微信" is-link></cell>
       </group>
-      <group class="content">
-        <cell title="退出登录" is-link></cell>
+      <group>
+        <cell class="text-center" title="退出登录"></cell>
       </group>
     </main>
     <navigation-bar></navigation-bar>
@@ -23,7 +23,7 @@
 </template>
 
 <style lang="scss">
-@import "../assets/styles/pages/setting.scss";
+@import "../../assets/styles/pages/setting.scss";
 </style>
 
 <script>
@@ -36,8 +36,7 @@ import Cell from 'vux-components/Cell';
 export default {
   data() {
     return {
-      content: 'setting page',
-      title: 'setting',
+      title: '设置',
     };
   },
   components: {
