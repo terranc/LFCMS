@@ -11,9 +11,9 @@
       <group>
         <switch title="通过微信号搜索到我"></switch>
       </group>
-      <x-explanation>
+      <tip>
         关闭后，其他用户将不能用微信号搜索到你。
-      </x-explanation>
+      </tip>
       <group>
         <cell title="通信录黑名单" is-link></cell>
       </group>
@@ -31,12 +31,11 @@
 
 <script>
 import NavigationBar from 'components/NavigationBar';
-import XExplanation from 'components/vux_extension/XExplanation';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
-
+import Tip from 'vux-components/tip';
 
 export default {
   data() {
@@ -49,7 +48,7 @@ export default {
     NavigationBar,
     Group,
     Cell,
-    XExplanation,
+    Tip,
     Switch,
   },
 };

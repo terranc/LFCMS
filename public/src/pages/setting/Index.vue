@@ -20,7 +20,7 @@
     </main>
     <navigation-bar></navigation-bar>
   </div>
-</template>
+<template>
 
 <style lang="scss">
 @import "../../assets/styles/pages/setting.scss";
