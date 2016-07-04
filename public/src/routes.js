@@ -1,58 +1,68 @@
+import Index from 'pages/Index';
+import Setting from 'pages/setting/Index';
+import Account from 'pages/setting/Account';
+import Notification from 'pages/setting/Notification';
+import Privacy from 'pages/setting/Privacy';
+import General from 'pages/setting/General';
+import Articles from 'pages/Articles';
+import Article from 'pages/Article';
+import Timeout from 'pages/Timeout';
+
 /* eslint global-require:off */
 export default function (router) {
   router.map({
     '/index': {
       name: 'index',
       component: (resolve) => {
-        require(['./pages/Index'], resolve);
+        resolve(Index);
       },
     },
     '/setting': {
       name: 'setting',
       component: (resolve) => {
-        require(['./pages/setting/Index'], resolve);
+        resolve(Setting);
       },
     },
     '/setting/account': {
       name: 'account',
       component: (resolve) => {
-        require(['./pages/setting/Account'], resolve);
+        resolve(Account);
       },
     },
     '/setting/notification': {
       name: 'notification',
       component: (resolve) => {
-        require(['./pages/setting/Notification'], resolve);
+        resolve(Notification);
       },
     },
     '/setting/privacy': {
       name: 'privacy',
       component: (resolve) => {
-        require(['./pages/setting/Privacy'], resolve);
+        resolve(Privacy);
       },
     },
     '/setting/general': {
       name: 'general',
       component: (resolve) => {
-        require(['./pages/setting/General'], resolve);
+        resolve(General);
       },
     },
     '/articles': {
       name: 'articles',
       component: (resolve) => {
-        require(['./pages/Articles'], resolve);
+        resolve(Articles);
       },
     },
     '/articles/:id': {
       name: 'article',
       component: (resolve) => {
-        require(['./pages/Article'], resolve);
+        resolve(Article);
       },
     },
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {
-        require(['./pages/Timeout'], resolve);
+        resolve(Timeout);
       },
     },
   });

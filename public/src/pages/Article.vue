@@ -117,9 +117,7 @@
 
     </div>
 </template>
-<style lang="scss">
-@import "../assets/styles/pages/article.scss";
-</style>
+
 
 <script>
 import NavigationBar from 'components/NavigationBar';
@@ -149,3 +147,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../assets/styles/pages/article.scss";
+</style>

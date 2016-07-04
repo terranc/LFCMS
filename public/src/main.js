@@ -16,7 +16,7 @@ const router = new VueRouter({
 });
 routerMap(router);
 
-// 请求超时
+// 请求失败
 Vue.http.interceptors.push((request, next) => {
   next((response) => {
     if (response.status === 0) {
