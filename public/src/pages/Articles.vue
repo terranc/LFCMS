@@ -1,11 +1,9 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div div class="wrapper" id="articles">
-    <main class="main main-footer">
+    <main class="main main-footer" v-if="listOfArticle.length">
       <group :title='content'>
-        <cell title="Test article 1" is-link v-link="{name: 'article', params: {id: '1'}}"></cell>
-        <cell title="Test article 2" is-link v-link="{name: 'article', params: {id: '2'}}"></cell>
-        <cell title="Test article 3" is-link v-link="{name: 'article', params: {id: '3'}}"></cell>
+        <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
       </group>
     </main>
     <navigation-bar></navigation-bar>
@@ -26,6 +24,7 @@ export default {
     return {
       content: 'articles page',
       title: 'articles',
+      listOfArticle: [],
     };
   },
   components: {
@@ -33,6 +32,11 @@ export default {
     NavigationBar,
     Group,
     Cell,
+  },
+  route: {
+    data() {
+      return this.$http.get('https://cnodejs.org/api/v1/topics').then((response) => ({ listOfArticle: response.data.data }));
+    },
   },
 };
 </script>

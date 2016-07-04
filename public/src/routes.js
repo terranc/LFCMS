@@ -49,6 +49,12 @@ export default function (router) {
         require(['./pages/Article'], resolve);
       },
     },
+    '/timeout': {
+      name: 'timeout',
+      component: (resolve) => {
+        require(['./pages/Timeout'], resolve);
+      },
+    },
   });
 
   router.redirect({

@@ -1,6 +1,6 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <div class="rich_media">
+  <div class="rich_media" id="article">
     <div class="top_banner"></div>
       <div class="rich_media_inner">
         <div id="page-content">

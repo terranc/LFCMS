@@ -20,7 +20,7 @@
     </main>
     <navigation-bar></navigation-bar>
   </div>
-<template>
+</template>
 
 <style lang="scss">
 @import "../../assets/styles/pages/setting.scss";
@@ -31,7 +31,6 @@ import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-
 
 export default {
   data() {
