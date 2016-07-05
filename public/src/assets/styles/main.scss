@@ -1,0 +1,18 @@
+// libs
+@import "./libs/normalize.scss";
+@import '~vux/dist/vux.css';
+@import "./libs/flexboxgrid.scss";
+@import "./libs/articleOfWechat.scss";
+
+// supports
+@import "./supports/variables.scss";
+@import "./supports/utils.scss";
+@import "./supports/base.scss";
+@import "./supports/layout.scss";
+
+// components
+@import "./components/NavigationBar.scss";
+
+// pages
+@import "./pages/article.scss";
+@import "./pages/setting.scss";

@@ -5,8 +5,7 @@
 </template>
 
 <style lang="scss">
-@import '~vux/dist/vux.css';
-@import '../assets/styles/common/exports.scss';
+@import '../assets/styles/main.scss';
 </style>
 
 <script>

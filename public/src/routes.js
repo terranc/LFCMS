@@ -1,68 +1,58 @@
-import Index from 'pages/Index';
-import Setting from 'pages/setting/Index';
-import Account from 'pages/setting/Account';
-import Notification from 'pages/setting/Notification';
-import Privacy from 'pages/setting/Privacy';
-import General from 'pages/setting/General';
-import Articles from 'pages/Articles';
-import Article from 'pages/Article';
-import Timeout from 'pages/Timeout';
-
 /* eslint global-require:off */
 export default function (router) {
   router.map({
     '/index': {
       name: 'index',
       component: (resolve) => {
-        resolve(Index);
+        require(['./pages/Index'], resolve);
       },
     },
     '/setting': {
       name: 'setting',
       component: (resolve) => {
-        resolve(Setting);
+        require(['./pages/setting/Index'], resolve);
       },
     },
     '/setting/account': {
       name: 'account',
       component: (resolve) => {
-        resolve(Account);
+        require(['./pages/setting/Account'], resolve);
       },
     },
     '/setting/notification': {
       name: 'notification',
       component: (resolve) => {
-        resolve(Notification);
+        require(['./pages/setting/Notification'], resolve);
       },
     },
     '/setting/privacy': {
       name: 'privacy',
       component: (resolve) => {
-        resolve(Privacy);
+        require(['./pages/setting/Privacy'], resolve);
       },
     },
     '/setting/general': {
       name: 'general',
       component: (resolve) => {
-        resolve(General);
+        require(['./pages/setting/General'], resolve);
       },
     },
     '/articles': {
       name: 'articles',
       component: (resolve) => {
-        resolve(Articles);
+        require(['./pages/Articles'], resolve);
       },
     },
     '/articles/:id': {
       name: 'article',
       component: (resolve) => {
-        resolve(Article);
+        require(['./pages/Article'], resolve);
       },
     },
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {
-        resolve(Timeout);
+        require(['./pages/Timeout'], resolve);
       },
     },
   });
