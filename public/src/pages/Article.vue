@@ -119,7 +119,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/styles/pages/article.scss";
 </style>
 
 <script>
