@@ -27,6 +27,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     })
   },
   plugins: [
+    new webpack.BannerPlugin('Lookfeel © hello@lookfeel.co'),
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -47,7 +48,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         ? 'index.html'
         : config.build.index,
       template: 'index.html',
-      inject: true,
+      inject: 'body',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

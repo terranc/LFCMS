@@ -5,13 +5,12 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: ['./src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
     publicPath: config.build.assetsPublicPath,
-    filename: '[name].js',
-    chunkFilename: '[chunkhash].js',
+    filename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
