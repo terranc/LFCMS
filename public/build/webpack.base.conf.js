@@ -11,7 +11,7 @@ module.exports = {
     path: config.build.assetsRoot,
     publicPath: config.build.assetsPublicPath,
     filename: '[name].js',
-    chunkFilename: '[name].js',
+    chunkFilename: '[chunkhash].js',
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
@@ -66,7 +66,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('images/[name].[hash:7].[ext]')
         }
       },
       {
