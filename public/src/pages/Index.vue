@@ -17,7 +17,6 @@ import Icon from 'vue-awesome';
 
 export default {
   data() {
-    $('body').append('<div>test jquery</div>');
     return {
       content: 'index page',
       title: 'index',

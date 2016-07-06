@@ -1,9 +1,9 @@
 <template>
   <div class="loading">
     <loading :show="loadState === 'loading'" :text="loadingMessage"></loading>
-    <alert :show="loadState === 'fail'" button-text="重新加载" :title="loadFailTitle" @on-hide="onReload">
+    <confirm :show.sync="confirmState" confirm-text="重新加载" slot="发生异常" cancel-text="返回" :title="loadFailTitle" @on-confirm="onConfirm" @on-cancel="onCancel">
       <p style="text-align:center;">{{ loadFailMessage }}</p>
-    </alert>
+    </confirm>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 
 <script>
 import Loading from 'vux-components/loading';
-import Alert from 'vux-components/alert';
+import Confirm from 'vux-components/confirm';
 
 const clearTimer = (timer) => {
   if (timer !== undefined) {
@@ -44,6 +44,7 @@ export default {
   },
   data() {
     return {
+      confirmState: false,
       loadState: 'default',
       timer: undefined,
     };
@@ -62,28 +63,35 @@ export default {
     showLoading() {
       this.timer = clearTimer(this.timer);
       this.loadState = 'loading';
+      this.confirmState = false;
     },
     showFail() {
       this.timer = clearTimer(this.timer);
       this.loadState = 'fail';
+      this.confirmState = true;
     },
     reset() {
       this.timer = clearTimer(this.timer);
       this.loadState = 'default';
+      this.confirmState = false;
     },
-    onReload() {
+    onConfirm() {
       this.reset();
-      this.$route.router.go({
+      this.$route.router.replace({
         path: this.$route.router.path,
         query: {
           __t: + new Date(),
         },
       });
     },
+    onCancel() {
+      this.reset();
+      window.history.back();
+    },
   },
   components: {
     Loading,
-    Alert,
+    Confirm,
   },
 };
 </script>

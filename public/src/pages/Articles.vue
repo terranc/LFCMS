@@ -39,7 +39,7 @@ export default {
   route: {
     data() {
       this.$refs.load.deferShowLoading();
-      return this.$http.get('https://cnodejs.org/api/v1/topics').then((response) => {
+      return this.$http.get('https://cnodejs.org/api/v1/topic1s').then((response) => {
         this.$refs.load.reset();
         return { listOfArticle: response.data.data };
       }, () => {
