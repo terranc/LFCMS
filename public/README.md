@@ -89,7 +89,12 @@ npm test
 
 ```
 # 在 3333 端口启动开发环境
-PORT=3333 npm run dev
+
+//Linux
+PORT=3333 npm run dev 
+
+//Windows
+SET PORT=3333 && npm run dev
 ```
 
 
