@@ -10,7 +10,6 @@ class Index extends Base
 	function index(){
 		$data['str'] = 'Hello world!';
 		$data['hash'] = gen_password('123123');
-		pe(friendly_date());
 		return view('',$data);
 	}
 }
