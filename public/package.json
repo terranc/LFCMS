@@ -19,7 +19,9 @@
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",
     "vuex": "^0.6.3",
-    "vux": "^0.1.0"
+    "vux": "^0.1.0",
+    "vue-awesome": "^0.3.0",
+    "jquery": "^2.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

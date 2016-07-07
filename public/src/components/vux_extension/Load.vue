@@ -1,9 +1,9 @@
 <template>
   <div class="loading">
-    <loading :show="loadState === 'loading'" :text="loadingMessage"></loading>
-    <alert :show="loadState === 'fail'" button-text="重新加载" :title="loadFailTitle" @on-hide="onReload">
+    <loading :show="isLoading" :text="loadingMessage"></loading>
+    <confirm :show.sync="isFail" confirm-text="重新加载" cancel-text="返回" :title="loadFailTitle" @on-confirm="onConfirm" @on-cancel="onCancel">
       <p style="text-align:center;">{{ loadFailMessage }}</p>
-    </alert>
+    </confirm>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 
 <script>
 import Loading from 'vux-components/loading';
-import Alert from 'vux-components/alert';
+import Confirm from 'vux-components/confirm';
 
 const clearTimer = (timer) => {
   if (timer !== undefined) {
@@ -38,53 +38,65 @@ export default {
     loadFailTitle: {
       type: String,
       default() {
-        return '错误';
+        return '发生异常';
       },
     },
   },
   data() {
     return {
-      loadState: 'default',
+      isLoading: false,
+      isFail: false,
       timer: undefined,
     };
   },
   route: {
     data() {
-      return { loadState: 'default' };
+      return {
+        isLoading: false,
+        isFail: false,
+        timer: undefined,
+      };
     },
   },
   methods: {
     deferShowLoading(deferTime = 1000) {
       this.timer = setTimeout(() => {
-        this.loadState = 'loading';
+        this.isLoading = true;
+        this.isFail = false;
       }, deferTime);
     },
     showLoading() {
       this.timer = clearTimer(this.timer);
-      this.loadState = 'loading';
+      this.isLoading = true;
+      this.isFail = false;
     },
     showFail() {
       this.timer = clearTimer(this.timer);
-      this.loadState = 'fail';
+      this.isLoading = false;
+      this.isFail = true;
     },
     reset() {
       this.timer = clearTimer(this.timer);
-      this.loadState = 'default';
+      this.isLoading = false;
+      this.isFail = false;
     },
-    onReload() {
+    onConfirm() {
       this.reset();
       // https://github.com/vuejs/vue-router/issues/296
-      this.$route.router.go({
+      this.$route.router.replace({
         path: this.$route.router.path,
         query: {
           __t: + new Date(),
         },
       });
     },
+    onCancel() {
+      this.reset();
+    },
   },
   components: {
     Loading,
-    Alert,
+    Confirm,
   },
 };
 </script>
