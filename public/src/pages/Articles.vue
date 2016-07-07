@@ -44,7 +44,7 @@ export default {
         return { listOfArticle: response.data.data };
       }, () => {
         this.$refs.load.showFail();
-        return { listOfArticle: [] };
+        return this.listOfArticle;
       });
     },
   },

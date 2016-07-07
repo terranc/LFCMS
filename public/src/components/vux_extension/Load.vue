@@ -24,19 +24,19 @@ const clearTimer = (timer) => {
 export default {
   props: {
     loadingMessage: {
-      type: 'string',
+      type: String,
       default() {
         return '载入中...';
       },
     },
     loadFailMessage: {
-      type: 'string',
+      type: String,
       default() {
         return '加载失败';
       },
     },
     loadFailTitle: {
-      type: 'string',
+      type: String,
       default() {
         return '错误';
       },
@@ -73,6 +73,7 @@ export default {
     },
     onReload() {
       this.reset();
+      // https://github.com/vuejs/vue-router/issues/296
       this.$route.router.go({
         path: this.$route.router.path,
         query: {
