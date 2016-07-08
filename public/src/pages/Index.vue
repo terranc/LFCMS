@@ -20,9 +20,11 @@
 <script>
 import VueHelmet from 'vue-helmet';
 import Icon from 'vue-awesome';
+import { LFTabbar } from '../vuex/actions';
 
 export default {
   data() {
+    LFTabbar.show();
     return {
       content: 'index page',
       title: 'index',

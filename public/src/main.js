@@ -6,7 +6,7 @@ import routerMap from './routes';
 import App from './components/App';
 import store from './vuex/store';
 import { sync } from 'vuex-router-sync';
-// import { hideTabbar } from './vuex/actions';
+import { Tabbar } from './vuex/actions';
 
 if (__DEV__) {
   window.VueDev = Vue;
@@ -33,8 +33,9 @@ Vue.http.interceptors.push((request, next) => {
     }
   });
 });
-// router.beforeEach(({ next }) => {
-//   hideTabbar();
-//   next();
-// });
+
+router.beforeEach(({ next }) => {
+  Tabbar.hide();
+  next();
+});
 router.start(App, 'app');

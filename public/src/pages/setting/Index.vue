@@ -29,9 +29,11 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
+import { LFTabbar } from '../../vuex/actions';
 
 export default {
   data() {
+    LFTabbar.show();
     return {
       title: '设置',
     };

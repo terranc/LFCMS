@@ -4,8 +4,11 @@ const state = {
   tabbarState: false,
 };
 const mutations = {
-  [types.SET_TABBAR_STATE](state, value) {
-    state.tabbarState = value;
+  [types.SHOW_TABBAR](state) {
+    state.tabbarState = true;
+  },
+  [types.HIDE_TABBAR](state) {
+    state.tabbarState = false;
   },
 };
 

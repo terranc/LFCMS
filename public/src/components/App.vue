@@ -11,10 +11,12 @@
 
 <script>
 import NavigationBar from 'components/NavigationBar';
+import store from '../vuex/store';
 
 export default {
   components: {
     NavigationBar,
   },
+  store,
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-<tabbar id="navigation-bar" v-show="$route.data && $route.data.tabbarState">
+<tabbar id="navigation-bar" v-show="tabbarState">
   <tabbar-item v-link="{name: 'index'}" :selected="selected === 'home'">
     <icon slot="icon" name="home" scale="1.6"></icon>
     <span slot="label">首页</span>
@@ -42,6 +42,11 @@ export default {
     Tabbar,
     TabbarItem,
     Icon,
+  },
+  vuex: {
+    getters: {
+      tabbarState: (state) => state.app.tabbarState,
+    },
   },
   data() {
     return {
