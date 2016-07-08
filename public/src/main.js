@@ -3,7 +3,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import routerMap from './routes';
-import App from './components/App';
+import App from './components/app';
 import store from './vuex/store';
 import { sync } from 'vuex-router-sync';
 import { LFTabbar } from './vuex/actions';
