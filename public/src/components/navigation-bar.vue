@@ -17,9 +17,6 @@
 
 <style lang="scss">
 @import "../assets/styles/components/NavigationBar.scss";
-.weui_tabbar{
-  background-color: #fff;
-}
 </style>
 
 <script>

@@ -34,8 +34,7 @@ Vue.http.interceptors.push((request, next) => {
   });
 });
 
-router.beforeEach(({ next }) => {
+router.afterEach(() => {
   LFTabbar.hide();
-  next();
 });
 router.start(App, 'app');
