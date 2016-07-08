@@ -21,7 +21,8 @@
     "vuex": "^0.6.3",
     "vux": "^0.1.0",
     "vue-awesome": "^0.3.0",
-    "jquery": "^2.2.3"
+    "jquery": "^2.2.3",
+    "vuex-router-sync": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

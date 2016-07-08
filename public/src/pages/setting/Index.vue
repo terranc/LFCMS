@@ -18,7 +18,6 @@
         <cell class="text-center" title="退出登录"></cell>
       </group>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -27,7 +26,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -40,7 +38,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
   },

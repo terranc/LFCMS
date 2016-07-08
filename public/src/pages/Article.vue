@@ -122,7 +122,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Checklist from 'vux-components/checklist';
 import Radio from 'vux-components/radio';
@@ -141,7 +140,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Checklist,
     Radio,
     Group,

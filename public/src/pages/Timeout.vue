@@ -5,7 +5,6 @@
       <tip>请求超时</tip>
       <x-button type="primary" @click="reload">重新加载</x-button> 
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -13,7 +12,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import XButton from 'vux-components/x-button';
 import Tip from 'vux-components/tip';
@@ -26,7 +24,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     XButton,
     Tip,
   },

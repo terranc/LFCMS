@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="privacy">
-    <main class="main main-footer">
+    <main class="main">
       <group title="通讯录">
         <switch title="加我为朋友时需要验证"></switch>
       </group>
@@ -22,7 +22,6 @@
         <cell title="不看他（她）的朋友圈" is-link></cell>
       </group>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -30,7 +29,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -45,7 +43,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
     Tip,

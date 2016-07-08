@@ -1,12 +1,11 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <div div class="wrapper" id="articles">
+  <div class="wrapper" id="articles">
     <main class="main main-footer" v-if="listOfArticle.length">
       <group :title='content'>
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
       </group>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
   <load v-ref:load></load>
 </template>
@@ -15,7 +14,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -31,7 +29,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
     Load,

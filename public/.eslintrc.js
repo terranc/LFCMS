@@ -26,6 +26,8 @@ module.exports = {
       'vars': 'local',  //仅仅检测本作用域中声明的变量是否使用，允许不使用全局环境中的变量。
       'args': 'none', //不检测参数是否有被使用
     }],
+    'no-shadow': 0, //允许局部变量与外部变量名相同
+    'no-param-reassign': [2, {'props': false}],   //不可以对非对象参数重新赋值，但可以对对象的节点赋值
     'new-parens': 2,  //要求调用无参构造函数时带括号 
     'no-whitespace-before-property': 2, //禁止调用属性的属性名前有空白
     'one-var': 0, //可以多次let、var、const

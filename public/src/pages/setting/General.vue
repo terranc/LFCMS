@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="general">
-    <main class="main main-footer">
+    <main class="main">
       <group>
         <cell title="多语言" is-link></cell>
       </group>
@@ -25,7 +25,6 @@
         <cell class="text-center" title="清空聊天记录" is-link></cell>
       </group>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -33,7 +32,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -48,7 +46,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
     Switch,

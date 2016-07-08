@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="notification">
-    <main class="main main-footer">
+    <main class="main">
       <group>
         <cell title="接收新消息通知" >已开启</cell>
       </group>
@@ -32,7 +32,6 @@
         关闭后，有朋友更新照片时，界面下面的“发现”切换按钮上不再出现红点提示。
       </tip>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -40,7 +39,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -57,7 +55,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
     Switch,

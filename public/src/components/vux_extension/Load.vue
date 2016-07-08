@@ -59,11 +59,11 @@ export default {
     },
   },
   methods: {
-    deferShowLoading(deferTime = 1000) {
-      this.timer = setTimeout(() => {
-        this.isLoading = true;
-        this.isFail = false;
-      }, deferTime);
+    deferShowLoading(deferTime = 0) {
+      // this.timer = setTimeout(() => {
+      this.isLoading = true;
+      this.isFail = false;
+      // }, deferTime);
     },
     showLoading() {
       this.timer = clearTimer(this.timer);

@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="account">
-    <main class="main main-footer">
+    <main class="main">
       <group>
         <cell title="微信号" >sugarlamb</cell>
       </group>
@@ -17,7 +17,6 @@
         <cell title="安全中心" is-link></cell>
       </group>
     </main>
-    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -25,7 +24,6 @@
 </style>
 
 <script>
-import NavigationBar from 'components/NavigationBar';
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
@@ -39,7 +37,6 @@ export default {
   },
   components: {
     VueHelmet,
-    NavigationBar,
     Group,
     Cell,
   },

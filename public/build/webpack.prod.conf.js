@@ -30,6 +30,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.BannerPlugin('Lookfeel © hello@lookfeel.co'),
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
+      '__DEV__': false,
       'process.env': env
     }),
     new webpack.optimize.UglifyJsPlugin({

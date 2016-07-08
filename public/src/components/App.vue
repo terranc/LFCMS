@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <navigation-bar></navigation-bar>
   </div>
 </template>
 
@@ -9,6 +10,11 @@
 </style>
 
 <script>
+import NavigationBar from 'components/NavigationBar';
 
-export default {};
+export default {
+  components: {
+    NavigationBar,
+  },
+};
 </script>
