@@ -1,0 +1,2198 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"comm",
+				"CommunistController.class.php"
+			],
+			[
+				"set",
+				"setTimeout〔function〕"
+			],
+			[
+				"card",
+				"card_id"
+			],
+			[
+				"fun",
+				"function〔keyword〕"
+			],
+			[
+				"we",
+				"$webchat〔variable〕"
+			],
+			[
+				"di",
+				"disabled"
+			],
+			[
+				"per",
+				"prependTo〔function〕"
+			],
+			[
+				"goods",
+				"goods"
+			],
+			[
+				"fade",
+				"fadeOut	.fadeOut()"
+			],
+			[
+				"par",
+				"parents	.parents()"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"hand",
+				"handing_rate"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"channel",
+				"channel_node_id"
+			],
+			[
+				"b",
+				"bank_checked.png	w:18 h:18"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"login",
+				"login_ip"
+			],
+			[
+				"p",
+				"p	Tag"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"strup",
+				"strtoupper"
+			],
+			[
+				"http",
+				"http_build_query〔function〕"
+			],
+			[
+				"game",
+				"game_id"
+			],
+			[
+				"qu",
+				"query()"
+			],
+			[
+				"array",
+				"array_column〔function〕"
+			],
+			[
+				"select",
+				"selected<?php"
+			],
+			[
+				"guil",
+				"guild_id"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"borrra",
+				"border-radius"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"define",
+				"defined"
+			],
+			[
+				"cspe",
+				"c_spec_id"
+			],
+			[
+				"use",
+				"user_id"
+			],
+			[
+				"arrmer",
+				"array_merge_recursive"
+			],
+			[
+				"order",
+				"order_no"
+			],
+			[
+				"oder",
+				"order_no"
+			],
+			[
+				"con",
+				"controll_arr"
+			],
+			[
+				"not",
+				"notify"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"if",
+				"if	if …"
+			],
+			[
+				"do",
+				"domain"
+			],
+			[
+				"va",
+				"vars"
+			],
+			[
+				"scro",
+				"scrollTop	.scrollTop()"
+			],
+			[
+				"scr",
+				"scrollTop	.scrollTop()"
+			],
+			[
+				"sil",
+				"siblings	.siblings()"
+			],
+			[
+				"da",
+				"dealer_id"
+			],
+			[
+				"wit",
+				"white-space"
+			],
+			[
+				"fons",
+				"font-size"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"empty",
+				"empty"
+			],
+			[
+				"mb_str",
+				"mb_strlen"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"php",
+				"php	TP:: php"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"cmol",
+				"c_model_id"
+			],
+			[
+				"Li",
+				"limit"
+			],
+			[
+				"cate",
+				"category_name"
+			],
+			[
+				"togg",
+				"toggleClass	.toggleClass()"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"strs",
+				"strstr"
+			],
+			[
+				"dec",
+				"decimal"
+			],
+			[
+				"borderr",
+				"border-radius"
+			],
+			[
+				"remo",
+				"removeClass	.removeClass()"
+			],
+			[
+				"sli",
+				"siblings	.siblings()"
+			],
+			[
+				"rand",
+				"rand_string()"
+			],
+			[
+				"sa",
+				"salesman_id"
+			],
+			[
+				"dealer",
+				"dealer_id"
+			],
+			[
+				"at",
+				"article_id"
+			],
+			[
+				"ar",
+				"article_id"
+			],
+			[
+				"fso",
+				"font-size"
+			],
+			[
+				"arraymer",
+				"array_merge"
+			],
+			[
+				"HAS",
+				"HAS_MANY"
+			],
+			[
+				"parent_cate",
+				"parent_category_id"
+			],
+			[
+				"HSA",
+				"HAS_MANY"
+			],
+			[
+				"new",
+				"new_data"
+			],
+			[
+				"e",
+				"enctype	Attr"
+			],
+			[
+				"preg_",
+				"preg_match"
+			],
+			[
+				"ass",
+				"assign	->assign"
+			],
+			[
+				"sild",
+				"slideDown	.slideDown()"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"admin",
+				"admin"
+			],
+			[
+				"MO",
+				"MODULE_NAME"
+			],
+			[
+				"up",
+				"update_time"
+			],
+			[
+				"thu",
+				"thumb_type"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/src/pages/Article.vue",
+			"settings":
+			{
+				"buffer_size": 323,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/src/components/NavigationBar.vue",
+			"settings":
+			{
+				"buffer_size": 352,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/src/assets/styles/components/NavigationBar.scss",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 4 files for \"8080\"\n\nE:\\www\\LFCMS\\public\\config\\index.js:\n   19    dev: {\n   20      env: require('./dev.env'),\n   21:     port: 8080,\n   22      proxyTable: {}\n   23    }\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 200,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "public/config/index.js",
+			"settings":
+			{
+				"buffer_size": 748,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/src/main.js",
+			"settings":
+			{
+				"buffer_size": 297,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/src/pages/Index.vue",
+			"settings":
+			{
+				"buffer_size": 319,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/src/pages/Setting.vue",
+			"settings":
+			{
+				"buffer_size": 323,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instalk",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"scom",
+				"SVN: Commit…"
+			],
+			[
+				"sup",
+				"SVN: Update"
+			],
+			[
+				"su",
+				"SVN: Update"
+			],
+			[
+				"gpl",
+				"Git: Pull"
+			],
+			[
+				"fild",
+				"File: Duplicate"
+			],
+			[
+				"filedd",
+				"SVN: (File) Add"
+			],
+			[
+				"svnup",
+				"SVN: Update"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"gpll",
+				"Git: Pull"
+			],
+			[
+				"filede",
+				"File: Delete"
+			],
+			[
+				"gpush",
+				"Git: Push"
+			],
+			[
+				"gqc",
+				"Git: Quick Commit"
+			],
+			[
+				"gq",
+				"Git: Quick Add"
+			],
+			[
+				"gpuh",
+				"Git: Push"
+			],
+			[
+				"gush",
+				"Git: Push"
+			],
+			[
+				"gll",
+				"Git: Pull"
+			],
+			[
+				"gqcd",
+				"Git: Quick Add"
+			],
+			[
+				"gps",
+				"Git: Push"
+			],
+			[
+				"filedel",
+				"File: Delete"
+			],
+			[
+				"gpull",
+				"Git: Pull"
+			],
+			[
+				"gp",
+				"Git: Push"
+			],
+			[
+				"gl",
+				"Git: Pull"
+			],
+			[
+				"gqa",
+				"Git: Quick Add"
+			],
+			[
+				"gpsuh",
+				"Git: Push"
+			],
+			[
+				"gpuash",
+				"Git: Push Current Branch"
+			],
+			[
+				"gpus",
+				"Git: Push"
+			],
+			[
+				"gpsu",
+				"Git: Push"
+			],
+			[
+				"for",
+				"CodeFormatter: Format Code"
+			],
+			[
+				"forphp",
+				"CodeFormatter: Format as PHP Syntax"
+			],
+			[
+				"git ",
+				"Git: Diff"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"git qa",
+				"Git: Quick Add"
+			],
+			[
+				"git p",
+				"Git: Pull"
+			],
+			[
+				"filr",
+				"File: Rename"
+			],
+			[
+				"gpul",
+				"Git: Pull"
+			],
+			[
+				"gqc ",
+				"Git: Quick Commit"
+			],
+			[
+				"ggq",
+				"Git: Quick Log"
+			],
+			[
+				"pul",
+				"Git: Pull"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"gpu",
+				"Git: Pull"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"delete ",
+				"File: Delete"
+			],
+			[
+				"qc",
+				"Git: Quick Commit"
+			],
+			[
+				"pguhs",
+				"Snippet: plugin (method basic)"
+			],
+			[
+				"git qc",
+				"Git: Quick Commit"
+			],
+			[
+				"gpiush",
+				"Git: Push"
+			],
+			[
+				"gscom",
+				"Git-flow: Hotfix Start From Commit"
+			],
+			[
+				"ga",
+				"Git: Add Remote"
+			],
+			[
+				"gqcom",
+				"Git: Quick Commit"
+			],
+			[
+				"gu",
+				"Git: Push"
+			],
+			[
+				"gqd",
+				"Git: Quick Add"
+			],
+			[
+				"gpuhs",
+				"Git: Push"
+			],
+			[
+				"gitqc",
+				"Git: Quick Commit"
+			],
+			[
+				"form",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"GPUSH",
+				"Git: Push"
+			],
+			[
+				"GSH",
+				"Git: Show"
+			],
+			[
+				"GSSH",
+				"Git: Stash"
+			],
+			[
+				"GQC",
+				"Git: Quick Commit"
+			],
+			[
+				"GQ",
+				"Git: Quick Add"
+			],
+			[
+				"gpsh",
+				"Git: Push"
+			],
+			[
+				"forma",
+				"CodeFormatter: Format as HTML Syntax"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"gqad",
+				"Git: Quick Add"
+			],
+			[
+				"gc",
+				"Git: Commit"
+			],
+			[
+				"gcom",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Quick Add"
+			],
+			[
+				"gitclean",
+				"Git: Pull Current Branch"
+			],
+			[
+				"gqadd",
+				"Git: Quick Add"
+			],
+			[
+				"gitcurr",
+				"Git: Diff Current File"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/www/LFCMS",
+		"/E/www/LFCMS/public",
+		"/E/www/LFCMS/public/build",
+		"/E/www/LFCMS/public/config",
+		"/E/www/LFCMS/public/dist",
+		"/E/www/LFCMS/public/src",
+		"/E/www/LFCMS/public/src/assets",
+		"/E/www/LFCMS/public/src/assets/styles",
+		"/E/www/LFCMS/public/src/assets/styles/components",
+		"/E/www/LFCMS/public/src/components",
+		"/E/www/LFCMS/public/src/pages"
+	],
+	"file_history":
+	[
+		"/E/www/LFCMS/public/build/webpack.prod.conf.js",
+		"/E/www/LFCMS/public/build/webpack.dev.conf.js",
+		"/E/www/LFCMS/public/build/dev-server.js",
+		"/C/Users/wucha/AppData/Roaming/Sublime Text 3/Installed Packages/Material Theme.sublime-package",
+		"/E/www/LFCMS/lfcms.sublime-project",
+		"/E/Downloads/Index(1).php",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465961022/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465961017/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465961013/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465961003/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465960829/SVN",
+		"/E/www/hnzgh/web/Home/View/Activity/show.html",
+		"/E/www/hnzgh/web/Common/Conf/activity.php",
+		"/E/www/hnzgh/web/Common/Common/function.php",
+		"/E/www/hnzgh/ThinkPHP/Library/Think/Model.class.php",
+		"/E/www/hnzgh/web/Home/Controller/ArticleController.class.php",
+		"/E/www/hnzgh/web/Admin/View/Article/examine.html",
+		"/E/www/hnzgh/web/Admin/View/Qrcode/edit.html",
+		"/E/www/hnzgh/web/Home/View/Matrix/show.html",
+		"/E/www/hnzgh/web/Home/Controller/CommonController.class.php",
+		"/E/www/hnzgh/public/index.php",
+		"/E/www/hnzgh/web/Admin/Controller/AuthGroupController.class.php",
+		"/E/www/hnzgh/web/Admin/Controller/ArticleController.class.php",
+		"/E/www/hnzgh/web/Admin/View/Activity/edit.html",
+		"/E/www/hnzgh/web/Admin/Model/AuthGroupModel.class.php",
+		"/E/www/hnzgh/web/Admin/Controller/BaseController.class.php",
+		"/E/www/hnzgh/web/Admin/View/AuthGroup/access.html",
+		"/E/www/hnzgh/config.inc.php",
+		"/E/www/hnzgh/web/Common/Conf/release.php",
+		"/E/www/hnzgh/web/Common/Conf/dev.php",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465743018/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465742869/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465742830/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709528/SVN",
+		"/E/www/hnzgh/web/Home/View/Activity/lists.html",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709441/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709338/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709274/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709197/SVN",
+		"/E/www/hnzgh/web/Api/Controller/CommonController.class.php",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465709075/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708778/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708744/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708690/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708542/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708523/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465708487/SVN",
+		"/c/users/wucha/appdata/local/temp/sublime-svn-1465705223/SVN",
+		"/E/www/xjls.vstry.daxiangw.com/public/web/Admin/View/IdcardForm/lists.html",
+		"/E/www/xjls.vstry.daxiangw.com/public/web/Admin/View/IdcardForm/edit.html",
+		"/E/www/xjls.vstry.daxiangw.com/public/config.inc.php",
+		"/E/www/xjls.vstry.daxiangw.com/public/index.php",
+		"/E/www/xjls.vstry.daxiangw.com/public/web/Home/View/Article/banshi.html",
+		"/D/FlashFXP/Cache/~flashfxp/E059C806_edit.tmp/php.ini",
+		"/C/Users/wucha/AppData/Roaming/Sublime Text 3/Packages/SVN/Default (Windows).sublime-keymap",
+		"/D/cmder/config/aliases",
+		"/D/cmder/vendor/conemu-maximus5/ConEmu.xml",
+		"/E/www/xianjialishou/public/web/Common/Common/common.php",
+		"/E/www/xianjialishou/public/static/js/init.js",
+		"/E/www/xianjialishou/public/web/Home/View/Public/_header.html",
+		"/E/www/xianjialishou/public/config.inc.php",
+		"/E/www/xianjialishou/public/web/Common/Library/Wechat/Wechat.class.php",
+		"/E/www/xianjialishou/public/web/Home/View/Account/index.html",
+		"/E/www/xianjialishou/public/web/Home/Controller/AccountController.class.php",
+		"/E/www/xianjialishou/public/web/Home/View/Communist/check.html",
+		"/E/www/xianjialishou/public/web/Home/View/Communist/reckon.html",
+		"/E/www/xianjialishou/public/web/Home/Controller/CommunistController.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.JsApiPay.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.Api.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.Data.php",
+		"/E/www/xianjialishou/public/web/Home/View/Address/branch_map.html",
+		"/E/www/xianjialishou/public/web/Admin/Controller/CommunistController.class.php",
+		"/E/www/xianjialishou/public/static/css/base.css",
+		"/E/www/xianjialishou/public/web/Admin/View/User/lists.html",
+		"/E/www/xianjialishou/public/web/Common/Library/JsSdkPay.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.Config.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/CouponController.class.php",
+		"/D/Temp/AppData/Local/Temp/scp14506/mnt/www/test1019/config.inc.php",
+		"/E/www/xianjialishou/public/static/admin/js/plugin/ueditor/third-party/SyntaxHighlighter/shCore.js",
+		"/E/www/xianjialishou/public/static/js/cute.js",
+		"/D/Temp/360zip$Temp/360$0/jsapi.php",
+		"/E/www/xianjialishou/ThinkPHP/Library/Think/Controller.class.php",
+		"/E/www/xianjialishou/ThinkPHP/Common/functions.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.Notify.php",
+		"/D/Temp/360zip$Temp/360$1/notify.php",
+		"/E/www/xianjialishou/public/web/Common/Library/WxPay/WxPay.Exception.php",
+		"/E/www/xianjialishou/ThinkPHP/Mode/common.php",
+		"/E/www/xianjialishou/public/static/css/style.css",
+		"/E/www/temp/wechat-php-sdk-master/test/jsapi/jsapi_demo.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/ActivityController.class.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/BaseController.class.php",
+		"/E/Downloads/wxm-pay-api-demo/wxm-pay-api-demo.html",
+		"/E/www/xianjialishou/public/static/js/core/template.js",
+		"/E/www/xianjialishou/public/web/Home/View/Coupon/index.html",
+		"/E/www/xianjialishou/public/web/Common/Common/function.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/IndexController.class.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/UserController.class.php",
+		"/E/www/xianjialishou/ThinkPHP/Mode/Lite/Dispatcher.class.php",
+		"/E/www/xianjialishou/ThinkPHP/Library/Think/Dispatcher.class.php",
+		"/E/www/xianjialishou/ThinkPHP/Conf/convention.php",
+		"/E/www/xianjialishou/public/web/Api/Controller/WechatController.class.php",
+		"/E/www/xianjialishou/public/static/js/common.js",
+		"/E/www/xianjialishou/public/static/js/ui/dialog.js",
+		"/E/www/xianjialishou/public/web/Home/Library/JSSDK.class.php",
+		"/D/Temp/AppData/Local/Temp/scp40602/mnt/www/xianjialishou/public/Runtime/Cache/Home/17089e3e1b984bcec776749326b7add9.php",
+		"/D/Temp/AppData/Local/Temp/scp40315/mnt/www/xianjialishou/public/Runtime/Temp/1/xjls%3A11ade8a1f48d8ba66e96ee47a1cf286a.php",
+		"/E/www/xianjialishou/public/web/Home/View/Goods/detail.html",
+		"/E/www/xianjialishou/public/web/Admin/View/Public/_header.html",
+		"/E/www/xianjialishou/public/web/Common/Library/Com/WechatAuth.class.php",
+		"/E/www/temp/wechat-php-sdk-master/test/jsapi/jsapi-demo-6.1.js",
+		"/E/www/xianjialishou/public/web/Common/Library/TPWechat.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/Wechat.class.php",
+		"/E/www/xianjialishou/public/web/Common/Conf/debug.php",
+		"/E/www/xianjialishou/public/web/Home/Controller/TestController.class.php",
+		"/E/www/temp/wechat-php-sdk-master/test/test1.php",
+		"/E/www/temp/wechat-php-sdk-master/wechat.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/Wechat/errCode.php",
+		"/E/www/temp/wechat-php-sdk-master/Thinkphp/TPWechat.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/wechat.class.php",
+		"/E/www/xianjialishou/public/web/Common/Library/Upload.class.php",
+		"/E/www/temp/wechat-php-sdk-master/demo.php",
+		"/E/www/wenheyou.com/application/view/address/create.php",
+		"/E/www/wenheyou.com/application/view/cart/index.php",
+		"/E/www/wenheyou.com/public/pull.php",
+		"/E/www/wenheyou.com/public/css/base.css",
+		"/E/www/wenheyou.com/public/js/init.js",
+		"/E/www/wenheyou.com/application/view/main/tab1.php",
+		"/E/www/wenheyou.com/application/view/main/tab2.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"E:\\www\\LFCMS\\public\\config",
+			"E:\\www\\LFCMS\\public",
+			"E:\\www\\LFCMS",
+			"E:\\www\\hnzgh\\web\\Admin\\View",
+			"E:\\www\\hnzgh\\web",
+			"E:\\www\\hnzgh\\web\\Home",
+			"E:\\www\\xjls.vstry.daxiangw.com\\public\\web\\Home\\View",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\View",
+			"E:\\www\\xianjialishou\\public\\web",
+			"E:\\www\\xianjialishou\\public\\web\\Common\\Library\\WxPay",
+			"E:\\www\\xianjialishou\\ThinkPHP\\Library\\Think",
+			"E:\\www\\xianjialishou\\public\\web\\Common\\Library\\WxPay",
+			"E:\\www\\xianjialishou\\ThinkPHP",
+			"E:\\www\\temp\\wechat-php-sdk-master\\old_version",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\xianjialishou\\public\\web",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\View",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\xianjialishou\\public\\web\\Api",
+			"E:\\www\\xianjialishou\\public\\web\\Admin",
+			"E:\\www\\xianjialishou\\public\\web\\Home",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\xianjialishou\\public\\web\\Api\\Controller",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\View",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\xianjialishou\\public\\web",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\temp\\wechat-php-sdk-master",
+			"E:\\www\\xianjialishou\\public\\web",
+			"E:\\www\\temp\\wechat-php-sdk-master",
+			"E:\\www\\xianjialishou\\public\\web\\Home\\Controller",
+			"E:\\www\\temp\\wechat-php-sdk-master",
+			"E:\\www\\wenheyou.com\\public",
+			"E:\\www\\wenheyou.com\\application\\view",
+			"E:\\www\\wenheyou.com\\public\\js",
+			"E:\\www\\wenheyou.com\\public\\css",
+			"E:\\www\\wenheyou.com\\application\\view",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669\\html",
+			"E:\\www\\uc669\\web\\Home\\View",
+			"E:\\www\\uc669\\web\\Game\\View",
+			"E:\\www\\uc669\\html",
+			"E:\\www\\uc669\\html,*.shtml",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669\\web\\Manage",
+			"E:\\www\\uc669\\web\\Admin",
+			"E:\\www\\uc669\\web\\Manage\\Controller",
+			"E:\\www\\uc669\\web\\Common\\Library\\bak",
+			"E:\\www\\uc669\\web\\Common\\Library\\bak\\paymentinterface",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669\\web\\Common\\Library\\bak",
+			"E:\\www\\uc669\\static",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669",
+			"E:\\www\\uc669\\web\\Common\\Library",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669\\web\\Admin\\View",
+			"E:\\www\\uc669\\web\\Common\\Model",
+			"E:\\www\\uc669\\web\\Admin\\Controller",
+			"E:\\www\\uc669\\web\\Common\\Model	",
+			"E:\\www\\uc669\\web\\Common\\Model",
+			"E:\\www\\uc669\\ThinkPHP",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669\\ThinkPHP",
+			"E:\\www\\uc669\\web",
+			"E:\\www\\uc669",
+			"E:\\www\\tukeji_source",
+			"E:\\www\\tukeji_source\\ThinkPHP",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\ThinkPHP",
+			"E:\\www\\tukeji_source\\static",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\ThinkPHP",
+			"E:\\www\\tukeji_source\\ThinkPHP\\Library\\Think",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\static",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\web\\Common\\Tool\\jpush\\jpush\\jpush\\src",
+			"E:\\www\\tukeji_source\\web\\Common\\Tool\\jpush",
+			"E:\\www\\tukeji_source\\web\\Common\\Tool\\jpush\\jpush",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\static\\js",
+			"E:\\www\\tukeji_source\\static",
+			"E:\\www\\tukeji_source\\static\\js",
+			"E:\\www\\tukeji_source\\ThinkPHP",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\web\\Api",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\web\\Common\\Tool\\qiniu",
+			"E:\\www\\tukeji_source",
+			"E:\\www\\tukeji_source\\static",
+			"E:\\www\\tukeji_source\\web",
+			"E:\\www\\tukeji_source\\static",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web\\Dealer",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\web\\Common\\Tool\\Alipay",
+			"E:\\www\\dealer_system\\web\\Dealer",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\web\\Dealer",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web\\Dealer",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\web\\Dealer\\Mobile",
+			"E:\\www\\dealer_system\\web\\Dealer\\View",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\web\\Admin",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web\\Common",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system",
+			"E:\\www\\dealer_system\\web\\Manage",
+			"E:\\www\\dealer_system\\web\\Admin",
+			"E:\\www\\dealer_system\\web\\Common",
+			"E:\\www\\dealer_system\\web\\Manage",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system\\web",
+			"E:\\www\\dealer_system\\ThinkPHP",
+			"E:\\www\\dealer_system",
+			"E:\\www\\dealer_system\\ThinkPHP"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"8080",
+			"webpack-dev-server",
+			"excel",
+			"getField",
+			".user_id",
+			"历史消息链接",
+			"'29'",
+			"'28'",
+			"VALUES \\('\\d+', '",
+			"'18'",
+			"`article_id`,",
+			"'18'",
+			"swiper",
+			" . '/'",
+			"getAuthExtend",
+			"operate",
+			"auth_rules",
+			"--with",
+			"-with",
+			"jpeg",
+			"gd",
+			"办事",
+			"token",
+			"map",
+			"Notify_pub",
+			"HTTP_RAW_POST_DATA",
+			"mask_layer",
+			"getSign",
+			"MCHID",
+			"JS_API_CALL_URL",
+			"pem",
+			"n MakeSign",
+			"n SetSign",
+			"GetTrade_type",
+			"device_info",
+			"getNonceStr",
+			"SetNonce_str",
+			"16",
+			"n getNonceStr",
+			"SetNonce_str",
+			"n SetNonce_str",
+			"SetNonce_str",
+			"unifiedOrder",
+			"WxPayUnifiedOrder",
+			"nonce_str",
+			"NonceStr",
+			"16",
+			"nonceStr",
+			"WxPayUnifiedOrder",
+			"n getNonceStr",
+			"getNonceStr",
+			"unifiedOrder",
+			"UnifiedOrderResult",
+			"appid",
+			"getNonceStr",
+			" }",
+			" $",
+			" ",
+			"pe(",
+			"MakeSign",
+			"pe(",
+			"MakeSign",
+			"unifiedOrder",
+			"getParameters",
+			"REDIS",
+			"redis",
+			"get_brand_wcpay_request：ok",
+			"Json",
+			"Json:",
+			"Json",
+			"pre",
+			"CreateOauthUrlForCode",
+			"__CreateOauthUrlForCode",
+			"GetOpenidFromMp",
+			"CURLOPT_TIMEOUT",
+			"CURLOP_TIMEOUT",
+			"jsApiParameters",
+			"UnifiedOrderResult",
+			"'sign'",
+			"getSign",
+			"getNonceStr",
+			"ToUrlParams",
+			"MakeSign",
+			"paySign",
+			"unifiedOrder",
+			"GetJsApiParameters",
+			"jsApiParameters",
+			"MakeSign",
+			"SetSign",
+			"charse",
+			"response",
+			"unifiedOrder",
+			"pe(",
+			"communist",
+			"pe(",
+			"Init",
+			"unifiedOrder",
+			"pe(",
+			"__CreateOauthUrlForCode",
+			"OAUTH_TOKEN_URL",
+			"__CreateOauthUrlForOpenid",
+			"GetOpenidFromMp",
+			"__CreateOauthUrlForCode",
+			"__CreateOauthUrlForOpenid",
+			"GetOpenidFromMp",
+			"getOpenidFromMp",
+			"CheckSign",
+			"MakeSign",
+			"::KEY",
+			"KEY",
+			"::KEY",
+			"charset",
+			"gb",
+			"__CreateOauthUrlForCode",
+			"GetOpenid",
+			"prepay_id",
+			"Queryorder",
+			"	public function Queryorder($transaction_id)\nNotifyCallBack",
+			"NotifyCallBack",
+			"SetSign",
+			"ReplyNotify",
+			"NotifyProcess",
+			"Queryorder",
+			"SetNotify_url",
+			"_URL",
+			"JS_API_CALL_URL",
+			"NOTIFY_URL",
+			"WxPayConfig"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'30'",
+			"'29'",
+			"VALUES ('",
+			"kbd",
+			"kdb",
+			"\"../static/home/images/",
+			"../static/home/images/",
+			"	",
+			"span.bank",
+			".bank_",
+			"=>\"",
+			"AUTH_CONFIG",
+			"通道",
+			"Library\\Pay",
+			"Common\\Library",
+			"Admin\\Library",
+			"\\Common\\Library",
+			"_Content",
+			"",
+			" BaseModel",
+			"BaseModel",
+			"admin_id",
+			"tb_name",
+			"tb_id",
+			"tb_name",
+			"creator_id",
+			"M()->regex",
+			"$oauth_site",
+			"sync_site",
+			"",
+			"M\\",
+			"label",
+			" ",
+			"ad_id",
+			"order_no",
+			"U('Api/Dealer/qq_",
+			"URL(",
+			"\"__PUBLIC__/images",
+			"",
+			"\"__PUBLIC__/images",
+			"/",
+			"",
+			"\"__PUBLIC__/images",
+			"__PUBLIC__",
+			"/m/js/",
+			"user",
+			"user_id",
+			"dealer_account_id",
+			"uid",
+			"",
+			"id",
+			"group_id",
+			"",
+			"admin_id",
+			"service_id",
+			"enquiry_id",
+			"ENQUIRY_STATUS",
+			"enquiry_id",
+			"test_id",
+			"TEST_STATUS",
+			"test_id",
+			"\"../images",
+			"sales_id",
+			"goods_id",
+			"dealer_account_id",
+			"comment_id",
+			"customer_id",
+			"248",
+			"245",
+			"addon_id",
+			"qq",
+			"salesman_id",
+			"namespace Dealer\\Controller",
+			"dealer_id",
+			"dealer_id=",
+			"'dealer_id'",
+			"session('dealer_id'",
+			"Manage\\Controller",
+			"Dealer/Controller",
+			"user_id",
+			"realname",
+			"filter_list",
+			"",
+			"c_model_id",
+			"category_id",
+			"function index(){\n		$this->redirect('lists', I('get.'));\n	}",
+			"article_id",
+			"function index(){\n		$this->redirect('lists');\n	}\n	function lists(){",
+			"n lists",
+			"$data ? '修改' : '添加'	=> ''",
+			"category_key",
+			"article_id",
+			"class_name",
+			"c_pic_class_id",
+			"config_value",
+			"config_item",
+			"area_id",
+			"dealer_id",
+			"'/assets/admin/js/",
+			"",
+			"path: 'js/",
+			"",
+			"group_permission[]"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/src/pages/Article.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/src/components/NavigationBar.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								352,
+								352
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/src/assets/styles/components/NavigationBar.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 200,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										138,
+										142
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"default_dir": "E:\\www\\LFCMS",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/config/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 748,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								717,
+								721
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/src/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								180
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JavaScriptNext.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/src/pages/Index.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 319,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/src/pages/Setting.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 323,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8,
+								8
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 94.0
+	},
+	"output.git-pull":
+	{
+		"height": 408.0
+	},
+	"output.git-push":
+	{
+		"height": 485.0
+	},
+	"pinned_build_system": "",
+	"project": "lfcms.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"index",
+				"public\\index.php"
+			],
+			[
+				"activi",
+				"web\\Common\\Conf\\activity.php"
+			],
+			[
+				"activishow",
+				"web\\Home\\View\\Activity\\show.html"
+			],
+			[
+				"activiedit",
+				"web\\Home\\View\\Activity\\edit.html"
+			],
+			[
+				"common",
+				"web\\Common\\Common\\common.php"
+			],
+			[
+				"func",
+				"web\\Common\\Common\\function.php"
+			],
+			[
+				"model",
+				"ThinkPHP\\Library\\Think\\Model.class.php"
+			],
+			[
+				"activityanswermo",
+				"web\\Common\\Model\\ActivityAnswerModel.class.php"
+			],
+			[
+				"activity",
+				"web\\Common\\Conf\\activity.php"
+			],
+			[
+				"answe",
+				"web\\Admin\\View\\Activity\\answer.html"
+			],
+			[
+				"peop",
+				"web\\Admin\\View\\Activity\\people.html"
+			],
+			[
+				"document",
+				"web\\Common\\Model\\DocumentModel.class.php"
+			],
+			[
+				"actividetail",
+				"web\\Admin\\View\\Activity\\detail.html"
+			],
+			[
+				"activcon",
+				"web\\Admin\\Controller\\ActivityController.class.php"
+			],
+			[
+				"dev",
+				"web\\Common\\Conf\\dev.php"
+			],
+			[
+				"homcommcon",
+				"web\\Home\\Controller\\CommonController.class.php"
+			],
+			[
+				"commonct",
+				"web\\Api\\Controller\\CommonController.class.php"
+			],
+			[
+				"authgroupmodel",
+				"web\\Admin\\Model\\AuthGroupModel.class.php"
+			],
+			[
+				"relea",
+				"web\\Common\\Conf\\release.php"
+			],
+			[
+				"article",
+				"web\\Admin\\Controller\\ArticleController.class.php"
+			],
+			[
+				"inde",
+				"public\\index.php"
+			],
+			[
+				"release",
+				"web\\Common\\Conf\\release.php"
+			],
+			[
+				"indexphp",
+				"public\\index.php"
+			],
+			[
+				"wechat",
+				"public\\web\\Common\\Library\\Wechat\\Wechat.class.php"
+			],
+			[
+				"public/web/admin/controller/communistcontroller.class.php",
+				"public\\web\\Admin\\Controller\\CommunistController.class.php"
+			],
+			[
+				"map",
+				"public\\web\\Home\\View\\Address\\branch_map.html"
+			],
+			[
+				"base",
+				"public\\static\\css\\base.css"
+			],
+			[
+				"communist",
+				"public\\web\\Admin\\Controller\\CommunistController.class.php"
+			],
+			[
+				"userlists",
+				"public\\web\\Admin\\View\\User\\lists.html"
+			],
+			[
+				"gpush",
+				"public\\static\\admin\\js\\plugin\\ueditor\\third-party\\SyntaxHighlighter\\shCore.js"
+			],
+			[
+				"cute",
+				"public\\static\\js\\cute.js"
+			],
+			[
+				"wxpaynotify",
+				"public\\web\\Common\\Library\\WxPay\\WxPay.Notify.php"
+			],
+			[
+				"fun",
+				"ThinkPHP\\Common\\functions.php"
+			],
+			[
+				"jsapipay",
+				"public\\web\\Common\\Library\\WxPay\\WxPay.JsApiPay.php"
+			],
+			[
+				"/web/common/common/function.php",
+				"public\\web\\Common\\Common\\function.php"
+			],
+			[
+				"public/web/common/common/common.php",
+				"public\\web\\Common\\Common\\common.php"
+			],
+			[
+				"indexcon",
+				"public\\web\\Home\\Controller\\IndexController.class.php"
+			],
+			[
+				"sty",
+				"public\\static\\css\\style.css"
+			],
+			[
+				"init",
+				"public\\static\\js\\init.js"
+			],
+			[
+				"wchat.class",
+				"xianjialishou\\public\\web\\Common\\Library\\Wechat\\Wechat.class.php"
+			],
+			[
+				"basecon",
+				"xianjialishou\\public\\web\\Home\\Controller\\BaseController.class.php"
+			],
+			[
+				"_hee",
+				"xianjialishou\\public\\web\\Home\\View\\Public\\_header.html"
+			],
+			[
+				"commonjs",
+				"xianjialishou\\public\\static\\js\\common.js"
+			],
+			[
+				"templ",
+				"xianjialishou\\public\\static\\js\\core\\template.js"
+			],
+			[
+				"js/ui/dialog",
+				"xianjialishou\\public\\static\\js\\ui\\dialog.js"
+			],
+			[
+				"jssd",
+				"xianjialishou\\public\\web\\Home\\Library\\JSSDK.class.php"
+			],
+			[
+				"wechatcontroller",
+				"xianjialishou\\public\\web\\Api\\Controller\\WechatController.class.php"
+			],
+			[
+				"conin",
+				"xianjialishou\\public\\config.inc.php"
+			],
+			[
+				"cutejs",
+				"xianjialishou\\public\\static\\js\\cute.js"
+			],
+			[
+				"_head",
+				"xianjialishou\\public\\web\\Admin\\View\\Public\\_header.html"
+			],
+			[
+				"n/library/wechat.class.php",
+				"xianjialishou\\public\\web\\Common\\Library\\Wechat.class.php"
+			],
+			[
+				"debug",
+				"xianjialishou\\public\\web\\Common\\Conf\\debug.php"
+			],
+			[
+				"wechatauth",
+				"xianjialishou\\public\\web\\Common\\Library\\Com\\WechatAuth.class.php"
+			],
+			[
+				"wechat/wechat",
+				"xianjialishou\\public\\web\\Common\\Library\\Wechat\\Wechat.class.php"
+			],
+			[
+				"webchat",
+				"xianjialishou\\public\\web\\Common\\Library\\Wechat.class.php"
+			],
+			[
+				"/wechatauth",
+				"xianjialishou\\public\\web\\Common\\Library\\Com\\WechatAuth.class.php"
+			],
+			[
+				"cutej",
+				"public\\js\\cute.js"
+			],
+			[
+				"minindex",
+				"application\\view\\main\\min_index.php"
+			],
+			[
+				"layou",
+				"application\\view\\layout\\index.php"
+			],
+			[
+				"trade/inde",
+				"application\\view\\trade\\index.php"
+			],
+			[
+				"min",
+				"public\\html\\min-index.html"
+			],
+			[
+				"userapi",
+				"web\\Common\\Api\\UserApi.class.php"
+			],
+			[
+				"accountcon",
+				"web\\Home\\Controller\\AccountController.class.php"
+			],
+			[
+				"_userinfo",
+				"web\\Home\\View\\Account\\_userinfo.html"
+			],
+			[
+				"safe",
+				"web\\Home\\View\\Account\\safe.html"
+			],
+			[
+				"adminuserco",
+				"web\\Admin\\Controller\\UserController.class.php"
+			],
+			[
+				"stpt",
+				"static\\home\\css\\style_pt.css"
+			],
+			[
+				"profile",
+				"web\\Home\\View\\Account\\profile.html"
+			],
+			[
+				"accounthtml",
+				"web\\Home\\View\\Account\\_userinfo.html"
+			],
+			[
+				"accountmenu",
+				"web\\Home\\View\\Account\\menu.html"
+			],
+			[
+				"indexindex",
+				"web\\Home\\View\\Index\\index.html"
+			],
+			[
+				"maincss",
+				"static\\home\\css\\main.css"
+			],
+			[
+				"main",
+				"static\\game\\js\\main.js"
+			],
+			[
+				"zlc",
+				"web\\Common\\Library\\Game\\zlcq.class.php"
+			],
+			[
+				"cardapi",
+				"web\\Common\\Api\\CardApi.class.php"
+			],
+			[
+				"foruser",
+				"web\\Home\\View\\Account\\forget_user.html"
+			],
+			[
+				"forgetu",
+				"web\\Home\\View\\Account\\forget_user.html"
+			],
+			[
+				"homephone",
+				"web\\Home\\View\\Account\\forget_phone.html"
+			],
+			[
+				"homeforget",
+				"web\\Home\\View\\Account\\forget_phone.html"
+			],
+			[
+				"homeheader",
+				"web\\Home\\View\\Public\\header.html"
+			],
+			[
+				"_ha",
+				"web\\Home\\View\\Public\\_header.html"
+			],
+			[
+				"homemaincss",
+				"static\\home\\css\\main.css"
+			],
+			[
+				"stypt",
+				"static\\home\\css\\style_pt.css"
+			],
+			[
+				"dialog",
+				"static\\home\\js\\ui\\dialog.js"
+			],
+			[
+				"loginhtml",
+				"web\\Home\\View\\Account\\login.html"
+			],
+			[
+				"homeindexindex",
+				"web\\Home\\View\\Index\\index.html"
+			],
+			[
+				"homeindexhtml",
+				"web\\Home\\index.html"
+			],
+			[
+				"commoncon",
+				"web\\Api\\Controller\\CommonController.class.php"
+			],
+			[
+				"verify",
+				"ThinkPHP\\Library\\Think\\Verify.class.php"
+			],
+			[
+				"regh",
+				"web\\Home\\View\\Account\\reg.html"
+			],
+			[
+				"account",
+				"web\\Home\\View\\Account\\menu.html"
+			],
+			[
+				"usermo",
+				"web\\Common\\Model\\UserModel.class.php"
+			],
+			[
+				"gameapi",
+				"web\\Common\\Api\\GameApi.class.php"
+			],
+			[
+				"htmlgame",
+				"html\\game.shtml"
+			],
+			[
+				"htmper",
+				"html\\personal.shtml"
+			],
+			[
+				"gamecentin",
+				"web\\Home\\View\\GameCenter\\index.html"
+			],
+			[
+				"gameclass",
+				"web\\Common\\Library\\Game.class.php"
+			],
+			[
+				"giftall",
+				"web\\Home\\View\\Gift\\all.html"
+			],
+			[
+				"gamecentindex",
+				"web\\Home\\View\\GameCenter\\index.html"
+			],
+			[
+				"giftinde",
+				"web\\Home\\View\\Gift\\index.html"
+			],
+			[
+				"gift",
+				"html\\gift.shtml"
+			],
+			[
+				"homegameindx",
+				"web\\Home\\View\\GameCenter\\index.html"
+			],
+			[
+				"_header",
+				"web\\Home\\View\\Public\\_header.html"
+			],
+			[
+				"static/home/js/main.js",
+				"static\\home\\js\\main.js"
+			],
+			[
+				"gamecenterindex",
+				"web\\Home\\View\\GameCenter\\index.html"
+			],
+			[
+				"dialogjs",
+				"static\\home\\js\\ui\\dialog.js"
+			],
+			[
+				"gamecon",
+				"web\\Api\\Controller\\GameController.class.php"
+			],
+			[
+				"homemainjs",
+				"static\\home\\js\\main.js"
+			],
+			[
+				"gameheader",
+				"web\\Game\\View\\common\\Public\\_header.html"
+			],
+			[
+				"/view/account/forget_email.html",
+				"web\\Home\\View\\Account\\forget_email.html"
+			],
+			[
+				"paycon",
+				"web\\Home\\Controller\\PayController.class.php"
+			],
+			[
+				"jquv",
+				"html\\js\\jquery.form-validator.js"
+			],
+			[
+				"homebase",
+				"static\\home\\css\\base.css"
+			],
+			[
+				"mainjs",
+				"html\\js\\main.js"
+			],
+			[
+				"homesypt",
+				"static\\home\\css\\style_pt.css"
+			],
+			[
+				"stylept",
+				"html\\css\\style_pt.css"
+			],
+			[
+				"payindex",
+				"web\\Home\\View\\Pay\\index.html"
+			],
+			[
+				"gameindexcon",
+				"web\\Game\\Controller\\IndexController.class.php"
+			],
+			[
+				"switchthemebehavior",
+				"web\\Game\\Behavior\\SwitchThemeBehavior.class.php"
+			],
+			[
+				"siteapi",
+				"web\\Common\\Api\\SiteApi.class.php"
+			],
+			[
+				"gamebn",
+				"web\\Game\\Controller\\BaseController.class.php"
+			],
+			[
+				"homebasecon",
+				"web\\Home\\Controller\\BaseController.class.php"
+			],
+			[
+				"mon/api/userapi.class.php",
+				"web\\Common\\Api\\UserApi.class.php"
+			],
+			[
+				"common/org/crypt/rc4",
+				"web\\Common\\Org\\Crypt\\Rc4.class.php"
+			],
+			[
+				"accountlogin",
+				"web\\Home\\View\\Account\\login.html"
+			],
+			[
+				"sessionredis",
+				"ThinkPHP\\Library\\Think\\Session\\Driver\\Redis.class.php"
+			],
+			[
+				"managestaff",
+				"web\\Manage\\Controller\\StaffController.class.php"
+			],
+			[
+				"auth",
+				"ThinkPHP\\Library\\Think\\Auth.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "uc",
+		"selected_items":
+		[
+			[
+				"uc",
+				"E:\\www\\uc669.sublime-workspace"
+			],
+			[
+				"",
+				"E:\\www\\wenheyou.com.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
