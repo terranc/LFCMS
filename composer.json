@@ -1,0 +1,29 @@
+{
+    "name": "terranc/LFCMS",
+    "description": "",
+    "type": "project",
+    "keywords": [
+        "CMS"
+    ],
+    "homepage": "http://cms.lookfeel.co/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Lookfeel",
+            "email": "hello@lookfeel.co"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "topthink/framework": "*",
+        "overtrue/wechat": "^3.0",
+        "topthink/think-helper": "dev-master"
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "preferred-install": "dist"
+    }
+}

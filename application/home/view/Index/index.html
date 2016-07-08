@@ -1,0 +1,13 @@
+{extend name="public/layout"}
+{block name="content"}
+<h1>{$str}</h1>
+<h2>{$hash}</h2>
+<h3>__PUBLIC__</h3>
+{/block}
+{block name="script"}
+<script>
+	let div = document.createElement('DIV');
+	div.innerHTML = 'inside script';
+	document.body.appendChild(div);
+</script>
+{/block}
