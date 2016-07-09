@@ -17,10 +17,10 @@ Vue.use(VueResource);
 
 const router = new VueRouter({
   hashbang: true,
-  history: true,
+  history: false,
   abstract: false,
   saveScrollPosition: true,
-  transitionOnLoad: true,
+  transitionOnLoad: false,
 });
 sync(store, router);
 routerMap(router);
