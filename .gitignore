@@ -8,3 +8,5 @@ test/e2e/reports
 *~
 *.swp
 *.log
+*.sublime-workspace
+*.sunlime-project
