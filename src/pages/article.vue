@@ -15,7 +15,7 @@
               <span class="rich_media_meta rich_media_meta_text rich_media_meta_nickname">硬派健身</span>
             </div>
 
-            <div class="rich_media_content">
+            <div class="rich_media_content" v-el:content>
               <p style="white-space: normal;">
                 <span style="color: rgb(0, 176, 240); font-family: 宋体;">点击上方蓝色的硬派健身，或者右上角三个点可以关注我呦~~~</span></p>
               <p style="white-space: normal;">
@@ -52,6 +52,9 @@
                 <br></p>
               <p style="white-space: normal;">
                 <br></p>
+              <p style="white-space: normal; text-align: center;">
+                <img data-src="http://static.7192.com/upload/zp/000/287/760/51702/000287760_102959587.jpg" :src="placeholder">
+              </p>
               <p style="white-space: normal;">
                 <em>上斜俯卧撑</em></p>
               <p style="white-space: normal;">一开始可以从跪姿俯卧撑、半俯卧撑、上斜俯卧撑做起（回复：俯卧撑01 了解更多）。</p>
@@ -127,8 +130,29 @@ import Checklist from 'vux-components/checklist';
 import Radio from 'vux-components/radio';
 import Group from 'vux-components/group';
 import Selector from 'vux-components/selector';
+import lazyload from 'lazyloadjs';
+
+/* eslint global-require:off */
+const placeholder = require('assets/images/b.gif');
+
+const lazyloadElements = (elms, opt) => {
+  const loader = lazyload(opt);
+  Array.prototype.slice.call(elms, 0).forEach((elm) => {
+    elm.addEventListener('load', () => {
+      loader(elm);
+    });
+  });
+};
 
 export default {
+  props: {
+    placeholder: {
+      type: String,
+      default() {
+        return placeholder;
+      },
+    },
+  },
   data() {
     return {
       title: `article-${this.$route.params.id}`,
@@ -137,6 +161,11 @@ export default {
       selectorValue: '',
       radioValue: '1',
     };
+  },
+  ready() {
+    lazyloadElements(this.$els.content.querySelectorAll('img'), {
+      offset: 0,
+    });
   },
   components: {
     VueHelmet,

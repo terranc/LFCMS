@@ -23,8 +23,10 @@ import Icon from 'vue-awesome';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
-  data() {
-    LFTabbar.show();
+	ready() {
+		LFTabbar.show();
+	},
+	data() {
     return {
       content: 'index page',
       title: 'index',
