@@ -21,8 +21,10 @@ import Load from 'components/vux_extension/load';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
-  data() {
+  ready() {
     LFTabbar.show();
+  },
+  data() {
     return {
       content: 'articles page',
       title: 'articles',
@@ -36,15 +38,24 @@ export default {
     Load,
   },
   route: {
-    data() {
+    data(transition) {
+      if (sessionStorage.listOfArticle == null || transition.from.name !== 'article') {
+        this.getListOfArticle();
+      } else {
+        this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
+      }
+    },
+  },
+  methods: {
+    getListOfArticle() {
       this.$refs.load.deferShowLoading();
       return this.$http.get('https://cnodejs.org/api/v1/topics').then((response) => {
         this.$refs.load.reset();
-        return { listOfArticle: response.data.data };
+        this.listOfArticle = response.data.data;
+        sessionStorage.listOfArticle = JSON.stringify(response.data.data);
       }, () => {
         this.$refs.load.showFail();
-        return { listOfArticle: [] };
-      });
+      });    
     },
   },
 };
