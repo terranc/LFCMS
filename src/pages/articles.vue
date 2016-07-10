@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <main class="main main-footer" v-if="listOfArticle.length">
+    <main class="main main-footer" v-el:main>
       <group :title='content'>
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
       </group>
@@ -18,6 +18,7 @@ import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Load from 'components/vux_extension/load';
+import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
@@ -28,6 +29,10 @@ export default {
     return {
       content: 'articles page',
       title: 'articles',
+      query: {
+        limit: 20,
+      },
+      isScrolling: false,
       listOfArticle: [],
     };
   },
@@ -45,17 +50,43 @@ export default {
         this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
       }
     },
+    activate(transition) {
+      this.$els.main.addEventListener('scroll', this.getListOfArticleOnScroll);
+      transition.next();
+    },
+    deactivate(transition) {
+      this.$els.main.removeEventListener('scroll', this.getListOfArticleOnScroll);
+      if (transition.to.name === 'article') {
+        sessionStorage.listOfArticle = JSON.stringify(this.listOfArticle);
+        sessionStorage.query = JSON.stringify(this.query);
+      } else {
+        sessionStorage.removeItem('listOfArticle');
+        sessionStorage.removeItem('query');
+      }
+      transition.next();
+    },
   },
   methods: {
     getListOfArticle() {
       this.$refs.load.deferShowLoading();
-      return this.$http.get('https://cnodejs.org/api/v1/topics').then((response) => {
+      return this.$http.get(`https://cnodejs.org/api/v1/topics?${querystring.stringify(this.query)}`).then((response) => {
+        this.isScrolling = true;
         this.$refs.load.reset();
         this.listOfArticle = response.data.data;
-        sessionStorage.listOfArticle = JSON.stringify(response.data.data);
       }, () => {
         this.$refs.load.showFail();
       });    
+    },
+    getListOfArticleOnScroll(e) {
+      const targetElm = e.target;
+      const totalTop = targetElm.scrollTop + targetElm.clientHeight;
+      if (this.isScrolling) {
+        if (totalTop >= targetElm.scrollHeight - 200) {
+          this.isScrolling = false;
+          this.query.limit += 20;
+          this.getListOfArticle();
+        }
+      }   
     },
   },
 };
