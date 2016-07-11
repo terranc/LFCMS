@@ -32,7 +32,7 @@ export default {
       query: {
         limit: 20,
       },
-      isScrolling: false,
+      isFetching: false,
       listOfArticle: [],
     };
   },
@@ -48,11 +48,14 @@ export default {
         this.getListOfArticle();
       } else {
         this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
-        this.isScrolling = true;
       }
     },
     activate(transition) {
+      console.log(transition);
       this.$els.main.addEventListener('scroll', this.getListOfArticleOnScroll);
+      this.$nextTick(() => {
+        this.$els.main.scrollTop = sessionStorage.scrollTop;
+      });
       transition.next();
     },
     deactivate(transition) {
@@ -60,7 +63,9 @@ export default {
       if (transition.to.name === 'article') {
         sessionStorage.listOfArticle = JSON.stringify(this.listOfArticle);
         sessionStorage.query = JSON.stringify(this.query);
+        sessionStorage.scrollTop = this.$els.main.scrollTop;
       } else {
+        sessionStorage.removeItem('scrollTop');
         sessionStorage.removeItem('listOfArticle');
         sessionStorage.removeItem('query');
       }
@@ -69,21 +74,22 @@ export default {
   },
   methods: {
     getListOfArticle() {
+      this.isFetching = true;
       this.$refs.load.deferShowLoading();
       return this.$http.get(`https://cnodejs.org/api/v1/topics?${querystring.stringify(this.query)}`).then((response) => {
-        this.isScrolling = true;
+        this.isFetching = false;
         this.$refs.load.reset();
         this.listOfArticle = response.data.data;
       }, () => {
+        this.isFetching = false;
         this.$refs.load.showFail();
       });    
     },
     getListOfArticleOnScroll(e) {
-      const targetElm = e.target;
-      const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-      if (this.isScrolling) {
+      if (!this.isFetching) {
+        const targetElm = e.target;
+        const totalTop = targetElm.scrollTop + targetElm.clientHeight;
         if (totalTop >= targetElm.scrollHeight - 200) {
-          this.isScrolling = false;
           this.query.limit += 20;
           this.getListOfArticle();
         }
