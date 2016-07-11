@@ -48,6 +48,7 @@ export default {
         this.getListOfArticle();
       } else {
         this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
+        this.isScrolling = true;
       }
     },
     activate(transition) {
