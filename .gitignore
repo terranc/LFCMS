@@ -1,12 +1,11 @@
 .DS_Store
-node_modules/
-dist/
+/node_modules
+/dist
 npm-debug.log
 selenium-debug.log
-test/unit/coverage
-test/e2e/reports
+/test/unit/coverage
+/test/e2e/reports
 *~
 *.swp
 *.log
-*.sublime-workspace
-*.sunlime-project
+/.idea

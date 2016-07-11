@@ -32,8 +32,10 @@ import Cell from 'vux-components/cell';
 import { LFTabbar } from '../../vuex/actions';
 
 export default {
-  data() {
+  ready() {
     LFTabbar.show();
+  },
+  data() {
     return {
       title: '设置',
     };
