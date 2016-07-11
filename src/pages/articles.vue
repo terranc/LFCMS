@@ -1,11 +1,11 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <main class="main main-footer" v-el:main>
+    <content-wrapper class="main main-footer" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
       <group :title='content'>
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
       </group>
-    </main>
+    </content-wrapper>
   </div>
   <load v-ref:load></load>
 </template>
@@ -18,6 +18,7 @@ import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Load from 'components/vux_extension/load';
+import ContentWrapper from 'components/vux_extension/contentWrapper';
 import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
@@ -41,6 +42,7 @@ export default {
     Group,
     Cell,
     Load,
+    ContentWrapper,
   },
   route: {
     data(transition) {
@@ -51,24 +53,18 @@ export default {
       }
     },
     activate(transition) {
-      console.log(transition);
-      this.$els.main.addEventListener('scroll', this.getListOfArticleOnScroll);
-      this.$nextTick(() => {
-        this.$els.main.scrollTop = sessionStorage.scrollTop;
-      });
+      this.$refs.main.activate(transition);
       transition.next();
     },
     deactivate(transition) {
-      this.$els.main.removeEventListener('scroll', this.getListOfArticleOnScroll);
       if (transition.to.name === 'article') {
         sessionStorage.listOfArticle = JSON.stringify(this.listOfArticle);
         sessionStorage.query = JSON.stringify(this.query);
-        sessionStorage.scrollTop = this.$els.main.scrollTop;
       } else {
-        sessionStorage.removeItem('scrollTop');
         sessionStorage.removeItem('listOfArticle');
         sessionStorage.removeItem('query');
       }
+      this.$refs.main.deactivate(transition);
       transition.next();
     },
   },
@@ -93,7 +89,7 @@ export default {
           this.query.limit += 20;
           this.getListOfArticle();
         }
-      }   
+      }
     },
   },
 };

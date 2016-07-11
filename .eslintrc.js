@@ -16,7 +16,7 @@ module.exports = {
   // add your custom rules here
   'rules': {
     'import/no-unresolved': 0,
-    'no-console': [2, {allow: ['warn', 'error', 'log']}],
+    // 'no-console': [2, {allow: ['warn', 'error', 'log']}],
     'max-len': [2, 9999], //有些插件在使用时会有不得已的需要长字符串定义一些内容
     'prefer-template': 0, //可以字符串连接
     'no-trailing-spaces': 0,  //可以在行末出现空格和tab
