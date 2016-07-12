@@ -7,7 +7,7 @@ export default function (router) {
         tabbarState: true,
       },
       component: (resolve) => {
-        require(['./pages/Index'], resolve);
+        require(['./pages/index'], resolve);
       },
     },
     '/setting': {
@@ -16,31 +16,31 @@ export default function (router) {
         tabbarState: true,
       },
       component: (resolve) => {
-        require(['./pages/setting/Index'], resolve);
+        require(['./pages/setting/index'], resolve);
       },
     },
     '/setting/account': {
       name: 'account',
       component: (resolve) => {
-        require(['./pages/setting/Account'], resolve);
+        require(['./pages/setting/account'], resolve);
       },
     },
     '/setting/notification': {
       name: 'notification',
       component: (resolve) => {
-        require(['./pages/setting/Notification'], resolve);
+        require(['./pages/setting/notification'], resolve);
       },
     },
     '/setting/privacy': {
       name: 'privacy',
       component: (resolve) => {
-        require(['./pages/setting/Privacy'], resolve);
+        require(['./pages/setting/privacy'], resolve);
       },
     },
     '/setting/general': {
       name: 'general',
       component: (resolve) => {
-        require(['./pages/setting/General'], resolve);
+        require(['./pages/setting/general'], resolve);
       },
     },
     '/articles': {
@@ -49,19 +49,25 @@ export default function (router) {
         tabbarState: true,
       },
       component: (resolve) => {
-        require(['./pages/Articles'], resolve);
+        require(['./pages/articles'], resolve);
       },
     },
     '/articles/:id': {
       name: 'article',
       component: (resolve) => {
-        require(['./pages/Article'], resolve);
+        require(['./pages/article'], resolve);
+      },
+    },
+    '/signup': {
+      name: 'signup',
+      component: (resolve) => {
+        require(['./pages/signup'], resolve);
       },
     },
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {
-        require(['./pages/Timeout'], resolve);
+        require(['./pages/timeout'], resolve);
       },
     },
   });

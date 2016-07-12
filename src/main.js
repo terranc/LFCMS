@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+import VueValidator from 'vue-validator';
 import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
@@ -12,6 +13,7 @@ if (__DEV__) {
   window.VueDev = Vue;
 }
 
+Vue.use(VueValidator);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 

@@ -8,6 +8,10 @@
     <icon slot="icon" name="columns" scale="1.6"></icon>
     <span slot="label">文章</span>
   </tabbar-item>
+  <tabbar-item v-link="{name: 'signup'}" :selected="selected === 'sugnup'">
+    <icon slot="icon" name="user-plus" scale="1.6"></icon>
+    <span slot="label">注册</span>
+  </tabbar-item>
   <tabbar-item v-link="{name: 'setting'}" :selected="selected === 'settings'">
     <icon slot="icon" name="cog" scale="1.6"></icon>
     <span slot="label">设置</span>
