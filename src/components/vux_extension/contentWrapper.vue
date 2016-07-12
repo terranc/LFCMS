@@ -16,21 +16,15 @@ export default {
     },
     isSaveScrollPosition: {
       type: Boolean,
-      default() {
-        return true;
-      },
+      default: true,
     },
     saveScrollWhenTo: {
       type: String,
-      default() {
-        return '';
-      },
+      default: '',
     },
     class: {
       type: String,
-      default() {
-        return '';
-      },
+      default: '',
     },
   },
   methods: {
