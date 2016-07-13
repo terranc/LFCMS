@@ -2,7 +2,7 @@
 @import "./libs/normalize.scss";
 @import '~vux/dist/vux.css';
 @import "./libs/flexboxgrid.scss";
-@import "./libs/articleOfWechat.scss";
+@import "./libs/article-of-wechat.scss";
 
 // supports
 @import "./supports/variables.scss";
@@ -11,7 +11,7 @@
 @import "./supports/layout.scss";
 
 // components
-@import "./components/NavigationBar.scss";
+@import "./components/navigation-bar.scss";
 
 // pages
 @import "./pages/article.scss";
