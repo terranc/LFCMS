@@ -17,8 +17,8 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import Load from 'components/vux_extension/load';
-import ContentWrapper from 'components/vux-extension/contentWrapper';
+import Load from 'components/vux-extension/load';
+import ContentWrapper from 'components/vux-extension/content-wrapper';
 import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
