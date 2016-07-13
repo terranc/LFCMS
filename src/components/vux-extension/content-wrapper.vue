@@ -1,5 +1,5 @@
 <template>
-  <div v-bind="attributes" :class="class" :style="style" v-el:main @scroll="onScroll">
+  <div :="attributes" :class="class" :style="style" @scroll="onScroll" v-el:main>
     <slot></slot>
   </div>
 </template>
