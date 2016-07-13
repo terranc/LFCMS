@@ -20,7 +20,7 @@
 </template>
 
 <style lang="scss">
-@import "../assets/styles/components/NavigationBar.scss";
+@import "../assets/styles/components/navigation-bar.scss";
 </style>
 
 <script>
