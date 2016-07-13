@@ -5,11 +5,32 @@
       <validator name="signup">
         <form novalidate>
           <group>
-            <input type="text" placeholder="邮箱地址" v-validate:email="['required']">
+            <div class="weui_cell">
+              <div class="weui_cell_hd">
+                <label class="weui_label">邮箱地址</label>
+              </div>
+              <div class="weui_cell_bd weui_cell_primary">
+                <input type="text" class="weui_input" v-validate:email="['required']">
+              </div>
+            </div>
           </group>
           <group>
-            <input type="password" placeholder="密码" v-validate:password="['required']">
-            <input type="password" placeholder="重复密码" v-validate:passwordAgain="['required']">
+            <div class="weui_cell">
+              <div class="weui_cell_hd">
+                <label class="weui_label">密码</label>
+              </div>
+              <div class="weui_cell_bd weui_cell_primary">
+                <input type="password" v-validate:password="['required']">
+              </div>
+            </div>
+            <div class="weui_cell">
+              <div class="weui_cell_hd">
+                <label class="weui_label">确认密码</label>
+              </div>
+              <div class="weui_cell_bd weui_cell_primary">
+                <input type="password" v-validate:passwordAgain="['required']">
+              </div>
+            </div>
           </group>
           <group>
             <label>琴<input type="checkbox" v-validate:hobbies="['required']" value="琴"></label>
@@ -17,7 +38,8 @@
             <label>书<input type="checkbox" v-validate:hobbies="['required']" value="书"></label>
             <label>画<input type="checkbox" v-validate:hobbies="['required']" value="画"></label>
           </group>
-          <group>
+          <group title="哈市的">
+            <x-input title="邮箱" name="email" placeholder="请输入邮箱地址" is-type="email"></x-input>
             <select v-validate:occupation="['required']">
               <option value="">请选择</option>
               <option value="学生">学生</option>
@@ -30,13 +52,15 @@
             <label>男<input type="radio" v-validate:gender="['required']" value="男"></label>
             <label>女<input type="radio" v-validate:gender="['required']" value="女"></label>
           </group>
-          <group>
-            <x-button type="primary" v-if="$signup.valid">确定</x-button>
-          </group>
+          <div class="weui_btn_area">
+            <x-button type="primary">确定</x-button>
+            <x-button type="primary">确定</x-button>
+          </div>
         </form>
       </validator>    
     </main>
   </div>
+  <Toptips v-ref:toptips>这是提示</Toptips>
 </template>
 
 <style lang="scss">
@@ -52,9 +76,11 @@ import XButton from 'vux-components/x-button';
 import Radio from 'vux-components/radio';
 import Selector from 'vux-components/selector';
 import { LFTabbar } from '../vuex/actions';
+import Toptips from 'vux-extension/toptips';
 
 export default {
   ready() {
+    this.$refs.toptips.show = true;
     LFTabbar.show();
   },
   data() {
@@ -77,6 +103,7 @@ export default {
     Selector,
     XButton,
     Validator,
+    Toptips,
   },
 };
 </script>
