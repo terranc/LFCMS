@@ -16,15 +16,17 @@
     "babel-runtime": "^6.0.0",
     "jquery": "^2.2.3",
     "lazyloadjs": "^3.2.2",
+    "node-sass": "^3.7.0",
     "vue": "^1.0.21",
     "vue-awesome": "^0.3.0",
+    "vue-form-validator": "0.0.3",
     "vue-helmet": "^1.1.5",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",
     "vue-validator": "^2.1.3",
     "vuex": "^0.6.3",
     "vuex-router-sync": "^2.0.0",
-    "vux": "^0.1.2"
+    "vux": "git+https://github.com/airyland/vux.git"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -64,7 +66,7 @@
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
     "nightwatch": "^0.8.18",
-    "node-sass": "^3.8.0",
+    "node-sass": "^3.7.0",
     "ora": "^0.2.0",
     "phantomjs-prebuilt": "^2.1.3",
     "require-dir": "^0.3.0",
