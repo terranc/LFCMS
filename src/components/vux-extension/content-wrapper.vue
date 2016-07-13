@@ -1,5 +1,5 @@
 <template>
-  <div :class="class" v-el:main @scroll="onScroll">
+  <div v-bind="attributes" :class="class" :style="style" v-el:main @scroll="onScroll">
     <slot></slot>
   </div>
 </template>
@@ -24,7 +24,12 @@ export default {
     },
     class: {
       type: String,
-      default: '',
+    },
+    styles: {
+      type: Object,
+    },
+    attributes: {
+      type: Object,
     },
   },
   methods: {
