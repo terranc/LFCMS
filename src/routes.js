@@ -64,10 +64,10 @@ export default function (router) {
         require(['./pages/article'], resolve);
       },
     },
-    '/signup': {
-      name: 'signup',
+    '/form': {
+      name: 'form',
       component: (resolve) => {
-        require(['./pages/signup'], resolve);
+        require(['./pages/form'], resolve);
       },
     },
     '/timeout': {

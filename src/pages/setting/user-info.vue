@@ -175,7 +175,6 @@ export default {
     onSubmit(e) {
       for (const error of this.$info.errors) {
         this.$refs.toptips.show = true;
-        console.log(this.$info.errors);
         this.errorInfo = error.message;
         e.preventDefault();
         return;

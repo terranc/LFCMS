@@ -44,6 +44,10 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /vux.src.*?js$/,
+        loader: 'babel'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue'
       },
