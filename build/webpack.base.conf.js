@@ -20,8 +20,8 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'pages': path.resolve(__dirname, '../src/pages'),
-      'vux-components': 'vux/dist/components',
-      'vux-extension': path.resolve(__dirname, '../src/components/vux_extension'),
+      'vux-components': 'vux/src/components',
+      'vux-extension': path.resolve(__dirname, '../src/components/vux-extension'),
     }
   },
   resolveLoader: {
@@ -43,6 +43,10 @@ module.exports = {
       }
     ],
     loaders: [
+      {
+        test: /vux.src.*?js$/,
+        loader: 'babel'
+      },
       {
         test: /\.vue$/,
         loader: 'vue'

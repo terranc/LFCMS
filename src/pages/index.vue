@@ -3,7 +3,6 @@
   <div  class="wrapper" id="index">
     <main class="main main-footer">
       <h1>{{ content }}</h1>
-      <icon name="code"></icon>
       <h2>当前URL</h2>
       <p>{{ $route.path }}</p>
       <h2>当前query</h2>
