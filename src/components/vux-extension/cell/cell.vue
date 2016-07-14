@@ -1,5 +1,5 @@
 <template>
-  <component :is="component" class="weui_cell" :class="[defaultClass, class]" @click="onClick()">
+  <component :is="component" class="weui_cell" :class="className" @click="onClick()">
     <slot></slot>
     <div class="weui_cell_ft" v-if="warn">
       <i class="weui_icon_warn"></i>
@@ -44,16 +44,19 @@ export default {
       }
       return 'CellNormal';
     },
-    defaultClass() {
-      return {
-        'weui_check_label': this.htmlFor || this.radio || this.checkbox, 
-        'weui_cell_select': this.select, 
-        'weui_cell_switch': this.switch,
-        'weui_select_before': this.selectPos === 'before',
-        'weui_select_after': this.selectPos === 'after',
-        'weui_cell_warn': this.warn,
-        'weui_vcode': this.vcode,
-      };
+    className() {
+      return [
+        this.class, 
+        {
+          'weui_check_label': this.htmlFor || this.radio || this.checkbox, 
+          'weui_cell_select': this.select, 
+          'weui_cell_switch': this.switch,
+          'weui_select_before': this.selectPos === 'before',
+          'weui_select_after': this.selectPos === 'after',
+          'weui_cell_warn': this.warn,
+          'weui_vcode': this.vcode,
+        },
+      ];
     },
   },
   methods: {

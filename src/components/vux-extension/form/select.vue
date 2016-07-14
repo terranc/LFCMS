@@ -1,5 +1,5 @@
 <template>
-  <select class="weui_select" :class="classs">
+  <select class="weui_select" :class="className">
     <option value="" v-if="placeholder" :selected="placeholder && !value">{{placeholder}}</option>
     <option :value="item" v-for="(key, item) in processOptions">{{key}}</option>
   </select>
@@ -19,6 +19,9 @@ const arrayFlip = (trans) => {
 };
 export default {
   computed: {
+    className() {
+      return this.class;
+    },
     processOptions() {
       if (this.options.constructor === Array) {
         return arrayFlip(this.options);

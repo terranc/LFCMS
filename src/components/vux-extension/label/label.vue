@@ -1,5 +1,5 @@
 <template>
-  <label class="weui_label" :class="class">
+  <label class="weui_label" :class="className">
     <slot></slot>
   </label>
 </template>
@@ -11,6 +11,11 @@
 export default {
   props: {
     class: String,
+  },
+  computed: {
+    className() {
+      return this.class;
+    },
   },
 };
 </script>

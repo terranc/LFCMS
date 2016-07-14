@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input class="weui_check" type="radio" :class="class" :value="value" :name="name" />
+    <input class="weui_check" type="radio" :class="className" :value="value" :name="name" />
     <span class="weui_icon_checked"></span>
   </div>
 </template>
@@ -14,6 +14,11 @@ export default {
     name: String,
     value: String,
     class: String,
+  },
+  computed: {
+    className() {
+      return this.class;
+    },
   },
 };
 </script>

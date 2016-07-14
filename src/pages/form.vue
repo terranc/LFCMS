@@ -135,37 +135,18 @@
 
 <script>
 import VueHelmet from 'vue-helmet';
-import { LFTabbar } from '../vuex/actions';
-import Cells from 'vux-extension/cell/cells';
-import Cell from 'vux-extension/cell/cell';
-import CellHeader from 'vux-extension/cell/cell-header';
-import CellFooter from 'vux-extension/cell/cell-footer';
-import CellBody from 'vux-extension/cell/cell-body';
-import CellsTitle from 'vux-extension/cell/cells-title';
-import CellsTips from 'vux-extension/cell/cells-tips';
+import { Cells, Cell, CellHeader, CellFooter, CellBody, CellsTitle, CellsTips } from 'vux-extension/cell';
+import { xInput, xSwitch, xTextarea, xRadio, xCheckbox, xSelect } from 'vux-extension/form';
 import xLabel from 'vux-extension/label/label';
-import xInput from 'vux-extension/form/input';
-import xSwitch from 'vux-extension/form/switch';
-import xTextarea from 'vux-extension/form/textarea';
-import xRadio from 'vux-extension/form/radio';
-import xCheckbox from 'vux-extension/form/checkbox';
-import xSelect from 'vux-extension/form/select';
 import Icon from 'vue-awesome';
+import { LFTabbar } from '../vuex/actions';
 
 export default {
   ready() {
     LFTabbar.show();
   },
   data() {
-    return {
-      title: 'signup',
-      gender: ['男', '女'],
-      occupation: ['学生', '设计师', '产品经理', '研发'],
-      hobbies: ['琴', '棋', '书', '画'],
-      occupationValue: '',
-      genderValue: '',
-      hobbyValues: [],
-    };
+    return {};
   },
   components: {
     VueHelmet,
@@ -177,13 +158,13 @@ export default {
     CellBody,
     CellsTitle,
     CellsTips,
-    xLabel,
     xInput,
     xSwitch,
     xTextarea,
     xRadio,
     xCheckbox,
     xSelect,
+    xLabel,
   },
 };
 </script>
