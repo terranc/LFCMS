@@ -73,7 +73,19 @@ export default function (router) {
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {
-        require(['./pages/timeout'], resolve);
+        require(['./pages/state/timeout'], resolve);
+      },
+    },
+    '/success': {
+      name: 'success',
+      component: (resolve) => {
+        require(['./pages/state/success'], resolve);
+      },
+    },
+    '/fail': {
+      name: 'fail',
+      component: (resolve) => {
+        require(['./pages/state/fail'], resolve);
       },
     },
   });
