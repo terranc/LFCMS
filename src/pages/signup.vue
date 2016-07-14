@@ -54,7 +54,6 @@
           </group>
           <div class="weui_btn_area">
             <x-button type="primary">确定</x-button>
-            <x-button type="primary">确定</x-button>
           </div>
         </form>
       </validator>    

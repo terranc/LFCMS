@@ -43,6 +43,12 @@ export default function (router) {
         require(['./pages/setting/general'], resolve);
       },
     },
+    '/setting/info': {
+      name: 'userinfo',
+      component: (resolve) => {
+        require(['./pages/setting/user-info'], resolve);
+      },
+    },
     '/articles': {
       name: 'articles',
       data: {

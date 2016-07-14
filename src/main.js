@@ -3,6 +3,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import VueValidator from 'vue-validator';
+import addRulesOfValidator from './validator';
 import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
@@ -14,6 +15,7 @@ if (__DEV__) {
 }
 
 Vue.use(VueValidator);
+addRulesOfValidator(Vue);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
@@ -40,3 +42,5 @@ router.afterEach(() => {
   LFTabbar.hide();
 });
 router.start(App, 'app');
+
+export default Vue;

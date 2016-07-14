@@ -9,6 +9,7 @@
         <cell title="新消息通知" v-link="{name: 'notification'}" is-link></cell>
         <cell title="隐私" v-link="{name: 'privacy'}" is-link></cell>
         <cell title="通用" v-link="{name: 'general'}" is-link></cell>
+        <cell title="用户信息" v-link="{name: 'userinfo'}" is-link></cell>
       </group>
       <group>
         <cell title="帮助与反馈" is-link></cell>
