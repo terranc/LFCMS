@@ -27,7 +27,7 @@
     "vuex": "^0.6.3",
     "vuex-router-sync": "^2.0.0",
     "vux": "^0.1.2",
-    "weui-sass": "^0.4.3"
+    "weui": "^0.4.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
