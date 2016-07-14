@@ -43,6 +43,12 @@ export default function (router) {
         require(['./pages/setting/general'], resolve);
       },
     },
+    '/setting/info': {
+      name: 'userinfo',
+      component: (resolve) => {
+        require(['./pages/setting/user-info'], resolve);
+      },
+    },
     '/articles': {
       name: 'articles',
       data: {
@@ -67,7 +73,19 @@ export default function (router) {
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {
-        require(['./pages/timeout'], resolve);
+        require(['./pages/state/timeout'], resolve);
+      },
+    },
+    '/success': {
+      name: 'success',
+      component: (resolve) => {
+        require(['./pages/state/success'], resolve);
+      },
+    },
+    '/fail': {
+      name: 'fail',
+      component: (resolve) => {
+        require(['./pages/state/fail'], resolve);
       },
     },
   });

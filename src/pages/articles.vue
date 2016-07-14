@@ -3,7 +3,7 @@
   <div class="wrapper" id="articles">
     <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
       <group :title='content'>
-        <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
+        <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>
     </content-wrapper>
   </div>
