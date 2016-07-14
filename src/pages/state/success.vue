@@ -7,7 +7,7 @@
     </div>
     <div class="weui_opr_area">
       <p class="weui_btn_area">
-      <a class="weui_btn weui_btn_primary" v-if="hasConfirm" v-link="redirectWhenConfirm">确定</a>
+        <a class="weui_btn weui_btn_primary" v-if="hasConfirm" v-link="redirectWhenConfirm">确定</a>
         <a class="weui_btn weui_btn_default" v-if="hasCancel" v-link="redirectWhenCancel">取消</a>
       </p>
     </div>
