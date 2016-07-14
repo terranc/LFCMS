@@ -5,6 +5,7 @@ import xTextarea from './textarea';
 import xRadio from './radio';
 import xCheckbox from './checkbox';
 import xSelect from './select';
+import xUploader from './uploader';
 
 export {
   xInput,
@@ -13,4 +14,5 @@ export {
   xRadio,
   xCheckbox,
   xSelect,
+  xUploader,
 };

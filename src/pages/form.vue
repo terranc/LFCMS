@@ -126,6 +126,18 @@
           </cell-body>
         </cell>
       </cells>
+      <cells :form="true">
+        <cell>
+          <cell-body>
+            <x-uploader title="合适的话是" v-bind:on-change="handlerChange"></x-uploader>
+          </cell-body>
+        </cell>
+        <cell>
+          <cell-body>
+            <x-uploader title="合适的话是2" v-bind:on-change="handlerChange"></x-uploader>
+          </cell-body>
+        </cell>
+      </cells>
     </main>
   </div>
 </template>
@@ -136,7 +148,7 @@
 <script>
 import VueHelmet from 'vue-helmet';
 import { Cells, Cell, CellHeader, CellFooter, CellBody, CellsTitle, CellsTips } from 'vux-extension/cell';
-import { xInput, xSwitch, xTextarea, xRadio, xCheckbox, xSelect } from 'vux-extension/form';
+import { xInput, xSwitch, xTextarea, xRadio, xCheckbox, xSelect, xUploader } from 'vux-extension/form';
 import xLabel from 'vux-extension/label/label';
 import Icon from 'vue-awesome';
 import { LFTabbar } from '../vuex/actions';
@@ -145,8 +157,10 @@ export default {
   ready() {
     LFTabbar.show();
   },
-  data() {
-    return {};
+  methods: {
+    handlerChange: (file) => {
+      $.weui.alert(file.name);
+    },
   },
   components: {
     VueHelmet,
@@ -164,6 +178,7 @@ export default {
     xRadio,
     xCheckbox,
     xSelect,
+    xUploader,
     xLabel,
   },
 };
