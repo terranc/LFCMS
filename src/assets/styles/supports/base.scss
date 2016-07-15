@@ -1,9 +1,19 @@
 body {
-  font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", "STXihei", "华文细黑", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: $grey;
   background-color: $base;
   height: 100%;
   overflow-x: hidden;
+  line-height: 1.6;
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -15,4 +25,8 @@ a:hover {
 a:focus {
   outline: none;
   text-decoration:none;
+}
+
+a img {
+    border: 0;
 }

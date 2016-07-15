@@ -25,21 +25,15 @@ export default {
   props: {
     loadingMessage: {
       type: String,
-      default() {
-        return '载入中...';
-      },
+      default: '载入中...',
     },
     loadFailMessage: {
       type: String,
-      default() {
-        return '加载失败';
-      },
+      default: '加载失败',
     },
     loadFailTitle: {
       type: String,
-      default() {
-        return '发生异常';
-      },
+      default: '发生异常',
     },
   },
   data() {
@@ -59,11 +53,11 @@ export default {
     },
   },
   methods: {
-    deferShowLoading(deferTime = 0) {
-      // this.timer = setTimeout(() => {
-      this.isLoading = true;
-      this.isFail = false;
-      // }, deferTime);
+    deferShowLoading(deferTime = 1000) {
+      this.timer = setTimeout(() => {
+        this.isLoading = true;
+        this.isFail = false;
+      }, deferTime);
     },
     showLoading() {
       this.timer = clearTimer(this.timer);

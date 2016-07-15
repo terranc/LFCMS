@@ -10,6 +10,7 @@
       <p>{{ $route.query | json 4 }}</p>
       <h2>当前params</h2>
       <p>{{ $route.params | json 4 }}</p>
+      <p>{{ create_time | date '%Y-%m-%d' }}</p>
     </main>
   </div>
 </template>
@@ -23,13 +24,14 @@ import Icon from 'vue-awesome';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
-	ready() {
-		LFTabbar.show();
-	},
-	data() {
+  ready() {
+    LFTabbar.show();
+  },
+  data() {
     return {
       content: 'index page',
       title: 'index',
+      create_time: new Date().getTime(),
     };
   },
   components: {

@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -20,7 +21,8 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'pages': path.resolve(__dirname, '../src/pages'),
-      'vux-components': 'vux/dist/components'
+      'vux-components': 'vux/dist/components',
+      'vux-extension': path.resolve(__dirname, '../src/components/vux-extension'),
     }
   },
   resolveLoader: {
@@ -42,6 +44,10 @@ module.exports = {
       }
     ],
     loaders: [
+      {
+        test: /vux.src.*?js$/,
+        loader: 'babel'
+      },
       {
         test: /\.vue$/,
         loader: 'vue'
@@ -83,5 +89,12 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders()
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({// 全局依赖jQuery,不需要import了  
+      $ : "jquery",  
+      jQuery : "jquery",  
+      "window.jQuery" : "jquery"  
+    })
+  ]
 }

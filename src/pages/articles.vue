@@ -1,11 +1,11 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <main class="main main-footer" v-el:main>
+    <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
       <group :title='content'>
-        <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}}"></cell>
+        <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>
-    </main>
+    </content-wrapper>
   </div>
   <load v-ref:load></load>
 </template>
@@ -17,7 +17,8 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import Load from 'components/vux_extension/load';
+import Load from 'components/vux-extension/load';
+import ContentWrapper from 'components/vux-extension/content-wrapper';
 import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
@@ -32,7 +33,7 @@ export default {
       query: {
         limit: 20,
       },
-      isScrolling: false,
+      isFetching: false,
       listOfArticle: [],
     };
   },
@@ -41,6 +42,7 @@ export default {
     Group,
     Cell,
     Load,
+    ContentWrapper,
   },
   route: {
     data(transition) {
@@ -51,11 +53,10 @@ export default {
       }
     },
     activate(transition) {
-      this.$els.main.addEventListener('scroll', this.getListOfArticleOnScroll);
+      this.$refs.main.activate(transition);
       transition.next();
     },
     deactivate(transition) {
-      this.$els.main.removeEventListener('scroll', this.getListOfArticleOnScroll);
       if (transition.to.name === 'article') {
         sessionStorage.listOfArticle = JSON.stringify(this.listOfArticle);
         sessionStorage.query = JSON.stringify(this.query);
@@ -63,30 +64,32 @@ export default {
         sessionStorage.removeItem('listOfArticle');
         sessionStorage.removeItem('query');
       }
+      this.$refs.main.deactivate(transition);
       transition.next();
     },
   },
   methods: {
     getListOfArticle() {
+      this.isFetching = true;
       this.$refs.load.deferShowLoading();
       return this.$http.get(`https://cnodejs.org/api/v1/topics?${querystring.stringify(this.query)}`).then((response) => {
-        this.isScrolling = true;
+        this.isFetching = false;
         this.$refs.load.reset();
         this.listOfArticle = response.data.data;
       }, () => {
+        this.isFetching = false;
         this.$refs.load.showFail();
       });    
     },
     getListOfArticleOnScroll(e) {
-      const targetElm = e.target;
-      const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-      if (this.isScrolling) {
+      if (!this.isFetching) {
+        const targetElm = e.target;
+        const totalTop = targetElm.scrollTop + targetElm.clientHeight;
         if (totalTop >= targetElm.scrollHeight - 200) {
-          this.isScrolling = false;
           this.query.limit += 20;
           this.getListOfArticle();
         }
-      }   
+      }
     },
   },
 };
