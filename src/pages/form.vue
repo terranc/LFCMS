@@ -150,8 +150,24 @@
 
 <script>
 import VueHelmet from 'vue-helmet';
-import { Cells, Cell, CellHeader, CellFooter, CellBody, CellsTitle, CellsTips } from 'vux-extension/cell';
-import { xInput, xSwitch, xTextarea, xRadio, xCheckbox, xSelect } from 'vux-extension/form';
+import { 
+  Cells, 
+  Cell, 
+  CellHeader, 
+  CellFooter, 
+  CellBody, 
+  CellsTitle, 
+  CellsTips,
+} from 'vux-extension/cell';
+import { 
+  xInput, 
+  xSwitch, 
+  xTextarea, 
+  xRadio, 
+  xCheckbox, 
+  xSelect, 
+  xUploader,
+} from 'vux-extension/form';
 import Validator from 'vue-validator';
 import xLabel from 'vux-extension/label/label';
 import Icon from 'vue-awesome';
@@ -161,8 +177,13 @@ export default {
   ready() {
     LFTabbar.show();
   },
-  data() {
-    return {};
+  methods: {
+    handlerChange: (file) => {
+      $.weui.alert(file.name);
+    },
+    onSubmit(e) {
+      e.preventDefault();
+    },
   },
   components: {
     VueHelmet,
@@ -181,12 +202,8 @@ export default {
     xRadio,
     xCheckbox,
     xSelect,
+    xUploader,
     xLabel,
-  },
-  methods: {
-    onSubmit(e) {
-      e.preventDefault();
-    },
   },
 };
 </script>

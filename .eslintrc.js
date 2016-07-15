@@ -3,7 +3,8 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  extends: 'airbnb-base',
+  // extends: 'airbnb-base',
+  extends: 'standard',
   // required to lint *.vue files
   plugins: [
     'html'
@@ -17,7 +18,13 @@ module.exports = {
   },
   // add your custom rules here
   'rules': {
+    'semi': [2, "always", {"omitLastInOneLineBlock": true}],
+    'comma-dangle': [2, "always-multiline"],
+    'space-before-function-paren': 0,
+    'space-unary-ops': 0,
+    'no-multiple-empty-lines': [2, {'max': 2, 'maxEOF': 1 }],
     'import/no-unresolved': 0,
+    'indent': [2, 2, { 'SwitchCase': 1, 'VariableDeclarator': {'var': 2, 'let': 2, 'const': 3} }],
     // 'no-console': [2, {allow: ['warn', 'error', 'log']}],
     'max-len': [2, 9999], //有些插件在使用时会有不得已的需要长字符串定义一些内容
     'prefer-template': 0, //可以字符串连接
