@@ -53,7 +53,10 @@
         </cell>
         <cell :select="true" select-pos="before">
           <cell-header>
-            <x-select :options="{'+86':1, '+80': 2, '+84': 3, '+87': 4}"></x-select>
+            <x-select :options="{'+86':1, 
+'+80': 2, 
+'+84': 3, 
+'+87': 4}"></x-select>
           </cell-header>
           <cell-body>
             <x-input type="tel" placeholder="请输入号码"></x-input>
@@ -147,8 +150,23 @@
 
 <script>
 import VueHelmet from 'vue-helmet';
-import { Cells, Cell, CellHeader, CellFooter, CellBody, CellsTitle, CellsTips } from 'vux-extension/cell';
-import { xInput, xSwitch, xTextarea, xRadio, xCheckbox, xSelect, xUploader } from 'vux-extension/form';
+import { 
+  Cells, 
+  Cell, 
+  CellHeader, 
+  CellFooter, 
+  CellBody, 
+  CellsTitle, 
+  CellsTips,
+} from 'vux-extension/cell';
+import { xInput, 
+xSwitch, 
+xTextarea, 
+xRadio, 
+xCheckbox, 
+xSelect, 
+xUploader,
+} from 'vux-extension/form';
 import xLabel from 'vux-extension/label/label';
 import Icon from 'vue-awesome';
 import { LFTabbar } from '../vuex/actions';

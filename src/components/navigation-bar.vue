@@ -24,7 +24,8 @@
 </style>
 
 <script>
-import { Tabbar, TabbarItem } from 'vux-components/tabbar';
+import Tabbar from 'vux-components/tabbar';
+import TabbarItem from 'vux-components/tabbar-item';
 import Icon from 'vue-awesome';
 import store from '../vuex/store';
 
