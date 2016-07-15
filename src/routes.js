@@ -88,6 +88,12 @@ export default function (router) {
         require(['./pages/state/fail'], resolve);
       },
     },
+    '*': {
+      name: '404',
+      component: (resolve) => {
+        require(['./pages/state/404'], resolve);
+      },
+    },
   });
 
   router.redirect({
