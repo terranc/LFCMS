@@ -94,6 +94,12 @@ export default function (router) {
         require(['./pages/jquery-weui'], resolve);
       },
     },
+    '*': {
+      name: '404',
+      component: (resolve) => {
+        require(['./pages/state/404'], resolve);
+      },
+    },
   });
 
   router.redirect({
