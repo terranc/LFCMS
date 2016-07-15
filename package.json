@@ -19,6 +19,7 @@
     "node-sass": "^3.7.0",
     "vue": "^1.0.21",
     "vue-awesome": "^0.3.0",
+    "vue-filter": "^0.1.5",
     "vue-helmet": "^1.1.5",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",

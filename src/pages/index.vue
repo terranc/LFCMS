@@ -10,6 +10,7 @@
       <p>{{ $route.query | json 4 }}</p>
       <h2>当前params</h2>
       <p>{{ $route.params | json 4 }}</p>
+      <p>{{ create_time | date '%Y-%m-%d' }}</p>
     </main>
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
     return {
       content: 'index page',
       title: 'index',
+      create_time: new Date().getTime(),
     };
   },
   components: {
