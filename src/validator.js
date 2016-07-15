@@ -1,4 +1,4 @@
-const addRules = (Vue) => {
+export default (Vue) => {
   Vue.validator('repassword', (value, input, param) => {
     let data;
     if (document.querySelector(param).value !== value) {
@@ -25,4 +25,3 @@ const addRules = (Vue) => {
     check: (value) => /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/.test(value),
   });
 };
-export default addRules;

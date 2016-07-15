@@ -3,6 +3,7 @@
   <div class="wrapper" id="account">
     <validator name="info">
       <form class="main" @submit="onSubmit" novalidate>
+       
         <group>
           <div class="weui_cell">
             <div class="weui_cell_hd">
@@ -18,6 +19,7 @@
             </div>
           </div>
         </group>
+
         <group>
           <div class="weui_cells_title">联系方式</div>
           <div class="weui_cell">
@@ -43,6 +45,7 @@
             </div>
           </div>
         </group>
+
         <group>
           <div class="weui_cells_title">工作信息</div>
           <div class="weui_cells"> 
