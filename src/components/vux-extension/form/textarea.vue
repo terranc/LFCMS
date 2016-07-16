@@ -1,5 +1,5 @@
 <template>
-  <textarea class="weui_textarea" v-model="value" :class="className"></textarea>
+  <textarea class="weui_textarea" v-model="value"></textarea>
 </template>
 
 <style type="scss">
@@ -9,12 +9,8 @@
 export default {
   props: {
     value: String,
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

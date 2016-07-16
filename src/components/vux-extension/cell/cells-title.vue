@@ -1,5 +1,5 @@
 <template>
-  <div class="weui_cells_title" :class="className">
+  <div class="weui_cells_title">
     <slot></slot>
   </div>
 </template>
@@ -10,12 +10,8 @@
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

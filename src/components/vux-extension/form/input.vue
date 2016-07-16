@@ -1,5 +1,5 @@
 <template>
-  <input class="weui_input" :class="className" />
+  <input class="weui_input" />
 </template>
 
 <style type="scss">
@@ -8,12 +8,8 @@
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

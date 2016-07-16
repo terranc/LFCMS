@@ -13,12 +13,8 @@ export default {
   props: {
     name: String,
     value: String,
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

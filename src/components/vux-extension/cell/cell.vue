@@ -1,28 +1,26 @@
 <template>
   <component :is="component" class="weui_cell" :class="className" @click="onClick()">
-    <slot></slot>
-    <div class="weui_cell_ft" v-if="warn">
+    <cell-header><slot name="header"></slot></cell-header>
+    <cell-body><slot name="body"></slot></cell-body>
+    <cell-footer v-if="!warn"><slot name="footer"></slot></cell-footer>
+    <cell-footer v-if="warn">
       <i class="weui_icon_warn"></i>
-    </div>
+    </cell-footer>
   </component>
 </template>
 
 <style type="scss">
-.weui_cell_hd .fa,
-.weui_cell_hd .fa-icon,
-.weui_cell_hd img{
-  margin-right: 5px;
-  display: block;
-}
 </style>
 
 <script>
+import CellHeader from './cell-header.vue';
+import CellBody from './cell-body.vue';
+import CellFooter from './cell-footer.vue';
 export default {
   props: {
     href: {
       type: [String, Object],
     },
-    class: String,
     htmlFor: Boolean,
     switch: Boolean,
     radio: Boolean,
@@ -61,13 +59,16 @@ export default {
   },
   methods: {
     onClick() {
-      this.$router.go(this.link, this.$router);
+      this.$router.go(this.href, this.$router);
     },
   },
   components: {
     CellLink: { template: '<a><slot></slot></a>' },
     CellNormal: { template: '<div><slot></slot></div>' },
     CellLabel: { template: '<label><slot></slot></label>' },
+    CellHeader,
+    CellFooter,
+    CellBody,
   },
 };
 </script>

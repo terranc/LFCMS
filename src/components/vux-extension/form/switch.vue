@@ -1,5 +1,5 @@
 <template>
-  <input class="weui_switch" type="checkbox" :class="className" />
+  <input class="weui_switch" type="checkbox" />
 </template>
 
 <style type="scss">
@@ -8,12 +8,8 @@
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>
