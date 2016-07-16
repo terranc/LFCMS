@@ -10,7 +10,6 @@
 </style>
 
 <script>
-import 'jquery';
 import 'weui.js';
 import NavigationBar from 'components/navigation-bar';
 import store from '../vuex/store';

@@ -34,7 +34,7 @@
             </cell-footer>
           </cell>
           <cell :switch="true">
-            <cell-header class="weui_cell_primary">
+            <cell-header>
               啊实打实的
             </cell-header>
             <cell-footer>
@@ -46,7 +46,7 @@
               <x-textarea placeholder="多行输入框" maxlength="5"></x-textarea>
             </cell-body>
           </cell>
-          <cell :select="true">
+          <cell>
             <cell-header>
               <x-label>数组下拉</x-label>
             </cell-header>
@@ -54,7 +54,7 @@
               <x-select :options="['a','b','c','d']"></x-select>
             </cell-body>
           </cell>
-          <cell :select="true">
+          <cell>
             <cell-header>
               <x-label>JSON下拉</x-label>
             </cell-header>
@@ -62,7 +62,7 @@
               <x-select :options="{'a':1,'b':2}"></x-select>
             </cell-body>
           </cell>
-          <cell :select="true" select-pos="before">
+          <cell select-pos="before">
             <cell-header>
               <x-select :options="{'+86':1, '+80': 2, '+84': 3, '+87': 4}"></x-select>
             </cell-header>
@@ -72,22 +72,22 @@
           </cell>
         </cells>
         <cells :radio="true">
-          <cell :radio="true">
+          <cell>
             <cell-header>
               <icon name="home" scale="1.25"></icon>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的
             </cell-body>
             <cell-footer>
               <x-radio name="aa[]" value="1"></x-radio>
             </cell-footer>
           </cell>
-          <cell :radio="true">
+          <cell>
             <cell-header>
               <icon name="home" scale="1.25"></icon>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的12
             </cell-body>
             <cell-footer>
@@ -96,22 +96,22 @@
           </cell>
         </cells>
         <cells :checkbox="true">
-          <cell :checkbox="true">
+          <cell>
             <cell-header>
               <icon name="home" scale="1.25"></icon>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的
             </cell-body>
             <cell-footer>
               <x-checkbox name="bb[]" value="1"></x-checkbox>
             </cell-footer>
           </cell>
-          <cell :checkbox="true">
+          <cell>
             <cell-header>
               <icon name="home" scale="1.25"></icon>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的12
             </cell-body>
             <cell-footer>
@@ -120,19 +120,19 @@
           </cell>
         </cells>
         <cells :checkbox="true">
-          <cell :checkbox="true">
+          <cell>
             <cell-header>
               <x-checkbox name="bb[]" value="1"></x-checkbox>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的
             </cell-body>
           </cell>
-          <cell :checkbox="true">
+          <cell>
             <cell-header>
               <x-checkbox name="bb[]" value="2"></x-checkbox>
             </cell-header>
-            <cell-body class="weui_cell_primary">
+            <cell-body>
               啊实打实的12
             </cell-body>
           </cell>

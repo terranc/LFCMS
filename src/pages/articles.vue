@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
+    <content-wrapper :class="['main', 'main-footer']" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
       <group :title='content'>
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>

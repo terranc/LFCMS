@@ -22,9 +22,6 @@ export default {
       type: String,
       default: '',
     },
-    class: {
-      type: String,
-    },
     styles: {
       type: Object,
     },
