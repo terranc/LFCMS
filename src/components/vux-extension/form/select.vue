@@ -5,7 +5,7 @@
   </select>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
@@ -18,8 +18,18 @@ const arrayFlip = (trans) => {
   return tmpArr;
 };
 export default {
+  props: {
+    placeholder: String,
+    options: {
+      type: [Array, Object],
+      required: true,
+    },
+    value: String,
+  },
   ready() {
+    this.$parent.select = true;
     this.$parent.$parent.select = true;
+    this.$parent.$parent.form = true;
   },
   computed: {
     processOptions() {
@@ -28,14 +38,6 @@ export default {
       }
       return this.options;
     },
-  },
-  props: {
-    placeholder: String,
-    options: {
-      type: [Array, Object],
-      required: true,
-    },
-    value: String,
   },
 };
 </script>

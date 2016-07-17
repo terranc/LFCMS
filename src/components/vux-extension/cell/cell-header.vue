@@ -4,17 +4,20 @@
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
     className() {
-      return this.class;
+      let className = [];
+      if (this.$parent.switch) {
+        className.push('weui_cell_primary');
+      }
+      return className;
     },
   },
 };

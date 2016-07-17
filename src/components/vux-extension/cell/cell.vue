@@ -1,15 +1,17 @@
 <template>
   <component :is="component" class="weui_cell" :class="className" @click="onClick()">
-    <cell-header><slot name="header"></slot></cell-header>
-    <cell-body><slot name="body"></slot></cell-body>
-    <cell-footer v-if="!warn"><slot name="footer"></slot></cell-footer>
-    <cell-footer v-if="warn">
-      <i class="weui_icon_warn"></i>
+    <cell-header v-if="hasHeader"><slot name="header"></slot></cell-header>
+    <cell-body v-if="hasBody"><slot name="body"></slot></cell-body>
+    <slot></slot>
+    <cell-footer v-if="!warn && hasFooter"><slot name="footer"></slot></cell-footer>
+    <cell-footer v-if="warn || vcode">
+      <i class="weui_icon_warn" v-if="warn"></i>
+      <img :src="vcode" v-if="vcode" />
     </cell-footer>
   </component>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
@@ -21,17 +23,32 @@ export default {
     href: {
       type: [String, Object],
     },
-    htmlFor: Boolean,
-    switch: Boolean,
-    radio: Boolean,
-    select: Boolean,
-    checkbox: Boolean,
+    htmlFor: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    switch: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    radio: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    select: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    checkbox: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
     selectPos: {
       type: String,
       default: 'after',
     },
     warn: Boolean,
-    vcode: Boolean,
+    vcode: String,
   },
   computed: {
     component() {
@@ -55,6 +72,15 @@ export default {
           'weui_vcode': this.vcode,
         },
       ];
+    },
+    hasHeader() {
+      return !!this._slotContents.header;
+    },
+    hasBody() {
+      return !!this._slotContents.body;
+    },
+    hasFooter() {
+      return !!this._slotContents.footer;
     },
   },
   methods: {

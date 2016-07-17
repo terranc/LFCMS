@@ -2,12 +2,17 @@
   <input class="weui_switch" type="checkbox" />
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
+  },
+  ready() {
+    this.$parent.switch = true;
+    this.$parent.$parent.switch = true;
+    this.$parent.$parent.form = true;
   },
   computed: {
   },

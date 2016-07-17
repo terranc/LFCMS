@@ -5,6 +5,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   line-height: 1.6;
+  @include font-size(16px);
 }
 html {
   -ms-text-size-adjust: 100%;

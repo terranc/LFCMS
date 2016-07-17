@@ -19,7 +19,7 @@
     "lazyloadjs": "^3.2.2",
     "node-sass": "^3.7.0",
     "vue": "^1.0.21",
-    "vue-awesome": "^0.3.0",
+    "vue-awesome": "''0.3.0",
     "vue-filter": "^0.1.5",
     "vue-helmet": "^1.1.5",
     "vue-resource": "^0.9.3",
@@ -28,7 +28,7 @@
     "vuex": "^0.6.3",
     "vuex-router-sync": "^2.0.0",
     "vux": "^0.1.2",
-    "weui": "^0.4.3",
+    "weui": "''0.4.3",
     "weui.js": "^0.3.0"
   },
   "devDependencies": {
@@ -69,6 +69,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.24",
     "karma-webpack": "^1.7.0",
+    "less": "''2.7.1",
+    "less-loader": "''2.2.3",
     "lolex": "^1.4.0",
     "mocha": "^2.4.5",
     "nightwatch": "^0.8.18",

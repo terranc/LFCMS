@@ -1,10 +1,10 @@
 // font size
-$fzExplain: 12px;
-$fzNormal: 14px;
-$fzPrimary: 16px;
-$fzTitle: 18px;
-$fzBlock: 24px;
-$fzBlockTitle: 30px;
+$fzExplain: px2rem(12px);
+$fzNormal: px2rem(14px);
+$fzPrimary: px2rem(16px);
+$fzTitle: px2rem(18px);
+$fzBlock: px2rem(24px);
+$fzBlockTitle: px2rem(30px);
 
 // colors of gray
 $empty: #fff;
@@ -19,3 +19,19 @@ $active:#FF6633;
 $warning: #e42253;
 $primary: #00a9ca;
 $success: #3dac67;
+
+
+//weui
+$weuiCellBg: #fff;
+$weuiCellBorderColor: #d9d9d9;
+$weuiCellGapV: 10px;
+$weuiCellGapH: 15px;
+$weuiCellInnerGapH: .35em;
+$weuiCellHeight: 44px;
+$weuiCellFontSize: 17px;
+$weuiCellTipsFontSize: 14px;
+$weuiCellLabelWidth: 105px;
+
+$weuiCellLineHeight: ($weuiCellHeight - 2 * $weuiCellGapV) / $weuiCellFontSize; // 高度为44px，减去上下padding的行高
+$weuiCellsMarginTop: 20px / $weuiCellFontSize * 1em;
+$weuiCellsMarginBottom: $weuiCellsMarginTop;

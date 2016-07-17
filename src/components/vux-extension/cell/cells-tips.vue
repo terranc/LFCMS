@@ -1,21 +1,17 @@
 <template>
-  <div class="weui_cells_tips" :class="className">
+  <div class="weui_cells_tips">
     <slot></slot>
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

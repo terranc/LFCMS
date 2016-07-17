@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
@@ -13,8 +13,17 @@ export default {
   props: {
     name: String,
     value: String,
+    class: String,
+  },
+  ready() {
+    this.$parent.radio = true;
+    this.$parent.$parent.radio = true;
+    this.$parent.$parent.form = true;
   },
   computed: {
+    className() {
+      return this.class;
+    },
   },
 };
 </script>

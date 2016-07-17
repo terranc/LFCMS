@@ -9,10 +9,14 @@ export default {
     auto: {
       type: Boolean,
       default: true,
+      coerce: (val) => !!val,
     },
     field: String,
     url: String,
-    multiple: Boolean,
+    multiple: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
     accept: {
       type: Array,
       default: () => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'],
@@ -43,6 +47,7 @@ export default {
     },
   },
   ready() {
+    this.$parent.$parent.form = true;
     $('#' + this.id).uploader({
       auto: this.auto,
       accept: this.accept,

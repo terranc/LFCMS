@@ -4,13 +4,12 @@
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    class: String,
   },
   computed: {
   },
