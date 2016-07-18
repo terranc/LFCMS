@@ -3,8 +3,7 @@
   <div class="wrapper" id="index">
     <validator name="form">
       <form class="main main-footer" @submit="onSubmit" novalidate>
-        <cells-title>带图标、说明的列表项</cells-title>
-        <cells>
+        <cells title="带图标、说明的列表项">
           <cell>
             <icon name="home" scale="1.25" slot="header"></icon>
             <slot slot="body">标题文字</slot>
@@ -20,8 +19,7 @@
             <cell-footer>自定义footer</cell-footer>
           </cell>
         </cells>
-        <cells-title>文本框</cells-title>
-        <cells>
+        <cells title="文本框">
           <cell>
             <x-label slot="header">账号</x-label>
             <x-input slot="body" name="username" placeholder="输入登录账号" :warn="true"></x-input>
@@ -35,12 +33,11 @@
             <x-input slot="body" name="repassword" type="password" placeholder="再次输入以上密码"></x-input>
           </cell>
           <cell vcode="http://adcentury.github.io/vue-weui/vcode.jpg?785e6badfde02d6b7c565e18cf56cca1">
-            <x-label slot="header" width="4">验证码</x-label>
+            <x-label slot="header">验证码</x-label>
             <x-input slot="body" name="vcode"></x-input>
           </cell>
         </cells>
-        <cells-title>下拉框</cells-title>
-        <cells>
+        <cells title="下拉框">
           <cell>
             <x-label slot="header">Array</x-label>
             <x-select :options="['a','b','c']" slot="body"></x-select>
@@ -50,8 +47,7 @@
             <x-select :options="{'a':1,'b':2,'c':3}" slot="body"></x-select>
           </cell>
         </cells>
-        <cells-title>单选</cells-title>
-        <cells>
+        <cells title="单选">
           <cell>
             <icon name="home" scale="1.25" slot="header"></icon>
             <slot slot="body">选项1</slot>
@@ -62,8 +58,7 @@
             <x-radio name="radio[]" slot="footer" value="2"></x-radio>
           </cell>
         </cells>
-        <cells-title>多选框</cells-title>
-        <cells>
+        <cells title="多选框">
           <cell>
             <x-checkbox name="checkbox[]" slot="header" value="1"></x-checkbox>
             <slot slot="body">选项1</slot>
@@ -77,8 +72,7 @@
             <slot slot="body">选项3</slot>
           </cell>
         </cells>
-        <cells-title>开关</cells-title>
-        <cells>
+        <cells title="开关">
           <cell>
             <icon name="home" scale="1.25" slot="header"></icon>
             <slot slot="body">选项1</slot>
@@ -92,13 +86,11 @@
             <x-textarea placeholder="请输入提示文字.."></x-textarea>
           </cell>
         </cells>
-        <cells-title>多行文本</cells-title>
-        <cells>
+        <cells title="多行文本" tips="注：最多1000字">
           <cell>
             <x-textarea placeholder="请输入提示文字.."></x-textarea>
           </cell>
         </cells>
-        <cells-tips style="text-align:center">注：最多1000字</cells-tips>
       </form>
     </validator>
   </div>
@@ -115,8 +107,6 @@ import {
   CellHeader,
   CellFooter,
   CellBody,
-  CellsTitle,
-  CellsTips,
 } from 'vux-extension/cell';
 import { 
   xInput,
@@ -153,8 +143,6 @@ export default {
     CellHeader,
     CellFooter,
     CellBody,
-    CellsTitle,
-    CellsTips,
     xInput,
     xSwitch,
     xTextarea,

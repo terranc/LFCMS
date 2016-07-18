@@ -11,18 +11,16 @@
 export default {
   props: {
     class: String,
-    width: String,
   },
   computed: {
     className() {
       return this.class;
     },
     styleObject() {
-      if (this.width) {
-        return {
-          width: this.width + 'em',
-        };
-      }
+      console.log(this.$el.innerText);
+      return {
+        width: (this.$el.innerText.replace(/[^x00-xff]/g, '00').length / 2 + 1) + 'em',
+      };
     },
   },
 };

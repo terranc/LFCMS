@@ -1,13 +1,14 @@
 <template>
-  <div class="weui_cells" :class="className">
+  <cells-title v-if="title">{{ title }}</cells-title>
+  <div class="weui_cells" :class="className" :style="style">
     <slot></slot>
   </div>
+  <cells-tips v-if="tips">{{ tips }}</cells-tips>
 </template>
 
-<style lang="scss">
-</style>
-
 <script>
+import CellsTitle from './cells-title.vue';
+import CellsTips from './cells-tips.vue';
 export default {
   props: {
     access: {
@@ -26,6 +27,9 @@ export default {
       type: Boolean,
     },
     class: String,
+    style: String,
+    title: String,
+    tips: String,
   },
   computed: {
     className() {
@@ -39,6 +43,10 @@ export default {
         },
       ];
     },
+  },
+  components: {
+    CellsTitle,
+    CellsTips,
   },
 };
 </script>

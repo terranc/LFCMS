@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <input class="weui_check" type="checkbox" :class="className" :value="value" :name="name" />
-    <span class="weui_icon_checked"></span>
-  </div>
+  <input class="weui_check" type="checkbox" :class="className" :value="value" :name="name" />
+  <span class="weui_icon_checked"></span>
 </template>
 
 <style lang="scss">

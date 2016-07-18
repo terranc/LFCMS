@@ -8,5 +8,8 @@ export const LFTabbar = {
   hide: () => {
     store.dispatch(types.HIDE_TABBAR);
   },
+  getState: () => {
+    return store.state.app.tabbarState;
+  },
 };
 

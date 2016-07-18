@@ -1,5 +1,5 @@
 <template>
-  <div :="attributes" :class="class" :style="style" @scroll="onScroll" v-el:main>
+  <div :="attributes" :class="className" :style="style" @scroll="onScroll" v-el:main>
     <slot></slot>
   </div>
 </template>
@@ -8,6 +8,7 @@
 </style>
 
 <script>
+import { LFTabbar } from '../../vuex/actions';
 export default {
   props: {
     uuid: {
@@ -21,9 +22,6 @@ export default {
     saveScrollWhenTo: {
       type: String,
       default: '',
-    },
-    class: {
-      type: String,
     },
     styles: {
       type: Object,
@@ -47,6 +45,15 @@ export default {
       } else {
         sessionStorage.removeItem(`scrollTop_${this.uuid}`);
       }
+    },
+  },
+  computed: {
+    className() {
+      let className = ['main'];
+      if (LFTabbar.getState()) {
+        className.push('main-footer');
+      }
+      return className;
     },
   },
 };
