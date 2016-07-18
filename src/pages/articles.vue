@@ -71,7 +71,7 @@ export default {
   methods: {
     getListOfArticle() {
       this.isFetching = true;
-      this.$refs.load.deferShowLoading();
+      this.$refs.load.deferShowLoading(0);
       return this.$http.get(`https://cnodejs.org/api/v1/topics?${querystring.stringify(this.query)}`).then((response) => {
         this.isFetching = false;
         this.$refs.load.reset();
@@ -85,7 +85,7 @@ export default {
       if (!this.isFetching) {
         const targetElm = e.target;
         const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-        if (totalTop >= targetElm.scrollHeight - 200) {
+        if (totalTop >= targetElm.scrollHeight - 50) {
           this.query.limit += 20;
           this.getListOfArticle();
         }
