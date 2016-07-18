@@ -1,19 +1,20 @@
 <template>
-  <input class="weui_input" :class="className" />
+    <input class="weui_input" />
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    class: String,
-  },
-  computed: {
-    className() {
-      return this.class;
+    warn: {
+      type: Boolean,
     },
+  },
+  ready() {
+    this.$parent.$parent.form = true;
+    if (this.warn) this.$parent.warn = true;
   },
 };
 </script>

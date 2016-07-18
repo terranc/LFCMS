@@ -4,17 +4,27 @@
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    access: Boolean,
-    radio: Boolean,
-    form: Boolean,
-    checkbox: Boolean,
-    switch: Boolean,
+    access: {
+      type: Boolean,
+    },
+    radio: {
+      type: Boolean,
+    },
+    form: {
+      type: Boolean,
+    },
+    checkbox: {
+      type: Boolean,
+    },
+    switch: {
+      type: Boolean,
+    },
     class: String,
   },
   computed: {

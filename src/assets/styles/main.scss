@@ -5,10 +5,15 @@
 @import "./libs/flexboxgrid.scss";
 @import "./libs/article-of-wechat.scss";
 
+
+//mixin
+@import "./mixin/rem.scss";
+@import "./mixin/px2rem.scss";
+
 // supports
 @import "./supports/variables.scss";
-@import "./supports/utils.scss";
 @import "./supports/base.scss";
+@import "./supports/utils.scss";
 @import "./supports/layout.scss";
 
 // components

@@ -1,19 +1,20 @@
 <template>
-  <input class="weui_switch" type="checkbox" :class="className" />
+  <input class="weui_switch" type="checkbox" />
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
-    class: String,
+  },
+  ready() {
+    this.$parent.switch = true;
+    this.$parent.$parent.switch = true;
+    this.$parent.$parent.form = true;
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

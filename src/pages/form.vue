@@ -1,145 +1,104 @@
 <template>
   <vue-helmet :title="title" v-ref:head></vue-helmet>
-  <div  class="wrapper" id="index">
+  <div class="wrapper" id="index">
     <validator name="form">
       <form class="main main-footer" @submit="onSubmit" novalidate>
-        <cells-title>这是分组</cells-title>
-        <cells :access="true">
-          <cell>
-            <cell-header>
-              <icon name="home" scale="1.25"></icon>
-            </cell-header>
-            <cell-body>账户</cell-body>
-            <cell-footer>LookFeel</cell-footer>
-          </cell>
-        </cells>
-        <cells-tips>这是tips</cells-tips>
+        <cells-title>带图标、说明的列表项</cells-title>
         <cells>
           <cell>
-            <cell-header>
-              <x-label>Email</x-label>
-            </cell-header>
-            <cell-body>
-              <x-input 
-                type="text" 
-                placeholder="请输入 email " 
-                maxlength="20" 
-                v-validate:email="['email']" 
-                initial="off"
-                detect-change="off">
-              </x-input>
-            </cell-body>
-            <cell-footer>
-              <i class="weui_icon_warn" v-if="$form.email.invalid"></i>
-            </cell-footer>
+            <icon name="home" scale="1.25" slot="header"></icon>
+            <slot slot="body">标题文字</slot>
+            <slot slot="footer">说明文字</slot>
           </cell>
-          <cell :switch="true">
-            <cell-header class="weui_cell_primary">
-              啊实打实的
-            </cell-header>
-            <cell-footer>
-              <x-switch value="1"></x-switch>
-            </cell-footer>
+          <cell href="http://baidu.com">
+            <slot slot="body">百度</slot>
+            <slot slot="footer">链接</slot>
           </cell>
           <cell>
-            <cell-body>
-              <x-textarea placeholder="多行输入框" maxlength="5"></x-textarea>
-            </cell-body>
-          </cell>
-          <cell :select="true">
-            <cell-header>
-              <x-label>数组下拉</x-label>
-            </cell-header>
-            <cell-body>
-              <x-select :options="['a','b','c','d']"></x-select>
-            </cell-body>
-          </cell>
-          <cell :select="true">
-            <cell-header>
-              <x-label>JSON下拉</x-label>
-            </cell-header>
-            <cell-body>
-              <x-select :options="{'a':1,'b':2}"></x-select>
-            </cell-body>
-          </cell>
-          <cell :select="true" select-pos="before">
-            <cell-header>
-              <x-select :options="{'+86':1, '+80': 2, '+84': 3, '+87': 4}"></x-select>
-            </cell-header>
-            <cell-body>
-              <x-input type="tel" placeholder="请输入手机号码" v-validate:cellphone="['cellphone']"></x-input>
-            </cell-body>
+            <icon name="home" scale="1.25" slot="header"></icon>
+            <cell-body>自定义body</cell-body>
+            <cell-footer>自定义footer</cell-footer>
           </cell>
         </cells>
-        <cells :radio="true">
-          <cell :radio="true">
-            <cell-header>
-              <icon name="home" scale="1.25"></icon>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的
-            </cell-body>
-            <cell-footer>
-              <x-radio name="aa[]" value="1"></x-radio>
-            </cell-footer>
+        <cells-title>文本框</cells-title>
+        <cells>
+          <cell>
+            <x-label slot="header">账号</x-label>
+            <x-input slot="body" name="username" placeholder="输入登录账号" :warn="true"></x-input>
           </cell>
-          <cell :radio="true">
-            <cell-header>
-              <icon name="home" scale="1.25"></icon>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的12
-            </cell-body>
-            <cell-footer>
-              <x-radio name="aa[]" value="2"></x-radio>
-            </cell-footer>
+          <cell>
+            <x-label slot="header">密码</x-label>
+            <x-input slot="body" name="password" type="password" placeholder="输入6~12位登录密码"></x-input>
+          </cell>
+          <cell>
+            <x-label slot="header">确认密码</x-label>
+            <x-input slot="body" name="repassword" type="password" placeholder="再次输入以上密码"></x-input>
+          </cell>
+          <cell vcode="http://adcentury.github.io/vue-weui/vcode.jpg?785e6badfde02d6b7c565e18cf56cca1">
+            <x-label slot="header" width="4">验证码</x-label>
+            <x-input slot="body" name="vcode"></x-input>
           </cell>
         </cells>
-        <cells :checkbox="true">
-          <cell :checkbox="true">
-            <cell-header>
-              <icon name="home" scale="1.25"></icon>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的
-            </cell-body>
-            <cell-footer>
-              <x-checkbox name="bb[]" value="1"></x-checkbox>
-            </cell-footer>
+        <cells-title>下拉框</cells-title>
+        <cells>
+          <cell>
+            <x-label slot="header">Array</x-label>
+            <x-select :options="['a','b','c']" slot="body"></x-select>
           </cell>
-          <cell :checkbox="true">
-            <cell-header>
-              <icon name="home" scale="1.25"></icon>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的12
-            </cell-body>
-            <cell-footer>
-              <x-checkbox name="bb[]" value="2"></x-checkbox>
-            </cell-footer>
+          <cell>
+            <x-label slot="header">JSON</x-label>
+            <x-select :options="{'a':1,'b':2,'c':3}" slot="body"></x-select>
           </cell>
         </cells>
-        <cells :checkbox="true">
-          <cell :checkbox="true">
-            <cell-header>
-              <x-checkbox name="bb[]" value="1"></x-checkbox>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的
-            </cell-body>
+        <cells-title>单选</cells-title>
+        <cells>
+          <cell>
+            <icon name="home" scale="1.25" slot="header"></icon>
+            <slot slot="body">选项1</slot>
+            <x-radio name="radio[]" slot="footer" value="1"></x-radio>
           </cell>
-          <cell :checkbox="true">
-            <cell-header>
-              <x-checkbox name="bb[]" value="2"></x-checkbox>
-            </cell-header>
-            <cell-body class="weui_cell_primary">
-              啊实打实的12
-            </cell-body>
+          <cell>
+            <slot slot="body">选项2</slot>
+            <x-radio name="radio[]" slot="footer" value="2"></x-radio>
           </cell>
         </cells>
-        <div class="weui_btn_area">
-          <button class="weui_btn weui_btn_primary"> 保存 </button>
-        </div>
+        <cells-title>多选框</cells-title>
+        <cells>
+          <cell>
+            <x-checkbox name="checkbox[]" slot="header" value="1"></x-checkbox>
+            <slot slot="body">选项1</slot>
+          </cell>
+          <cell>
+            <x-checkbox name="checkbox[]" slot="header" value="2"></x-checkbox>
+            <slot slot="body">选项2</slot>
+          </cell>
+          <cell>
+            <x-checkbox name="checkbox[]" slot="header" value="3"></x-checkbox>
+            <slot slot="body">选项3</slot>
+          </cell>
+        </cells>
+        <cells-title>开关</cells-title>
+        <cells>
+          <cell>
+            <icon name="home" scale="1.25" slot="header"></icon>
+            <slot slot="body">选项1</slot>
+            <x-switch name="switch" slot="footer" value="1"></x-switch>
+          </cell>
+          <cell>
+            <slot slot="body">选项1</slot>
+            <x-switch name="switch" slot="footer" value="1"></x-switch>
+          </cell>
+          <cell>
+            <x-textarea placeholder="请输入提示文字.."></x-textarea>
+          </cell>
+        </cells>
+        <cells-title>多行文本</cells-title>
+        <cells>
+          <cell>
+            <x-textarea placeholder="请输入提示文字.."></x-textarea>
+          </cell>
+        </cells>
+        <cells-tips style="text-align:center">注：最多1000字</cells-tips>
       </form>
     </validator>
   </div>
@@ -151,21 +110,21 @@
 <script>
 import VueHelmet from 'vue-helmet';
 import { 
-  Cells, 
-  Cell, 
-  CellHeader, 
-  CellFooter, 
-  CellBody, 
-  CellsTitle, 
+  Cells,
+  Cell,
+  CellHeader,
+  CellFooter,
+  CellBody,
+  CellsTitle,
   CellsTips,
 } from 'vux-extension/cell';
 import { 
-  xInput, 
-  xSwitch, 
-  xTextarea, 
-  xRadio, 
-  xCheckbox, 
-  xSelect, 
+  xInput,
+  xSwitch,
+  xTextarea,
+  xRadio,
+  xCheckbox,
+  xSelect,
   xUploader,
 } from 'vux-extension/form';
 import Validator from 'vue-validator';

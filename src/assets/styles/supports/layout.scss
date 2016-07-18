@@ -14,5 +14,14 @@
 
   .main-footer {
     margin-bottom: 55px;
+    padding-bottom: $weuiCellsMarginBottom;
+  }
+}
+.weui_cell_hd {
+  .fa,
+  .fa-icon,
+  img {
+    margin-right: 5px;
+    vertical-align: top;
   }
 }

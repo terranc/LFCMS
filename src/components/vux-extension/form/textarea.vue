@@ -1,20 +1,19 @@
 <template>
-  <textarea class="weui_textarea" v-model="value" :class="className"></textarea>
+  <textarea class="weui_textarea" v-model="value"></textarea>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
 export default {
   props: {
     value: String,
-    class: String,
+  },
+  ready() {
+    this.$parent.$parent.form = true;
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

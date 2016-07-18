@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style type="scss">
+<style lang="scss">
 </style>
 
 <script>
@@ -14,6 +14,11 @@ export default {
     name: String,
     value: String,
     class: String,
+  },
+  ready() {
+    this.$parent.checkbox = true;
+    this.$parent.$parent.checkbox = true;
+    this.$parent.$parent.form = true;
   },
   computed: {
     className() {

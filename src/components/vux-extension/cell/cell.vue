@@ -1,39 +1,54 @@
 <template>
   <component :is="component" class="weui_cell" :class="className" @click="onClick()">
+    <cell-header v-if="hasHeader"><slot name="header"></slot></cell-header>
+    <cell-body v-if="hasBody"><slot name="body"></slot></cell-body>
     <slot></slot>
-    <div class="weui_cell_ft" v-if="warn">
-      <i class="weui_icon_warn"></i>
-    </div>
+    <cell-footer v-if="!warn && hasFooter"><slot name="footer"></slot></cell-footer>
+    <cell-footer v-if="warn || vcode">
+      <i class="weui_icon_warn" v-if="warn"></i>
+      <img :src="vcode" v-if="vcode" />
+    </cell-footer>
   </component>
 </template>
 
-<style type="scss">
-.weui_cell_hd .fa,
-.weui_cell_hd .fa-icon,
-.weui_cell_hd img{
-  margin-right: 5px;
-  display: block;
-}
+<style lang="scss">
 </style>
 
 <script>
+import CellHeader from './cell-header.vue';
+import CellBody from './cell-body.vue';
+import CellFooter from './cell-footer.vue';
 export default {
   props: {
     href: {
       type: [String, Object],
     },
-    class: String,
-    htmlFor: Boolean,
-    switch: Boolean,
-    radio: Boolean,
-    select: Boolean,
-    checkbox: Boolean,
+    htmlFor: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    switch: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    radio: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    select: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
+    checkbox: {
+      type: Boolean,
+      coerce: (val) => !!val,
+    },
     selectPos: {
       type: String,
       default: 'after',
     },
     warn: Boolean,
-    vcode: Boolean,
+    vcode: String,
   },
   computed: {
     component() {
@@ -58,16 +73,28 @@ export default {
         },
       ];
     },
+    hasHeader() {
+      return !!this._slotContents.header;
+    },
+    hasBody() {
+      return !!this._slotContents.body;
+    },
+    hasFooter() {
+      return !!this._slotContents.footer;
+    },
   },
   methods: {
     onClick() {
-      this.$router.go(this.link, this.$router);
+      this.$router.go(this.href, this.$router);
     },
   },
   components: {
     CellLink: { template: '<a><slot></slot></a>' },
     CellNormal: { template: '<div><slot></slot></div>' },
     CellLabel: { template: '<label><slot></slot></label>' },
+    CellHeader,
+    CellFooter,
+    CellBody,
   },
 };
 </script>
