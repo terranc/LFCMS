@@ -1,6 +1,13 @@
 <template>
+<<<<<<< HEAD
   <input class="weui_check" type="radio" :class="className" :value="value" :name="name" />
   <span class="weui_icon_checked"></span>
+=======
+  <div>
+    <input class="weui_check" type="radio" :value="value" :name="name" />
+    <span class="weui_icon_checked"></span>
+  </div>
+>>>>>>> 53b59a6b8a5db5cc559ea8c558b5dbcb012442cb
 </template>
 
 <style lang="scss">
@@ -11,7 +18,6 @@ export default {
   props: {
     name: String,
     value: String,
-    class: String,
   },
   ready() {
     this.$parent.radio = true;
@@ -19,9 +25,6 @@ export default {
     this.$parent.$parent.form = true;
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

@@ -11,7 +11,6 @@ export default {
   props: {
     name: String,
     value: String,
-    class: String,
   },
   ready() {
     this.$parent.checkbox = true;
@@ -19,9 +18,6 @@ export default {
     this.$parent.$parent.form = true;
   },
   computed: {
-    className() {
-      return this.class;
-    },
   },
 };
 </script>

@@ -38,6 +38,8 @@ export default {
       }
       return this.options;
     },
+=======
+>>>>>>> 53b59a6b8a5db5cc559ea8c558b5dbcb012442cb
   },
 };
 </script>

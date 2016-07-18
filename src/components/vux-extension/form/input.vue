@@ -1,5 +1,5 @@
 <template>
-    <input class="weui_input" />
+  <input class="weui_input" />
 </template>
 
 <style lang="scss">
@@ -11,6 +11,8 @@ export default {
     warn: {
       type: Boolean,
     },
+  },
+  computed: {
   },
   ready() {
     this.$parent.$parent.form = true;

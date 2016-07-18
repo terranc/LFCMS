@@ -11,9 +11,6 @@
   </component>
 </template>
 
-<style lang="scss">
-</style>
-
 <script>
 import CellHeader from './cell-header.vue';
 import CellBody from './cell-body.vue';
@@ -63,7 +60,7 @@ export default {
       return [
         this.class, 
         {
-          'weui_check_label': this.htmlFor || this.radio || this.checkbox, 
+          'weui_check_label': this.htmlFor || this.radio || this.checkbox || this.$parent.radio || this.$parent.checkbox, 
           'weui_cell_select': this.select, 
           'weui_cell_switch': this.switch,
           'weui_select_before': (this.select && this.selectPos) === 'before',

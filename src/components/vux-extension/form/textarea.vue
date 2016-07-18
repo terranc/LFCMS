@@ -10,9 +10,6 @@ export default {
   props: {
     value: String,
   },
-  ready() {
-    this.$parent.$parent.form = true;
-  },
   computed: {
   },
 };

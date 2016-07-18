@@ -47,48 +47,128 @@
             <x-select :options="{'a':1,'b':2,'c':3}" slot="body"></x-select>
           </cell>
         </cells>
-        <cells title="单选">
+        <cells-tips>这是tips</cells-tips>
+        <cells>
           <cell>
-            <icon name="home" scale="1.25" slot="header"></icon>
-            <slot slot="body">选项1</slot>
-            <x-radio name="radio[]" slot="footer" value="1"></x-radio>
+            <cell-header>
+              <x-label>Email</x-label>
+            </cell-header>
+            <cell-body>
+              <x-input 
+                type="text" 
+                placeholder="请输入 email " 
+                maxlength="20" 
+                v-validate:email="['email']" 
+                initial="off"
+                detect-change="off">
+              </x-input>
+            </cell-body>
+            <cell-footer>
+              <i class="weui_icon_warn" v-if="$form.email.invalid"></i>
+            </cell-footer>
+          </cell>
+          <cell :switch="true">
+            <cell-header>
+              啊实打实的
+            </cell-header>
+            <cell-footer>
+              <x-switch value="1"></x-switch>
+            </cell-footer>
           </cell>
           <cell>
-            <slot slot="body">选项2</slot>
-            <x-radio name="radio[]" slot="footer" value="2"></x-radio>
+            <cell-body>
+              <x-textarea placeholder="多行输入框" maxlength="5"></x-textarea>
+            </cell-body>
+          </cell>
+          <cell>
+            <cell-header>
+              <x-label>数组下拉</x-label>
+            </cell-header>
+            <cell-body>
+              <x-select :options="['a','b','c','d']"></x-select>
+            </cell-body>
+          </cell>
+          <cell>
+            <cell-header>
+              <x-label>JSON下拉</x-label>
+            </cell-header>
+            <cell-body>
+              <x-select :options="{'a':1,'b':2}"></x-select>
+            </cell-body>
+          </cell>
+          <cell select-pos="before">
+            <cell-header>
+              <x-select :options="{'+86':1, '+80': 2, '+84': 3, '+87': 4}"></x-select>
+            </cell-header>
+            <cell-body>
+              <x-input type="tel" placeholder="请输入手机号码" v-validate:cellphone="['cellphone']"></x-input>
+            </cell-body>
           </cell>
         </cells>
-        <cells title="多选框">
+        <cells :radio="true">
           <cell>
-            <x-checkbox name="checkbox[]" slot="header" value="1"></x-checkbox>
-            <slot slot="body">选项1</slot>
+            <cell-header>
+              <icon name="home" scale="1.25"></icon>
+            </cell-header>
+            <cell-body>
+              啊实打实的
+            </cell-body>
+            <cell-footer>
+              <x-radio name="aa[]" value="1"></x-radio>
+            </cell-footer>
           </cell>
           <cell>
-            <x-checkbox name="checkbox[]" slot="header" value="2"></x-checkbox>
-            <slot slot="body">选项2</slot>
-          </cell>
-          <cell>
-            <x-checkbox name="checkbox[]" slot="header" value="3"></x-checkbox>
-            <slot slot="body">选项3</slot>
-          </cell>
-        </cells>
-        <cells title="开关">
-          <cell>
-            <icon name="home" scale="1.25" slot="header"></icon>
-            <slot slot="body">选项1</slot>
-            <x-switch name="switch" slot="footer" value="1"></x-switch>
-          </cell>
-          <cell>
-            <slot slot="body">选项1</slot>
-            <x-switch name="switch" slot="footer" value="1"></x-switch>
-          </cell>
-          <cell>
-            <x-textarea placeholder="请输入提示文字.."></x-textarea>
+            <cell-header>
+              <icon name="home" scale="1.25"></icon>
+            </cell-header>
+            <cell-body>
+              啊实打实的12
+            </cell-body>
+            <cell-footer>
+              <x-radio name="aa[]" value="2"></x-radio>
+            </cell-footer>
           </cell>
         </cells>
-        <cells title="多行文本" tips="注：最多1000字">
+        <cells :checkbox="true">
           <cell>
-            <x-textarea placeholder="请输入提示文字.."></x-textarea>
+            <cell-header>
+              <icon name="home" scale="1.25"></icon>
+            </cell-header>
+            <cell-body>
+              啊实打实的
+            </cell-body>
+            <cell-footer>
+              <x-checkbox name="bb[]" value="1"></x-checkbox>
+            </cell-footer>
+          </cell>
+          <cell>
+            <cell-header>
+              <icon name="home" scale="1.25"></icon>
+            </cell-header>
+            <cell-body>
+              啊实打实的12
+            </cell-body>
+            <cell-footer>
+              <x-checkbox name="bb[]" value="2"></x-checkbox>
+            </cell-footer>
+          </cell>
+        </cells>
+        <cells :checkbox="true">
+          <cell>
+            <cell-header>
+              <x-checkbox name="bb[]" value="1"></x-checkbox>
+            </cell-header>
+            <cell-body>
+              啊实打实的
+            </cell-body>
+          </cell>
+          <cell>
+            <cell-header>
+              <x-checkbox name="bb[]" value="2"></x-checkbox>
+            </cell-header>
+            <cell-body>
+              啊实打实的12
+            </cell-body>
           </cell>
         </cells>
       </form>
