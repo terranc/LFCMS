@@ -2,8 +2,14 @@
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
     <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
-      <group :title='content'>
+      <group :title='content' v-if="listOfArticle.length > 0">
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
+      </group>
+      <group v-if="listOfArticle.length > 0 && isAutoLoad === false">
+        <x-button @click="onMoreClick">
+          <span v-if="!isFetching">加载更多</span>
+          <spinner type="ios" v-if="isFetching"></spinner>
+        </x-button>
       </group>
     </content-wrapper>
   </div>
@@ -17,12 +23,32 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
+import Spinner from 'vux-components/spinner';
+import XButton from 'vux-components/x-button';
 import Load from 'components/vux-extension/load';
 import ContentWrapper from 'components/vux-extension/content-wrapper';
 import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
+  props: {
+    isAutoLoad: {
+      type: Boolean,
+      default: false,
+    },
+    isFetching: {
+      type: Boolean,
+      default: false,
+    },
+    increment: {
+      type: Number,
+      default: 20,
+    },
+    autoLoadDistance: {
+      type: Number,
+      default: 1,
+    },
+  },
   ready() {
     LFTabbar.show();
   },
@@ -33,7 +59,6 @@ export default {
       query: {
         limit: 20,
       },
-      isFetching: false,
       listOfArticle: [],
     };
   },
@@ -43,6 +68,8 @@ export default {
     Cell,
     Load,
     ContentWrapper,
+    Spinner,
+    XButton,
   },
   route: {
     data(transition) {
@@ -50,6 +77,7 @@ export default {
         this.getListOfArticle();
       } else {
         this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
+        this.query = JSON.parse(sessionStorage.query);
       }
     },
     activate(transition) {
@@ -82,14 +110,18 @@ export default {
       });    
     },
     getListOfArticleOnScroll(e) {
-      if (!this.isFetching) {
+      if (!this.isFetching && this.isAutoLoad) {
         const targetElm = e.target;
         const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-        if (totalTop >= targetElm.scrollHeight - 50) {
-          this.query.limit += 20;
+        if (totalTop >= targetElm.scrollHeight - this.autoLoadDistance) {
+          this.query.limit += this.increment;
           this.getListOfArticle();
         }
       }
+    },
+    onMoreClick() {
+      this.query.limit += this.increment;
+      this.getListOfArticle();
     },
   },
 };
