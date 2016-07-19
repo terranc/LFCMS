@@ -17,9 +17,8 @@ export default {
       return this.class;
     },
     styleObject() {
-      console.log(this.$el.innerText);
       return {
-        width: (this.$el.innerText.replace(/[^x00-xff]/g, '00').length / 2 + 1) + 'em',
+        width: (this._slotContents.default.textContent.replace(/[^x00-xff]/g, '00').length / 2 + 1) + 'em',
       };
     },
   },

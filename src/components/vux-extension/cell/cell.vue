@@ -71,13 +71,13 @@ export default {
       ];
     },
     hasHeader() {
-      return !!this._slotContents.header;
+      return 'header' in this._slotContents;
     },
     hasBody() {
-      return !!this._slotContents.body;
+      return 'body' in this._slotContents;
     },
     hasFooter() {
-      return !!this._slotContents.footer;
+      return 'footer' in this._slotContents;
     },
   },
   methods: {

@@ -137,6 +137,10 @@
             </label>
           </div>
         </group>
+        <group title="Default">
+          <switch title="default setting"></switch>
+          <switch title="default true" :value="true"></switch>
+        </group>
 
         <div class="weui_btn_area">
           <button class="weui_btn weui_btn_primary"> 保存 </button>
@@ -154,6 +158,7 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
+import Switch from 'vux-components/switch';
 import Validator from 'vue-validator';
 import Toptips from 'vux-extension/toptips';
 
@@ -171,6 +176,7 @@ export default {
     VueHelmet,
     Group,
     Cell,
+    Switch,
     Validator,
     Toptips,
   },

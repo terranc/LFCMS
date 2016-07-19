@@ -2,7 +2,7 @@
   <vue-helmet :title="title" v-ref:head></vue-helmet>
   <div class="wrapper" id="index">
     <validator name="form">
-      <form class="main main-footer" @submit="onSubmit" novalidate>
+      <form class="main main-footer" @submit="submit" novalidate>
         <cells title="带图标、说明的列表项">
           <cell>
             <icon name="home" scale="1.25" slot="header"></icon>
@@ -22,7 +22,7 @@
         <cells title="文本框">
           <cell>
             <x-label slot="header">账号</x-label>
-            <x-input slot="body" name="username" placeholder="输入登录账号" :warn="true"></x-input>
+            <x-input slot="body" name="username" placeholder="输入登录账号"></x-input>
           </cell>
           <cell>
             <x-label slot="header">密码</x-label>
@@ -47,8 +47,7 @@
             <x-select :options="{'a':1,'b':2,'c':3}" slot="body"></x-select>
           </cell>
         </cells>
-        <cells-tips>这是tips</cells-tips>
-        <cells>
+        <cells tips="这是tips">
           <cell>
             <cell-header>
               <x-label>Email</x-label>
@@ -171,6 +170,9 @@
             </cell-body>
           </cell>
         </cells>
+        <div class="weui_btn_area">
+          <x-button type="primary">提交</x-button>
+        </div>
       </form>
     </validator>
   </div>
@@ -199,6 +201,7 @@ import {
 } from 'vux-extension/form';
 import Validator from 'vue-validator';
 import xLabel from 'vux-extension/label/label';
+import { XButton } from 'vux';
 import Icon from 'vue-awesome';
 import { LFTabbar } from '../vuex/actions';
 
@@ -210,7 +213,8 @@ export default {
     handlerChange: (file) => {
       $.weui.alert(file.name);
     },
-    onSubmit(e) {
+    submit(e) {
+      console.log($('[name=username]', e.target).closest('.weui_cell').addClass('weui_cell_warn'));
       e.preventDefault();
     },
   },
@@ -231,6 +235,7 @@ export default {
     xSelect,
     xUploader,
     xLabel,
+    XButton,
   },
 };
 </script>

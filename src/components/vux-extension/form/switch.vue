@@ -7,9 +7,6 @@
 
 <script>
 export default {
-  ready() {
-    this.$parent.$parent.switch = true;
-  },
   props: {
   },
   ready() {
