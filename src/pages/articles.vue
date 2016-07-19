@@ -3,10 +3,10 @@
   <div class="wrapper" id="articles">
     <list-wrapper 
       class="main main-footer"
-      @on-getmore="getMore"  
-      v-ref:main
       url="https://cnodejs.org/api/v1/topics"
+      v-ref:main
       :query="query"
+      @on-getmore="getMore"  
       @on-attached="onListDone"
       >
       <group :title='content' v-if="listOfArticle.length > 0">

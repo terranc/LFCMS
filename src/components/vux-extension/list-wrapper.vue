@@ -90,6 +90,7 @@ export default {
   },
 
   methods: {
+    // api
     reset() {
       this.removeScrollCache();
       this.removeDataCache();
@@ -98,19 +99,6 @@ export default {
       this.setScrollCache();
       this.setDataCache();
     },
-    // scroll
-    setScrollCache(e) {
-      sessionStorage[`scrollTop_${this.uuid}`] = this.$els.main.scrollTop;
-    },
-    removeScrollCache() {
-      sessionStorage.removeItem(`scrollTop_${this.uuid}`);
-    },
-    setScrollTopFromCache() {
-      if (this.isSaveScrollPosition) {
-        this.$els.main.scrollTop = sessionStorage[`scrollTop_${this.uuid}`];
-      }
-    },
-    // dataCache
     fetchData(option = { url: this.url, query: this.query }) {
       this.url = option.url || this.url;
       this.query = option.query || this.query;
@@ -130,6 +118,19 @@ export default {
         return response;
       });    
     },
+    // scrollCache
+    setScrollCache(e) {
+      sessionStorage[`scrollTop_${this.uuid}`] = this.$els.main.scrollTop;
+    },
+    removeScrollCache() {
+      sessionStorage.removeItem(`scrollTop_${this.uuid}`);
+    },
+    setScrollTopFromCache() {
+      if (this.isSaveScrollPosition) {
+        this.$els.main.scrollTop = sessionStorage[`scrollTop_${this.uuid}`];
+      }
+    },
+    // dataCache
     setDataFromCache() {
       if (sessionStorage[`contentWrapperDataCache_${this.uuid}`]) {
         this.data = JSON.parse(sessionStorage[`contentWrapperDataCache_${this.uuid}`]);
@@ -156,8 +157,6 @@ export default {
       this.onGetMore();
     },
     onGetMore() {
-      // this.query[this.limitKey] += this.increment;
-      // this.fetchData();
       this.$emit('on-getmore', {
         url: this.url,
         query: this.query,
