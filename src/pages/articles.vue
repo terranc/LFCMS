@@ -1,19 +1,19 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
+    <list-wrapper 
+      class="main main-footer"
+      @on-getmore="getMore"  
+      v-ref:main
+      url="https://cnodejs.org/api/v1/topics"
+      :query="query"
+      @on-attached="onListDone"
+      >
       <group :title='content' v-if="listOfArticle.length > 0">
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>
-      <group v-if="listOfArticle.length > 0 && isAutoLoad === false">
-        <x-button @click="onMoreClick">
-          <span v-if="!isFetching">加载更多</span>
-          <spinner type="ios" v-if="isFetching"></spinner>
-        </x-button>
-      </group>
-    </content-wrapper>
+    </list-wrapper>
   </div>
-  <load v-ref:load></load>
 </template>
 
 <style lang="scss">
@@ -23,34 +23,21 @@
 import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import Spinner from 'vux-components/spinner';
-import XButton from 'vux-components/x-button';
-import Load from 'components/vux-extension/load';
-import ContentWrapper from 'components/vux-extension/content-wrapper';
-import querystring from 'querystring';
+import ListWrapper from 'components/vux-extension/list-wrapper';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
   props: {
-    isAutoLoad: {
-      type: Boolean,
-      default: false,
-    },
-    isFetching: {
-      type: Boolean,
-      default: false,
-    },
     increment: {
       type: Number,
       default: 20,
     },
-    autoLoadDistance: {
-      type: Number,
-      default: 1,
-    },
   },
   ready() {
     LFTabbar.show();
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.removeItem('articlesQuery');
+    });
   },
   data() {
     return {
@@ -66,62 +53,36 @@ export default {
     VueHelmet,
     Group,
     Cell,
-    Load,
-    ContentWrapper,
-    Spinner,
-    XButton,
+    ListWrapper,
   },
   route: {
-    data(transition) {
-      if (sessionStorage.listOfArticle == null || transition.from.name !== 'article') {
-        this.getListOfArticle();
-      } else {
-        this.listOfArticle = JSON.parse(sessionStorage.listOfArticle);
-        this.query = JSON.parse(sessionStorage.query);
-      }
-    },
     activate(transition) {
-      this.$refs.main.activate(transition);
+      if (sessionStorage.articlesQuery) {
+        this.query = JSON.parse(sessionStorage.articlesQuery);
+      }
       transition.next();
     },
     deactivate(transition) {
-      if (transition.to.name === 'article') {
-        sessionStorage.listOfArticle = JSON.stringify(this.listOfArticle);
-        sessionStorage.query = JSON.stringify(this.query);
-      } else {
-        sessionStorage.removeItem('listOfArticle');
-        sessionStorage.removeItem('query');
-      }
-      this.$refs.main.deactivate(transition);
+      this.$refs.main.cache();
+      sessionStorage.articlesQuery = JSON.stringify(this.query);
       transition.next();
     },
   },
   methods: {
-    getListOfArticle() {
-      this.isFetching = true;
-      this.$refs.load.deferShowLoading(0);
-      return this.$http.get(`https://cnodejs.org/api/v1/topics?${querystring.stringify(this.query)}`).then((response) => {
-        this.isFetching = false;
-        this.$refs.load.reset();
-        this.listOfArticle = response.data.data;
-      }, () => {
-        this.isFetching = false;
-        this.$refs.load.showFail();
-      });    
+    onListDone(cache) {
+      if (cache == null || cache.data == null) {
+        this.$refs.main.fetchData().then((response) => {
+          this.listOfArticle = response.data.data;
+        });
+      } else {
+        this.listOfArticle = cache.data;
+      }    
     },
-    getListOfArticleOnScroll(e) {
-      if (!this.isFetching && this.isAutoLoad) {
-        const targetElm = e.target;
-        const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-        if (totalTop >= targetElm.scrollHeight - this.autoLoadDistance) {
-          this.query.limit += this.increment;
-          this.getListOfArticle();
-        }
-      }
-    },
-    onMoreClick() {
+    getMore() {
       this.query.limit += this.increment;
-      this.getListOfArticle();
+      this.$refs.main.fetchData({ query: this.query }).then((response) => {
+        this.listOfArticle = response.data.data;
+      });
     },
   },
 };
