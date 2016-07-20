@@ -1,10 +1,16 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <div div class="wrapper" id="timeout">
-    <main class="main main-footer">
-      <tip>请求超时</tip>
-      <x-button type="primary" @click="reload">重新加载</x-button> 
-    </main>
+  <div class="weui_msg">
+    <div class="weui_icon_area"><i class="weui_icon_warn weui_icon_msg"></i></div>
+    <div class="weui_text_area">
+      <h2 class="weui_msg_title">{{ message }}</h2>
+      <p class="weui_msg_desc">{{ detail }}</p>
+    </div>
+    <div class="weui_opr_area">
+      <p class="weui_btn_area">
+        <a class="weui_btn weui_btn_primary" @click="reload">重新加载</a>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -20,6 +26,8 @@ export default {
   data() {
     return {
       title: '悲剧啦',
+      message: '请求超时',
+      detail: '',
     };
   },
   components: {

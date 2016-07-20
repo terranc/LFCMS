@@ -1,4 +1,5 @@
 <template>
+  <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="weui_msg">
     <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
     <div class="weui_text_area">
@@ -18,6 +19,7 @@
 </style>
 
 <script>
+import VueHelmet from 'vue-helmet';
 import querystring from 'querystring';
 
 export default {
@@ -27,6 +29,9 @@ export default {
       default() {
         return this.$route.query.message || '操作成功';
       },
+    },
+    title: {
+      type: String,
     },
     text: {
       type: String,
@@ -58,6 +63,14 @@ export default {
         return this.$route.query.redirectWhenCancel ? querystring.parse(this.$route.query.redirectWhenCancel) : '';
       },
     },
+  },
+  data() {
+    return {
+      title: '成功',
+    };
+  },
+  components: {
+    VueHelmet,
   },
 };
 </script>
