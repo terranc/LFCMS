@@ -1,19 +1,18 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <list-wrapper 
+    <list-wrapper
       class="main main-footer"
-      url="https://cnodejs.org/api/v1/topics"
       v-ref:main
-      :query="query"
-      @on-getmore="getMore"  
-      @on-attached="onListDone"
+      :data="listOfArticle"
+      @on-getmore="fetchMore"  
       >
-      <group :title='content' v-if="listOfArticle.length > 0">
+      <group :title='content' v-if="listOfArticle">
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>
     </list-wrapper>
   </div>
+  <load v-ref:load></load>
 </template>
 
 <style lang="scss">
@@ -24,36 +23,37 @@ import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import ListWrapper from 'components/vux-extension/list-wrapper';
+import Load from 'components/vux-extension/load';
+import querystring from 'querystring';
 import { LFTabbar } from '../vuex/actions';
 
 export default {
-  props: {
-    increment: {
-      type: Number,
-      default: 20,
-    },
+  data() {
+    return {
+      content: 'articles page',
+      title: 'articles',
+      listOfArticle: [],
+      increment: 20,
+      isFetching: false,
+      query: {
+        limit: 20,
+      },
+      url: 'https://cnodejs.org/api/v1/topics',
+    };
   },
   ready() {
     LFTabbar.show();
     window.addEventListener('beforeunload', () => {
       sessionStorage.removeItem('articlesQuery');
     });
-  },
-  data() {
-    return {
-      content: 'articles page',
-      title: 'articles',
-      query: {
-        limit: 20,
-      },
-      listOfArticle: [],
-    };
+    this.initData();
   },
   components: {
     VueHelmet,
     Group,
     Cell,
     ListWrapper,
+    Load,
   },
   route: {
     activate(transition) {
@@ -69,20 +69,31 @@ export default {
     },
   },
   methods: {
-    onListDone(cache) {
-      if (cache == null || cache.data == null) {
-        this.$refs.main.fetchData().then((response) => {
-          this.listOfArticle = response.data.data;
-        });
+    fetchData() {
+      this.$refs.load.deferShowLoading(0);
+      this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
+        this.isFetching = false;
+        this.$refs.load.reset();
+        this.listOfArticle = response.data.data;
+        return response;
+      }, (response) => {
+        this.isFetching = false;
+        this.$refs.load.showFail();
+        return response;
+      });    
+    },
+    initData() {
+      if (this.$refs.main.data.length === 0) {
+        this.fetchData();
       } else {
-        this.listOfArticle = cache.data;
+        this.listOfArticle = this.$refs.main.data;
       }    
     },
-    getMore() {
-      this.query.limit += this.increment;
-      this.$refs.main.fetchData({ query: this.query }).then((response) => {
-        this.listOfArticle = response.data.data;
-      });
+    fetchMore() {
+      if (!this.isFetching) {
+        this.query.limit += this.increment;
+        this.fetchData();
+      }
     },
   },
 };

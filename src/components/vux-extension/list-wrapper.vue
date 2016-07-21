@@ -1,13 +1,13 @@
 <template>
   <div v-el:main @scroll="onScroll">
     <slot></slot>
-    <group v-if="data && isAutoLoad === false">
-      <x-button @click="onMoreClick">
-        <span v-if="!isFetching">加载更多</span>
-        <spinner :type="iconTypeOfLoadMore" v-if="isFetching"></spinner>
-      </x-button>
-    </group>
-    <load v-ref:load></load>
+    <slot name="loadmore">
+      <group v-if="data && isAutoLoad === false">
+        <x-button @click="onMoreClick">
+          <span>加载更多</span>
+        </x-button>
+      </group>
+    </slot>
   </div>
 </template>
 
@@ -16,35 +16,28 @@
 
 <script>
 import Group from 'vux-components/group';
-import Spinner from 'vux-components/spinner';
 import XButton from 'vux-components/x-button';
-import Load from 'components/vux-extension/load';
-import querystring from 'querystring';
+
+const getScrollCacheName = (uuid) => `contentWrapperscrollTopCache_${uuid}`;
+const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
+
+const getDataCacheName = (uuid) => `contentWrapperDataCache_${uuid}`;
+const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
 
 export default {
   props: {
-    uuid: {
-      type: Number,
-      default: + new Date(),
-    },
-    isSaveScrollPosition: {
+    isCacheScrollPosition: {
       type: Boolean,
       default: true,
+    },
+    isCacheData: {
+      type: Boolean,
+      default: true,    
     },
     data: {
       type: [Object, Array],
     },
-    url: {
-      type: String,
-    },
-    query: {
-      type: Object,
-    },
     isAutoLoad: {
-      type: Boolean,
-      default: false,
-    },
-    isFetching: {
       type: Boolean,
       default: false,
     },
@@ -52,28 +45,13 @@ export default {
       type: Number,
       default: 1,
     },
-    loadingDefer: {
+    uuid: {
       type: Number,
-      default: 0,
-    },
-    iconTypeOfLoadMore: {
-      type: String,
-      default: 'ios',
-    },
-    onFetchStart: {
-      type: Function,
-    },
-    onFetchDone: {
-      type: Function,
-    },
-    onFetchError: {
-      type: Function,
+      default: + new Date(),
     },
   },
   components: {
     Group,
-    Load,
-    Spinner,
     XButton,
   },
   ready() {
@@ -83,7 +61,6 @@ export default {
   },
   attached() {
     this.setDataFromCache();
-    this.$emit('on-attached', this.data);
     this.$nextTick(() => {
       this.setScrollTopFromCache();
     });
@@ -99,52 +76,41 @@ export default {
       this.setScrollCache();
       this.setDataCache();
     },
-    fetchData(option = { url: this.url, query: this.query }) {
-      this.url = option.url || this.url;
-      this.query = option.query || this.query;
-      this.isFetching = true;
-      this.$emit('on-fetch-start');
-      this.$refs.load.deferShowLoading(this.loadingDefer);
-      return this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-        this.isFetching = false;
-        this.$refs.load.reset();
-        this.data = response.data;
-        this.$emit('on-fetch-done', response);
-        return response;
-      }, (response) => {
-        this.isFetching = false;
-        this.$refs.load.showFail();
-        this.$emit('on-fetch-error', response);
-        return response;
-      });    
-    },
     // scrollCache
     setScrollCache(e) {
-      sessionStorage[`scrollTop_${this.uuid}`] = this.$els.main.scrollTop;
+      if (this.isCacheScrollPosition) {
+        sessionStorage[getScrollCacheName(this.uuid)] = this.$els.main.scrollTop;
+      }
     },
     removeScrollCache() {
-      sessionStorage.removeItem(`scrollTop_${this.uuid}`);
+      if (hasScrollCache(this.uuid)) {
+        sessionStorage.removeItem(getScrollCacheName(this.uuid));
+      }
     },
     setScrollTopFromCache() {
-      if (this.isSaveScrollPosition) {
-        this.$els.main.scrollTop = sessionStorage[`scrollTop_${this.uuid}`];
+      if (hasScrollCache(this.uuid)) {
+        this.$els.main.scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
       }
     },
     // dataCache
     setDataFromCache() {
-      if (sessionStorage[`contentWrapperDataCache_${this.uuid}`]) {
-        this.data = JSON.parse(sessionStorage[`contentWrapperDataCache_${this.uuid}`]);
+      if (hasDataCache(this.uuid)) {
+        this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
       }
     },
     setDataCache() {
-      sessionStorage[`contentWrapperDataCache_${this.uuid}`] = JSON.stringify(this.data);
+      if (this.isCacheData) {
+        sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
+      }
     },
     removeDataCache() {
-      sessionStorage.removeItem(`contentWrapperDataCache_${this.uuid}`);
+      if (hasDataCache(this.uuid)) {
+        sessionStorage.removeItem(getDataCacheName(this.uuid));
+      }
     },
     // onScroll
     onScroll(e) {
-      if (!this.isFetching && this.isAutoLoad) {
+      if (this.isAutoLoad) {
         const targetElm = e.target;
         const totalTop = targetElm.scrollTop + targetElm.clientHeight;
         if (totalTop >= targetElm.scrollHeight - this.autoLoadDistance) {
@@ -157,10 +123,7 @@ export default {
       this.onGetMore();
     },
     onGetMore() {
-      this.$emit('on-getmore', {
-        url: this.url,
-        query: this.query,
-      });
+      this.$emit('on-getmore');
     },
   },
 };
