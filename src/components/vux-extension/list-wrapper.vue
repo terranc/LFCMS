@@ -50,6 +50,11 @@ export default {
       default: + new Date(),
     },
   },
+  data() {
+    return {
+      scrollTop: 0,
+    };
+  },
   components: {
     Group,
     XButton,
@@ -65,7 +70,9 @@ export default {
       this.setScrollTopFromCache();
     });
   },
-
+  detached() {
+    this.cache();
+  },
   methods: {
     // api
     reset() {
@@ -79,7 +86,7 @@ export default {
     // scrollCache
     setScrollCache(e) {
       if (this.isCacheScrollPosition) {
-        sessionStorage[getScrollCacheName(this.uuid)] = this.$els.main.scrollTop;
+        sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
       }
     },
     removeScrollCache() {
@@ -110,8 +117,9 @@ export default {
     },
     // onScroll
     onScroll(e) {
+      const targetElm = e.target;
+      this.scrollTop = targetElm.scrollTop;
       if (this.isAutoLoad) {
-        const targetElm = e.target;
         const totalTop = targetElm.scrollTop + targetElm.clientHeight;
         if (totalTop >= targetElm.scrollHeight - this.autoLoadDistance) {
           this.onGetMore();

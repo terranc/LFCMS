@@ -63,7 +63,6 @@ export default {
       transition.next();
     },
     deactivate(transition) {
-      this.$refs.main.cache();
       sessionStorage.articlesQuery = JSON.stringify(this.query);
       transition.next();
     },
