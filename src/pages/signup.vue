@@ -66,7 +66,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Validator from 'vue-validator';
 import Group from 'vux-components/group';
 import XInput from 'vux-components/x-input';
@@ -74,13 +73,13 @@ import Checklist from 'vux-components/checklist';
 import XButton from 'vux-components/x-button';
 import Radio from 'vux-components/radio';
 import Selector from 'vux-components/selector';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
 import Toptips from 'vux-extension/toptips';
 
 export default {
   ready() {
     this.$refs.toptips.show = true;
-    LFTabbar.show();
+    Action.Tabbar.show();
   },
   data() {
     return {
@@ -94,7 +93,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     XInput,
     Checklist,

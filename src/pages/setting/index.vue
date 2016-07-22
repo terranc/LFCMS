@@ -27,14 +27,13 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import { LFTabbar } from '../../vuex/actions';
+import Action from '../../vuex/actions';
 
 export default {
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
   },
   data() {
     return {
@@ -42,7 +41,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
   },

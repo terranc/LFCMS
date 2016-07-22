@@ -22,7 +22,7 @@ export default {
   },
   components: {
     VueHelmet,
-    Status,
+    Status
   },
   methods: {
     reload() {
