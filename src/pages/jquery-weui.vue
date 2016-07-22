@@ -25,8 +25,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
-
 // https://github.com/lihongxun945/jquery-weui/issues/224
 import 'jquery-weui/dist/js/jquery-weui';
 export default {
@@ -38,7 +36,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
   },
   methods: {
     showWeuiAlert() {

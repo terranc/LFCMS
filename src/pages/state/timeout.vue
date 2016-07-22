@@ -12,7 +12,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import XButton from 'vux-components/x-button';
 import Tip from 'vux-components/tip';
 
@@ -23,7 +22,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     XButton,
     Tip,
   },

@@ -8,7 +8,7 @@
 </style>
 
 <script>
-import { LFTabbar } from '../../vuex/actions';
+import Action from '../../vuex/actions';
 export default {
   props: {
     uuid: {
@@ -50,7 +50,7 @@ export default {
   computed: {
     className() {
       let className = ['main'];
-      if (LFTabbar.getState()) {
+      if (Action.Tabbar.getState()) {
         className.push('main-footer');
       }
       return className;

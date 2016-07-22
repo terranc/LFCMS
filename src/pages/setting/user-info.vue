@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="account">
-    <validator name="info">
+    <!-- <validator name="info"> -->
       <form class="main" @submit="onSubmit" novalidate>
        
         <group>
@@ -147,7 +147,7 @@
         </div>
         <Toptips v-ref:toptips>{{ errorInfo }}</Toptips>
       </form>
-    </validator>
+    <!-- </validator> -->
   </div>
 </template>
 
@@ -155,11 +155,10 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
-import Validator from 'vue-validator';
+// import Validator from 'vue-validator';
 import Toptips from 'vux-extension/toptips';
 
 export default {
@@ -173,11 +172,10 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Switch,
-    Validator,
+    // Validator,
     Toptips,
   },
   methods: {

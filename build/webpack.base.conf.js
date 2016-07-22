@@ -6,7 +6,7 @@ var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
   entry: {
-    'common': ['./src/main.js']
+    'common': ['./src/main.js'],
   },
   output: {
     path: config.build.assetsRoot,
@@ -23,6 +23,10 @@ module.exports = {
       'pages': path.resolve(__dirname, '../src/pages'),
       'vux-components': 'vux/src/components/',
       'vux-extension': path.resolve(__dirname, '../src/components/vux-extension'),
+      'vue': 'vue/dist/vue.min',
+      // 'vue-router': 'vue-router/dist/vue-router.min',
+      // 'vue-resource': 'vue-resource/dist/vue-resource.min',
+      'weui.js': 'weui.js/dist/weui.min'
     }
   },
   resolveLoader: {
@@ -49,6 +53,14 @@ module.exports = {
         loader: 'babel'
       },
       {
+          test: require.resolve('jquery'),
+          loader: 'imports'
+      },
+      {
+          test: require.resolve('nice-validator'),
+          loader: 'imports?$=jquery,define=>false'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue'
       },
@@ -71,7 +83,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('images/[name].[hash:7].[ext]')
+          name: utils.assetsPath('images/[name].[contenthash:6].[ext]')
         }
       },
       {
@@ -79,10 +91,14 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[contenthash:6].[ext]')
         }
       }
     ]
+  },
+  externals: {
+    // 'jquery': 'jQuery',
+    // 'vue': 'Vue',
   },
   eslint: {
     formatter: require('eslint-friendly-formatter')

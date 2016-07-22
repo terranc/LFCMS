@@ -70,12 +70,6 @@ export default function (router) {
         require(['./pages/form'], resolve);
       },
     },
-    '/form2': {
-      name: 'form2',
-      component: (resolve) => {
-        require(['./pages/form2'], resolve);
-      },
-    },
     '/timeout': {
       name: 'timeout',
       component: (resolve) => {

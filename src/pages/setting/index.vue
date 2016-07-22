@@ -10,7 +10,6 @@
         <cell title="隐私" v-link="{name: 'privacy'}" is-link></cell>
         <cell title="通用" v-link="{name: 'general'}" is-link></cell>
         <cell title="用户信息" v-link="{name: 'userinfo'}" is-link></cell>
-        <cell title="表单2" v-link="{name: 'form2'}" is-link></cell>
       </group>
       <group>
         <cell title="帮助与反馈" is-link></cell>
@@ -28,14 +27,13 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import { LFTabbar } from '../../vuex/actions';
+import Action from '../../vuex/actions';
 
 export default {
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
   },
   data() {
     return {
@@ -43,7 +41,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
   },

@@ -29,7 +29,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
@@ -42,7 +41,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Tip,
