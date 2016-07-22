@@ -88,12 +88,6 @@ export default function (router) {
         require(['./pages/state/fail'], resolve);
       },
     },
-    '/jqueryweui': {
-      name: 'jqueryweui',
-      component: (resolve) => {
-        require(['./pages/jquery-weui'], resolve);
-      },
-    },
     '*': {
       name: '404',
       component: (resolve) => {

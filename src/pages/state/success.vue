@@ -1,33 +1,62 @@
 <template>
-  <vue-helmet :title='title' v-ref:head></vue-helmet>
-  <status :message="message" :text="text">
-    <i class="weui_icon_success weui_icon_msg" slot="icon"></i>
-    <a class="weui_btn weui_btn_primary" @click="back" slot="buttons">回到首页</a>
-  </status>
+  <div class="weui_msg">
+    <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+    <div class="weui_text_area">
+      <h2 class="weui_msg_title">{{ message }}</h2>
+      <p class="weui_msg_desc">{{ detail }}</p>
+    </div>
+    <div class="weui_opr_area">
+      <p class="weui_btn_area">
+        <a class="weui_btn weui_btn_primary" v-if="hasConfirm" v-link="redirectWhenConfirm">确定</a>
+        <a class="weui_btn weui_btn_default" v-if="hasCancel" v-link="redirectWhenCancel">取消</a>
+      </p>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
-import Status from 'components/status';
+import querystring from 'querystring';
 
 export default {
-  data() {
-    return {
-      title: '成功',
-      message: '操作成功',
-      text: '您的订单已经成功生成',
-    };
-  },
-  components: {
-    VueHelmet,
-    Status,
-  },
-  methods: {
-    back() {
-      this.$route.router.go('index');
+  props: {
+    message: {
+      type: String,
+      default() {
+        return this.$route.query.message || '操作成功';
+      },
+    },
+    text: {
+      type: String,
+      default() {
+        return this.$route.query.text || '';
+      },
+    },
+    hasConfirm: {
+      type: Boolean,
+      default() {
+        return this.$route.query.hasConfirm ? this.$route.query.hasConfirm === '1' : true;
+      },
+    },
+    hasCancel: {
+      type: Boolean,
+      default() {
+        return this.$route.query.hasCancel ? this.$route.query.hasCancel === '1' : true;
+      },
+    },
+    redirectWhenConfirm: {
+      type: Object,
+      default() {
+        return this.$route.query.redirectWhenConfirm ? querystring.parse(this.$route.query.redirectWhenConfirm) : '';
+      },
+    },
+    redirectWhenCancel: {
+      type: Object,
+      default() {
+        return this.$route.query.redirectWhenCancel ? querystring.parse(this.$route.query.redirectWhenCancel) : '';
+      },
     },
   },
 };

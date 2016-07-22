@@ -19,12 +19,13 @@
 </style>
 
 <script>
+import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import ListWrapper from 'components/vux-extension/list-wrapper';
 import Load from 'components/vux-extension/load';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
+import { LFTabbar } from '../vuex/actions';
 
 export default {
   data() {
@@ -41,13 +42,14 @@ export default {
     };
   },
   ready() {
-    Action.Tabbar.show();
+    LFTabbar.show();
     window.addEventListener('beforeunload', () => {
       sessionStorage.removeItem('articlesQuery');
     });
     this.initData();
   },
   components: {
+    VueHelmet,
     Group,
     Cell,
     ListWrapper,
