@@ -55,18 +55,6 @@ export default {
     ListWrapper,
     Load,
   },
-  route: {
-    activate(transition) {
-      if (sessionStorage.articlesQuery) {
-        this.query = JSON.parse(sessionStorage.articlesQuery);
-      }
-      transition.next();
-    },
-    deactivate(transition) {
-      sessionStorage.articlesQuery = JSON.stringify(this.query);
-      transition.next();
-    },
-  },
   methods: {
     fetchData() {
       this.$refs.load.deferShowLoading(0);
@@ -86,7 +74,11 @@ export default {
         this.fetchData();
       } else {
         this.listOfArticle = this.$refs.main.data;
+        this.query.limit = this.listOfArticle.length;
       }    
+    },
+    initQuery() {
+    
     },
     fetchMore() {
       if (!this.isFetching) {
