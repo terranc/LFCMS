@@ -25,7 +25,7 @@ import Cell from 'vux-components/cell';
 import ListWrapper from 'components/vux-extension/list-wrapper';
 import Load from 'components/vux-extension/load';
 import querystring from 'querystring';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
 
 export default {
   data() {
@@ -42,7 +42,7 @@ export default {
     };
   },
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
     window.addEventListener('beforeunload', () => {
       sessionStorage.removeItem('articlesQuery');
     });
