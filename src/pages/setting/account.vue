@@ -24,7 +24,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 
@@ -36,7 +35,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
   },

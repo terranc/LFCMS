@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="articles">
-    <content-wrapper :attributes="{ class: 'main main-footer' }" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
+    <content-wrapper :class="['main', 'main-footer']" @on-scroll="getListOfArticleOnScroll" save-scroll-when-to="article" v-ref:main>
       <group :title='content'>
         <cell v-for="article in listOfArticle" :title="article.title" is-link v-link="{name: 'article', params: {id: article.id}, query: {t: 123}}"></cell>
       </group>
@@ -14,17 +14,16 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Load from 'components/vux-extension/load';
 import ContentWrapper from 'components/vux-extension/content-wrapper';
 import querystring from 'querystring';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
 
 export default {
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
   },
   data() {
     return {
@@ -38,7 +37,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Load,

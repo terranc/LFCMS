@@ -125,7 +125,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Checklist from 'vux-components/checklist';
 import Radio from 'vux-components/radio';
 import Group from 'vux-components/group';
@@ -168,7 +167,6 @@ export default {
     });
   },
   components: {
-    VueHelmet,
     Checklist,
     Radio,
     Group,
