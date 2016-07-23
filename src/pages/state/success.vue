@@ -21,6 +21,13 @@
 import querystring from 'querystring';
 
 export default {
+  head: {
+    title() {
+      return {
+        inner: this.$route.query.message,
+      };
+    },
+  },
   props: {
     message: {
       type: String,

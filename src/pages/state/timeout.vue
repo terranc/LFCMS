@@ -12,17 +12,15 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Status from 'components/status';
 
 export default {
-  data() {
-    return {
-      title: '悲剧啦',
-    };
+  head: {
+    title: {
+      inner: '悲剧啦',
+    },
   },
   components: {
-    VueHelmet,
     Status,
   },
   methods: {

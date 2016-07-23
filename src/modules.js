@@ -1,9 +1,5 @@
 export default [
   {
-    name: 'VueHelmet',
-    module: require('vue-helmet'),
-  },
-  {
     name: 'Group',
     module: require('vux-components/group'),
   },

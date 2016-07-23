@@ -47,10 +47,10 @@ import FlexboxItem from 'vux-components/flexbox-item';
 import Tip from 'vux-components/tip';
 
 export default {
-  data() {
-    return {
-      title: '新消息通知',
-    };
+  head: {
+    title: {
+      inner: '新消息通知',
+    },
   },
   components: {
     Group,

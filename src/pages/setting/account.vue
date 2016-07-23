@@ -29,10 +29,10 @@ import Cell from 'vux-components/cell';
 
 
 export default {
-  data() {
-    return {
-      title: '账号与安全',
-    };
+  head: {
+    title: {
+      inner: '账号与安全',
+    },
   },
   components: {
     Group,

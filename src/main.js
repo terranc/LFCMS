@@ -12,22 +12,23 @@ import { sync } from 'vuex-router-sync';
 import Action from './vuex/actions';
 import Filters from './filter';
 import modules from './modules';  // 常用组件加载
-import 'form-serializer';
+import VueHead from 'vue-head';
 import 'weui.js';
 
 modules.forEach((component) => {
   Vue.component(component.name, component.module);
 });
 // import VuxPlugin from 'vux-plugin';
-
 import VueFilter from 'vue-filter';
 // register filters 自定义过滤器
 window.Vue = Vue;
+Vue.config.devtools = true;
 
 Object.keys(Filters).forEach((k) => {
   Vue.filter(k, Filters[k]);
 });
 Vue.use(VueFilter);
+Vue.use(VueHead);
 // console.log(VuxPlugin);
 // Vue.use(VuxPlugin);
 
@@ -60,5 +61,4 @@ router.afterEach(() => {
   Action.Tabbar.hide();
 });
 router.start(App, 'app');
-
 export default Vue;

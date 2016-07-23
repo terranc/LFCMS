@@ -38,10 +38,10 @@ import Switch from 'vux-components/switch';
 
 
 export default {
-  data() {
-    return {
-      title: '通用',
-    };
+  head: {
+    title: {
+      inner: '通用',
+    },
   },
   components: {
     Group,

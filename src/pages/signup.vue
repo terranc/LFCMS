@@ -81,9 +81,13 @@ export default {
     this.$refs.toptips.show = true;
     Action.Tabbar.show();
   },
+  head: {
+    title: {
+      inner: '注册',
+    },
+  },
   data() {
     return {
-      title: 'signup',
       gender: ['男', '女'],
       occupation: ['学生', '设计师', '产品经理', '研发'],
       hobbies: ['琴', '棋', '书', '画'],

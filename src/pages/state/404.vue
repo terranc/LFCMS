@@ -9,5 +9,10 @@
 
 <script>
 export default {
+  head: {
+    title: {
+      inner: '404',
+    },
+  },
 };
 </script>

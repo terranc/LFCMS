@@ -35,10 +35,10 @@ import Switch from 'vux-components/switch';
 import Tip from 'vux-components/tip';
 
 export default {
-  data() {
-    return {
-      title: '隐私',
-    };
+  head: {
+    title: {
+      inner: '隐私',
+    },
   },
   components: {
     Group,

@@ -35,10 +35,10 @@ export default {
   ready() {
     Action.Tabbar.show();
   },
-  data() {
-    return {
-      title: '设置',
-    };
+  head: {
+    title: {
+      inner: '设置',
+    },
   },
   components: {
     Group,

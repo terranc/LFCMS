@@ -162,9 +162,13 @@ import Switch from 'vux-components/switch';
 import Toptips from 'vux-extension/toptips';
 
 export default {
+  head: {
+    title: {
+      inner: '用户信息设置',
+    },
+  },
   data() {
     return {
-      title: '用户信息设置',
       errorInfo: '',
       email: 'weijie@lookfeel.co',
       nickname: 'moucai',
