@@ -1,19 +1,19 @@
 <template>
-  <tabbar id="navigation-bar" v-show="tabbarState">
+  <tabbar id="navigation-bar">
     <tabbar-item v-link="{name: 'index'}" :selected="selected === 'home'">
-      <icon slot="icon" name="home" scale="1.6"></icon>
+      <f-icon slot="icon" name="home" scale="1.6"></f-icon>
       <span slot="label">首页</span>
     </tabbar-item>
     <tabbar-item v-link="{name: 'articles'}" :selected="selected === 'article'">
-      <icon slot="icon" name="columns" scale="1.6"></icon>
+      <f-icon slot="icon" name="columns" scale="1.6"></f-icon>
       <span slot="label">文章</span>
     </tabbar-item>
     <tabbar-item v-link="{name: 'form'}" :selected="selected === 'form'">
-      <icon slot="icon" name="user-plus" scale="1.6"></icon>
+      <f-icon slot="icon" name="user-plus" scale="1.6"></f-icon>
       <span slot="label">表单</span>
     </tabbar-item>
     <tabbar-item v-link="{name: 'setting'}" :selected="selected === 'settings'">
-      <icon slot="icon" name="cog" scale="1.6"></icon>
+      <f-icon slot="icon" name="cog" scale="1.6"></f-icon>
       <span slot="label">设置</span>
     </tabbar-item>
   </tabbar>
@@ -24,10 +24,8 @@
 </style>
 
 <script>
-import Tabbar from 'vux-components/tabbar';
-import TabbarItem from 'vux-components/tabbar-item';
-import Icon from 'vue-awesome';
-import store from '../vuex/store';
+import { Tabbar, TabbarItem } from 'vux-components/tabbar';
+import FIcon from 'vue-awesome';
 
 export default {
   props: {
@@ -42,17 +40,9 @@ export default {
   components: {
     Tabbar,
     TabbarItem,
-    Icon,
+    FIcon,
   },
-  vuex: {
-    getters: {
-      tabbarState: (state) => state.app.tabbarState,
-    },
-  },
-  data() {
-    return {
-      store,
-    };
+  ready() {
   },
 };
 </script>

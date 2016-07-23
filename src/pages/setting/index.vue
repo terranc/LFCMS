@@ -27,22 +27,20 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import { LFTabbar } from '../../vuex/actions';
+import Action from '../../vuex/actions';
 
 export default {
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
   },
-  data() {
-    return {
-      title: '设置',
-    };
+  head: {
+    title: {
+      inner: '设置',
+    },
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
   },

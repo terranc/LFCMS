@@ -32,20 +32,18 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 
 
 export default {
-  data() {
-    return {
-      title: '通用',
-    };
+  head: {
+    title: {
+      inner: '通用',
+    },
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Switch,

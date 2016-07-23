@@ -39,7 +39,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
@@ -48,13 +47,12 @@ import FlexboxItem from 'vux-components/flexbox-item';
 import Tip from 'vux-components/tip';
 
 export default {
-  data() {
-    return {
-      title: '新消息通知',
-    };
+  head: {
+    title: {
+      inner: '新消息通知',
+    },
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Switch,

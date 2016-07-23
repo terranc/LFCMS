@@ -125,7 +125,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Checklist from 'vux-components/checklist';
 import Radio from 'vux-components/radio';
 import Group from 'vux-components/group';
@@ -145,6 +144,13 @@ const lazyloadElements = (elms, opt) => {
 };
 
 export default {
+  head: {
+    title() {
+      return {
+        inner: this.$route.params.id,
+      };
+    },
+  },
   props: {
     placeholder: {
       type: String,
@@ -155,7 +161,6 @@ export default {
   },
   data() {
     return {
-      title: `article-${this.$route.params.id}`,
       options: [{ key: '1', value: '篮球' }, { key: '2', value: '足球' }, { key: '3', value: '排球' }],
       selectedItems: [],
       selectorValue: '',
@@ -168,7 +173,6 @@ export default {
     });
   },
   components: {
-    VueHelmet,
     Checklist,
     Radio,
     Group,

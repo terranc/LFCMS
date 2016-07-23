@@ -1,9 +1,8 @@
 <template>
-  <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div  class="wrapper" id="index">
-    <main class="main main-footer">
+    <content-wrapper>
       <h1>{{ content }}</h1>
-      <icon name="code"></icon>
+      <f-icon name="code"></f-icon>
       <h2>当前URL</h2>
       <p>{{ $route.path }}</p>
       <h2>当前query</h2>
@@ -11,7 +10,8 @@
       <h2>当前params</h2>
       <p>{{ $route.params | json 4 }}</p>
       <p>{{ create_time | date '%Y-%m-%d' }}</p>
-    </main>
+      <x-button @click="showAlert">adasd</x-button>
+    </content-wrapper>
   </div>
 </template>
 
@@ -19,24 +19,29 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
-import Icon from 'vue-awesome';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
+import ContentWrapper from 'components/vux-extension/content-wrapper';
 
 export default {
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
+  },
+  methods: {
+    showAlert: () => $.weui.alert('哈哈', { title: '提示' }),
+  },
+  head: {
+    title: {
+      inner: '首页',
+    },
   },
   data() {
     return {
       content: 'index page',
-      title: 'index',
       create_time: new Date().getTime(),
     };
   },
   components: {
-    VueHelmet,
-    Icon,
+    ContentWrapper,
   },
 };
 </script>

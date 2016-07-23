@@ -29,20 +29,18 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 import Tip from 'vux-components/tip';
 
 export default {
-  data() {
-    return {
-      title: '隐私',
-    };
+  head: {
+    title: {
+      inner: '隐私',
+    },
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     Tip,

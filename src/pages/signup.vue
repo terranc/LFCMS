@@ -66,7 +66,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Validator from 'vue-validator';
 import Group from 'vux-components/group';
 import XInput from 'vux-components/x-input';
@@ -74,17 +73,21 @@ import Checklist from 'vux-components/checklist';
 import XButton from 'vux-components/x-button';
 import Radio from 'vux-components/radio';
 import Selector from 'vux-components/selector';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
 import Toptips from 'vux-extension/toptips';
 
 export default {
   ready() {
     this.$refs.toptips.show = true;
-    LFTabbar.show();
+    Action.Tabbar.show();
+  },
+  head: {
+    title: {
+      inner: '注册',
+    },
   },
   data() {
     return {
-      title: 'signup',
       gender: ['男', '女'],
       occupation: ['学生', '设计师', '产品经理', '研发'],
       hobbies: ['琴', '棋', '书', '画'],
@@ -94,7 +97,6 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     XInput,
     Checklist,

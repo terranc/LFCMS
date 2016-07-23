@@ -24,19 +24,17 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 
 
 export default {
-  data() {
-    return {
-      title: '账号与安全',
-    };
+  head: {
+    title: {
+      inner: '账号与安全',
+    },
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
   },

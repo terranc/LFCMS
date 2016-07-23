@@ -1,7 +1,7 @@
 <template>
   <vue-helmet :title='title' v-ref:head></vue-helmet>
   <div class="wrapper" id="account">
-    <validator name="info">
+    <!-- <validator name="info"> -->
       <form class="main" @submit="onSubmit" novalidate>
        
         <group>
@@ -137,13 +137,17 @@
             </label>
           </div>
         </group>
+        <group title="Default">
+          <switch title="default setting"></switch>
+          <switch title="default true" :value="true"></switch>
+        </group>
 
         <div class="weui_btn_area">
           <button class="weui_btn weui_btn_primary"> 保存 </button>
         </div>
         <Toptips v-ref:toptips>{{ errorInfo }}</Toptips>
       </form>
-    </validator>
+    <!-- </validator> -->
   </div>
 </template>
 
@@ -151,16 +155,20 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import Validator from 'vue-validator';
+import Switch from 'vux-components/switch';
+// import Validator from 'vue-validator';
 import Toptips from 'vux-extension/toptips';
 
 export default {
+  head: {
+    title: {
+      inner: '用户信息设置',
+    },
+  },
   data() {
     return {
-      title: '用户信息设置',
       errorInfo: '',
       email: 'weijie@lookfeel.co',
       nickname: 'moucai',
@@ -168,10 +176,10 @@ export default {
     };
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
-    Validator,
+    Switch,
+    // Validator,
     Toptips,
   },
   methods: {

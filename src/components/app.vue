@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <navigation-bar></navigation-bar>
+    <navigation-bar v-if="tabbarState"></navigation-bar>
   </div>
 </template>
 
@@ -10,13 +10,17 @@
 </style>
 
 <script>
-import 'weui.js';
 import NavigationBar from 'components/navigation-bar';
 import store from '../vuex/store';
 
 export default {
   components: {
     NavigationBar,
+  },
+  vuex: {
+    getters: {
+      tabbarState: (state) => state.app.tabbarState,
+    },
   },
   store,
 };

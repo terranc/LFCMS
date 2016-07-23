@@ -5,25 +5,35 @@ if (__DEV__) {
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
-import VueValidator from 'vue-validator';
-import addRulesOfValidator from './validator';
 import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
 import { sync } from 'vuex-router-sync';
-import { LFTabbar } from './vuex/actions';
+import Action from './vuex/actions';
 import Filters from './filter';
+import modules from './modules';  // 常用组件加载
+import VueHead from 'vue-head';
+import 'weui.js';
 
+modules.forEach((component) => {
+  Vue.component(component.name, component.module);
+});
+// import VuxPlugin from 'vux-plugin';
 import VueFilter from 'vue-filter';
 // register filters 自定义过滤器
+window.Vue = Vue;
+Vue.config.devtools = true;
+
 Object.keys(Filters).forEach((k) => {
   Vue.filter(k, Filters[k]);
 });
 Vue.use(VueFilter);
+Vue.use(VueHead);
+// console.log(VuxPlugin);
+// Vue.use(VuxPlugin);
 
-
-Vue.use(VueValidator);
-addRulesOfValidator(Vue);
+// Vue.use(VueValidator);
+// addRulesOfValidator(Vue);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
@@ -48,8 +58,7 @@ Vue.http.interceptors.push((request, next) => {
 });
 
 router.afterEach(() => {
-  LFTabbar.hide();
+  Action.Tabbar.hide();
 });
 router.start(App, 'app');
-
 export default Vue;

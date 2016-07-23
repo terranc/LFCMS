@@ -28,7 +28,7 @@ import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import ListWrapper from 'components/vux-extension/list-wrapper';
 import querystring from 'querystring';
-import { LFTabbar } from '../vuex/actions';
+import Action from '../vuex/actions';
 
 export default {
   data() {
@@ -45,7 +45,7 @@ export default {
     };
   },
   ready() {
-    LFTabbar.show();
+    Action.Tabbar.show();
     this.getData();
   },
   components: {
