@@ -19,7 +19,6 @@
 </style>
 
 <script>
-import VueHelmet from 'vue-helmet';
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import ListWrapper from 'components/vux-extension/list-wrapper';
@@ -28,6 +27,11 @@ import querystring from 'querystring';
 import Action from '../vuex/actions';
 
 export default {
+  head: {
+    title: {
+      inner: 'articles',
+    },
+  },
   data() {
     return {
       content: 'articles page',
@@ -49,7 +53,6 @@ export default {
     this.initData();
   },
   components: {
-    VueHelmet,
     Group,
     Cell,
     ListWrapper,

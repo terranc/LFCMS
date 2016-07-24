@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import Base from '../base';
+import Mixin from './mixin';
 export default {
   props: {
     id: String,
@@ -46,8 +48,8 @@ export default {
       default: (file) => {},
     },
   },
+  mixins: [Base, Mixin],
   ready() {
-    this.$parent.$parent.form = true;
     $('#' + this.id).uploader({
       auto: this.auto,
       accept: this.accept,

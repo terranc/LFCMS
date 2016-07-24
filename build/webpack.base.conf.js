@@ -19,13 +19,14 @@ module.exports = {
     alias: {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
+      'libs': path.resolve(__dirname, '../src/assets/js/libs'),
       'components': path.resolve(__dirname, '../src/components'),
       'pages': path.resolve(__dirname, '../src/pages'),
       'vux-components': 'vux/src/components/',
       'vux-extension': path.resolve(__dirname, '../src/components/vux-extension'),
       'vue': 'vue/dist/vue.min',
-      // 'vue-router': 'vue-router/dist/vue-router.min',
-      // 'vue-resource': 'vue-resource/dist/vue-resource.min',
+      'vue-router': 'vue-router/dist/vue-router.min',
+      'vue-resource': 'vue-resource/dist/vue-resource.min',
       'weui.js': 'weui.js/dist/weui.min'
     }
   },
@@ -55,10 +56,6 @@ module.exports = {
       {
           test: require.resolve('jquery'),
           loader: 'imports'
-      },
-      {
-          test: require.resolve('nice-validator'),
-          loader: 'imports?$=jquery,define=>false'
       },
       {
         test: /\.vue$/,
