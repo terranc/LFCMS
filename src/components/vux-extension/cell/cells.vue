@@ -28,19 +28,19 @@ export default {
     class: String,
   },
   created() {
-    this.$on('toggle-cells-form', (val) => {
+    this.$on('cells:toggle-form', (val) => {
       this.form = val;
     });
-    this.$on('toggle-cells-select', (val) => {
+    this.$on('cells:toggle-select', (val) => {
       this.select = val;
     });
-    this.$on('toggle-cells-switch', (val) => {
+    this.$on('cells:toggle-switch', (val) => {
       this.switch = val;
     });
-    this.$on('toggle-cells-radio', (val) => {
+    this.$on('cells:toggle-radio', (val) => {
       this.radio = val;
     });
-    this.$on('toggle-cells-checkbox', (val) => {
+    this.$on('cells:toggle-checkbox', (val) => {
       this.checkbox = val;
     });
   },

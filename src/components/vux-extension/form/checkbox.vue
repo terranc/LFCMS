@@ -16,5 +16,9 @@ export default {
   },
   computed: {
   },
+  ready() {
+    this.$emit('cell:toggle-checkbox', true);
+    this.$emit('cells:toggle-checkbox', true);
+  },
 };
 </script>

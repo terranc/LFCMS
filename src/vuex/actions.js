@@ -1,24 +1,28 @@
 import * as types from './mutation-types';
 import store from '../vuex/store';
+import 'weui.js';
 
 const actions = {};
 actions.Tabbar = {
-  show: () => {
+  show() {
     store.dispatch(types.SHOW_TABBAR);
   },
-  hide: () => {
+  hide() {
     store.dispatch(types.HIDE_TABBAR);
   },
-  getState: () => {
+  getState() {
     return store.state.app.tabbarState;
   },
 };
-actions.Head = {
-  setTitle: (title) => {
-    store.dispatch(types.SET_PAGE_TITLE, title);
+
+actions.Validator = {
+  showWarn() {
+    
+  },
+  hideWarn() {
+
   },
 };
-
 
 export default actions;
 

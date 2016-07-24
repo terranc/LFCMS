@@ -3,7 +3,7 @@ import * as types from '../mutation-types';
 const state = {
   tabbarState: false,
   alertState: false,
-  headTitle: '',
+  formElements: {},
 };
 const mutations = {
   [types.SHOW_TABBAR](state) {
@@ -12,8 +12,10 @@ const mutations = {
   [types.HIDE_TABBAR](state) {
     state.tabbarState = false;
   },
-  [types.SET_PAGE_TITLE](state, title) {
-    state.headTitle = title;
+  [types.SHOW_CELL_WARN](state, cell) {
+    // formElements[cell]
+  },
+  [types.HIDE_CELL_WARN](state) {
   },
 };
 

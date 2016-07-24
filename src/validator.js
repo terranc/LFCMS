@@ -1,6 +1,8 @@
 import 'form-serializer';
 import 'nice-validator/dist/local/zh-CN';
 import 'weui.js';
+// import Action from './vuex/actions';
+import store from './vuex/store';
 
 $.validator.config({
   debug: false,
@@ -41,12 +43,16 @@ $.validator.config({
   },
   validation(el, result) {
     if (result.isValid) {
-      this.options.vm.$broadcast('toggle-cell-warn', false, el.name);
+      this.options.vm.$broadcast('cell:toggle-warn', false, el.name);
     } else {
-      this.options.vm.$broadcast('toggle-cell-warn', true, el.name);
+      this.options.vm.$broadcast('cell:toggle-warn', true, el.name);
     }
   },
   invalid(form, errors) {
     $.weui.topTips(errors[0]);
   },
 });
+
+export default {
+  store,
+};

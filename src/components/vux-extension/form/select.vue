@@ -30,8 +30,8 @@ export default {
     value: String,
   },
   ready() {
-    this.$dispatch('toggle-cell-select', true);
-    this.$dispatch('toggle-cells-select', true);
+    this.$emit('cell:toggle-select', true);
+    this.$emit('cells:toggle-select', true);
   },
   mixins: [Base, Mixin],
   computed: {

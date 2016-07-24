@@ -49,9 +49,6 @@ export default {
     vcode: String,
   },
   mixins: [Base],
-  attached() {
-    this.$els.cell.vm = this.$refs.cell;
-  },
   detached() {
     delete this.$els.cell.vm;
   },
@@ -89,23 +86,23 @@ export default {
     },
   },
   created() {
-    this.$on('toggle-cell-warn', (val, elname) => {
+    this.$on('cell:toggle-warn', (val, elname) => {
       if (elname) {
         this.$broadcast('toggle-input-warn', val, elname);
       } else {
         this.warn = val;
       }
     });
-    this.$on('toggle-cell-select', (val) => {
+    this.$on('cell:toggle-select', (val) => {
       this.select = val;
     });
-    this.$on('toggle-cell-switch', (val) => {
+    this.$on('cell:toggle-switch', (val) => {
       this.switch = val;
     });
-    this.$on('toggle-cell-radio', (val) => {
+    this.$on('cell:toggle-radio', (val) => {
       this.radio = val;
     });
-    this.$on('toggle-cell-checkbox', (val) => {
+    this.$on('cell:toggle-checkbox', (val) => {
       this.checkbox = val;
     });
   },

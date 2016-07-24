@@ -15,8 +15,8 @@ export default {
     value: String,
   },
   ready() {
-    this.$dispatch('toggle-cell-radio', true);
-    this.$dispatch('toggle-cells-radio', true);
+    this.$emit('cell:toggle-radio', true);
+    this.$emit('cells:toggle-radio', true);
   },
   mixins: [Base, Mixin],
   computed: {
