@@ -57,7 +57,6 @@ module.exports = {
           test: require.resolve('jquery'),
           loader: 'imports'
       },
-      {
         test: /\.vue$/,
         loader: 'vue'
       },
