@@ -2,11 +2,11 @@
   <div v-el:main @scroll="onScroll">
     <slot></slot>
     <slot name="loadmore">
-      <group v-if="data && isAutoLoad === false">
+      <div class="weui_btn_area" v-if="data && isAutoLoad === false">
         <x-button @click="onMoreClick">
-          <span>加载更多</span>
+          <span>{{ isAutoLoad ? '' : '点击'}}加载更多</span>
         </x-button>
-      </group>
+      </div>
     </slot>
   </div>
 </template>

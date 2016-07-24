@@ -1,17 +1,17 @@
-import Cells from './cells';
+import Group from './group';
 import Cell from './cell';
 import CellHeader from './cell-header';
 import CellFooter from './cell-footer';
 import CellBody from './cell-body';
-import CellsTitle from './cells-title';
-import CellsTips from './cells-tips';
+import GroupTitle from './group-title';
+import GroupTips from './group-tips';
 
 export {
-  Cells,
+  Group,
   Cell,
   CellHeader,
   CellFooter,
   CellBody,
-  CellsTitle,
-  CellsTips,
+  GroupTitle,
+  GroupTips,
 };

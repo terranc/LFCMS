@@ -2,7 +2,7 @@
   <div class="wrapper" id="index">
     <content-wrapper>
       <form novalidate>
-        <cells title="还是">
+        <group title="还是">
           <cell>
             <x-label slot="header">账号</x-label>
             <x-input slot="body" name="username"></x-input>
@@ -19,7 +19,7 @@
               <x-input name="repassword" type="password"></x-input>
             </cell-body>
           </cell>
-        </cells>
+        </group>
         <div class="weui_btn_area">
           <x-button type="primary">提交</x-button>
         </div>
@@ -35,9 +35,6 @@
 import Action from '../vuex/actions';
 import ContentWrapper from 'vux-extension/content-wrapper';
 import 'src/validator';
-import { Cells, Cell, CellBody, CellHeader } from 'vux-extension/cell';
-import { xInput } from 'vux-extension/form';
-import xLabel from 'vux-extension/label/label';
 
 export default {
   ready() {
@@ -69,13 +66,7 @@ export default {
   methods: {
   },
   components: {
-    Cells,
-    Cell,
-    CellHeader,
-    CellBody,
-    xInput,
     ContentWrapper,
-    xLabel,
     // Validator,
   },
 };

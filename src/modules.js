@@ -1,39 +1,55 @@
 export default [
   {
     name: 'Group',
-    module: require('vux-components/group'),
+    module: require('vux-extension/cell/group'),
   },
   {
     name: 'Cell',
-    module: require('vux-components/cell'),
+    module: require('vux-extension/cell/cell'),
+  },
+  {
+    name: 'CellBody',
+    module: require('vux-extension/cell/cell-body'),
+  },
+  {
+    name: 'CellHeader',
+    module: require('vux-extension/cell/cell-header'),
+  },
+  {
+    name: 'CellFooter',
+    module: require('vux-extension/cell/cell-footer'),
+  },
+  {
+    name: 'XRadio',
+    module: require('vux-extension/form/radio'),
+  },
+  {
+    name: 'XSelect',
+    module: require('vux-extension/form/select'),
+  },
+  {
+    name: 'XSwitch',
+    module: require('vux-extension/form/switch'),
+  },
+  {
+    name: 'XInput',
+    module: require('vux-extension/form/input'),
+  },
+  {
+    name: 'XTextarea',
+    module: require('vux-extension/form/textarea'),
+  },
+  {
+    name: 'XLabel',
+    module: require('vux-extension/label'),
   },
   {
     name: 'Checklist',
     module: require('vux-components/checklist'),
   },
   {
-    name: 'Radio',
-    module: require('vux-components/radio'),
-  },
-  {
-    name: 'Selector',
-    module: require('vux-components/selector'),
-  },
-  {
-    name: 'Switch',
-    module: require('vux-components/switch'),
-  },
-  {
     name: 'XButton',
     module: require('vux-components/x-button'),
-  },
-  {
-    name: 'XInput',
-    module: require('vux-components/x-input'),
-  },
-  {
-    name: 'XTextarea',
-    module: require('vux-components/x-textarea'),
   },
   {
     name: 'Flexbox',

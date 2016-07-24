@@ -1,13 +1,18 @@
 <template>
-  <div class="weui_cells" :class="className">
+  <group-title v-if="title">{{ title }}</group-title>
+  <div class="weui_cells" :class="className" :style="style">
     <slot></slot>
   </div>
+  <group-tips v-if="tips">{{ tips }}</group-tips>
 </template>
 
 <style lang="scss">
 </style>
 
 <script>
+import GroupTitle from './group-title.vue';
+import GroupTips from './group-tips.vue';
+
 export default {
   props: {
     access: {
@@ -26,21 +31,24 @@ export default {
       type: Boolean,
     },
     class: String,
+    style: String,
+    title: String,
+    tips: String,
   },
   created() {
-    this.$on('cells:toggle-form', (val) => {
+    this.$on('group:toggle-form', (val) => {
       this.form = val;
     });
-    this.$on('cells:toggle-select', (val) => {
+    this.$on('group:toggle-select', (val) => {
       this.select = val;
     });
-    this.$on('cells:toggle-switch', (val) => {
+    this.$on('group:toggle-switch', (val) => {
       this.switch = val;
     });
-    this.$on('cells:toggle-radio', (val) => {
+    this.$on('group:toggle-radio', (val) => {
       this.radio = val;
     });
-    this.$on('cells:toggle-checkbox', (val) => {
+    this.$on('group:toggle-checkbox', (val) => {
       this.checkbox = val;
     });
   },
@@ -56,6 +64,10 @@ export default {
         },
       ];
     },
+  },
+  components: {
+    GroupTitle,
+    GroupTips,
   },
 };
 </script>
