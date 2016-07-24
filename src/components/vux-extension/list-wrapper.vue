@@ -15,6 +15,7 @@
 </style>
 
 <script>
+import Base from './base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
 
@@ -45,10 +46,6 @@ export default {
       type: Number,
       default: 1,
     },
-    uuid: {
-      type: Number,
-      default: + new Date(),
-    },
   },
   data() {
     return {
@@ -59,6 +56,7 @@ export default {
     Group,
     XButton,
   },
+  mixin: [Base],
   ready() {
     window.addEventListener('beforeunload', () => {
       this.reset();

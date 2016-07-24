@@ -11,6 +11,7 @@
 </style>
 
 <script>
+import Base from './base';
 import Loading from 'vux-components/loading';
 import Confirm from 'vux-components/confirm';
 
@@ -52,6 +53,7 @@ export default {
       };
     },
   },
+  mixin: [Base],
   methods: {
     deferShowLoading(deferTime = 1000) {
       this.timer = setTimeout(() => {

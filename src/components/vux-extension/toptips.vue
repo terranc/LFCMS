@@ -18,6 +18,7 @@
 </style>
 
 <script>
+import Base from './base';
 export default {
   props: {
     show: {
@@ -45,6 +46,7 @@ export default {
       };
     },
   },
+  mixin: [Base],
   watch: {
     show(val) {
       if (val) {

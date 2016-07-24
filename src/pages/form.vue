@@ -34,7 +34,7 @@
 <script>
 import Action from '../vuex/actions';
 import ContentWrapper from 'vux-extension/content-wrapper';
-import '../validator';
+import 'src/validator';
 import { Cells, Cell, CellBody, CellHeader } from 'vux-extension/cell';
 import { xInput } from 'vux-extension/form';
 import xLabel from 'vux-extension/label/label';
