@@ -53,7 +53,7 @@ export default {
       };
     },
   },
-  mixin: [Base],
+  mixins: [Base],
   methods: {
     deferShowLoading(deferTime = 1000) {
       this.timer = setTimeout(() => {

@@ -11,16 +11,34 @@ actions.Tabbar = {
     store.dispatch(types.HIDE_TABBAR);
   },
   getState() {
-    return store.state.app.tabbarState;
+    return store.state.app.tabbar.state;
   },
 };
 
-actions.Validator = {
-  showWarn() {
-    
+actions.list = {
+  getScrollTop() {
+    return store.state.app.list.scrollTop;
   },
-  hideWarn() {
-
+  setScrollTop(top) {
+    store.state.app.list.scrollTop = top;
+  },
+  getData() {
+    return store.state.app.list.data;
+  },
+  setData(data) {
+    store.state.app.list.data = data;
+  },
+  removeData(data) {
+    store.state.app.list.data = [];
+  },
+  getQuery() {
+    return store.state.app.list.query;
+  },
+  setQuery(obj) {
+    store.state.app.list.query = obj;
+  },
+  get() {
+    return store.state.app.list;
   },
 };
 

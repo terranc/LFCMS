@@ -3,18 +3,12 @@ export default function (router) {
   router.map({
     '/index': {
       name: 'index',
-      data: {
-        tabbarState: true,
-      },
       component: (resolve) => {
         require(['./pages/index'], resolve);
       },
     },
     '/setting': {
       name: 'setting',
-      data: {
-        tabbarState: true,
-      },
       component: (resolve) => {
         require(['./pages/setting/index'], resolve);
       },
@@ -51,9 +45,7 @@ export default function (router) {
     },
     '/articles': {
       name: 'articles',
-      data: {
-        tabbarState: true,
-      },
+      keepAlive: true,
       component: (resolve) => {
         require(['./pages/articles'], resolve);
       },

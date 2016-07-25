@@ -1,10 +1,10 @@
 <template>
-  <div v-el:main @scroll="onScroll">
+  <div v-el:main>
     <slot></slot>
     <slot name="loadmore">
-      <div class="weui_btn_area" v-if="data && isAutoLoad === false">
+      <div class="weui_btn_area" v-if="data">
         <x-button @click="onMoreClick">
-          <span>{{ isAutoLoad ? '' : '点击'}}加载更多</span>
+          <span>{{ getLoadText }}</span>
         </x-button>
       </div>
     </slot>
@@ -18,12 +18,13 @@
 import Base from './base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
+import Action from 'src/vuex/actions';
 
-const getScrollCacheName = (uuid) => `contentWrapperscrollTopCache_${uuid}`;
-const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
+// const getScrollCacheName = (uuid) => `contentWrapperscrollTopCache_${uuid}`;
+// const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
 
-const getDataCacheName = (uuid) => `contentWrapperDataCache_${uuid}`;
-const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
+// const getDataCacheName = (uuid) => `contentWrapperDataCache_${uuid}`;
+// const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
 
 export default {
   props: {
@@ -31,20 +32,27 @@ export default {
       type: Boolean,
       default: true,
     },
-    isCacheData: {
-      type: Boolean,
-      default: true,    
-    },
     data: {
-      type: [Object, Array],
+      type: Array,
+      default: [],
     },
-    isAutoLoad: {
-      type: Boolean,
-      default: false,
+    loadText: {
+      type: String,
+      default: '点击加载更多',
     },
+    loadingText: {
+      type: String,
+      default: '正在加载中...',
+    },
+    isAutoLoad: Boolean,
     autoLoadDistance: {
       type: Number,
       default: 1,
+    },
+    state: String,
+    target: {
+      type: String,
+      default: 'body',
     },
   },
   data() {
@@ -52,23 +60,41 @@ export default {
       scrollTop: 0,
     };
   },
+  computed: {
+    getLoadText() {
+      if (this.state === 'loading') {
+        return this.loadingText;  
+      }
+      return this.loadText;
+    },
+  },
   components: {
     Group,
     XButton,
   },
-  mixin: [Base],
+  mixins: [Base],
   ready() {
-    window.addEventListener('beforeunload', () => {
+    this.onMoreClick();
+    document.querySelector(this.target).addEventListener('scroll', (e) => {
+      this.scrollTop = e.target.scrollTop;
+      if (this.isAutoLoad) {
+        e.preventDefault();
+        e.stopPropagation();
+        const totalTop = e.target.scrollTop + e.target.clientHeight;
+        if (totalTop >= e.target.scrollHeight - this.autoLoadDistance) {
+          this.onMoreClick();
+        }
+      }
+    });
+    this.setDataFromCache();
+    this.$nextTick(() => {
+      this.setScrollTopFromCache();
       this.reset();
     });
   },
   attached() {
-    this.setDataFromCache();
-    this.$nextTick(() => {
-      this.setScrollTopFromCache();
-    });
   },
-  detached() {
+  destroyed() {
     this.cache();
   },
   methods: {
@@ -84,52 +110,39 @@ export default {
     // scrollCache
     setScrollCache(e) {
       if (this.isCacheScrollPosition) {
-        sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
+        Action.list.setScrollTop(this.scrollTop);
       }
     },
     removeScrollCache() {
-      if (hasScrollCache(this.uuid)) {
-        sessionStorage.removeItem(getScrollCacheName(this.uuid));
-      }
+      Action.list.setScrollTop(0);
     },
     setScrollTopFromCache() {
-      if (hasScrollCache(this.uuid)) {
-        this.$els.main.scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
+      if (Action.list.getScrollTop() > 0) {
+        document.querySelector(this.target).scrollTop = Action.list.getScrollTop();
       }
     },
     // dataCache
     setDataFromCache() {
-      if (hasDataCache(this.uuid)) {
-        this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
+      if (Action.list.getData()) {
+        this.data = Action.list.getData();
       }
     },
     setDataCache() {
-      if (this.isCacheData) {
-        sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
+      if (this.isCacheScrollPosition) {
+        Action.list.setData(this.data);
       }
     },
     removeDataCache() {
-      if (hasDataCache(this.uuid)) {
-        sessionStorage.removeItem(getDataCacheName(this.uuid));
-      }
-    },
-    // onScroll
-    onScroll(e) {
-      const targetElm = e.target;
-      this.scrollTop = targetElm.scrollTop;
-      if (this.isAutoLoad) {
-        const totalTop = targetElm.scrollTop + targetElm.clientHeight;
-        if (totalTop >= targetElm.scrollHeight - this.autoLoadDistance) {
-          this.onGetMore();
-        }
-      }
+      Action.list.removeData();
     },
     // more
     onMoreClick() {
-      this.onGetMore();
-    },
-    onGetMore() {
-      this.$emit('on-getmore');
+      this.state = 'loading';
+      this.$emit('on-getmore', Action.list.get(), (query, data) => {
+        this.state = 'done';
+        this.data = data;
+        Action.list.setQuery(query || {});
+      });
     },
   },
 };

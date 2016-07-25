@@ -8,13 +8,10 @@
 </style>
 
 <script>
+import Base from './base';
 import Action from '../../vuex/actions';
 export default {
   props: {
-    uuid: {
-      type: Number,
-      default: + new Date(),
-    },
     isSaveScrollPosition: {
       type: Boolean,
       default: true,
@@ -47,6 +44,7 @@ export default {
       }
     },
   },
+  mixins: [Base],
   computed: {
     className() {
       let className = ['main'];

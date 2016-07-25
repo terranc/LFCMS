@@ -46,7 +46,7 @@ export default {
       };
     },
   },
-  mixin: [Base],
+  mixins: [Base],
   watch: {
     show(val) {
       if (val) {

@@ -8,10 +8,12 @@
 </style>
 
 <script>
+import Base from '../base';
 export default {
   props: {
     class: String,
   },
+  mixins: [Base],
   computed: {
     className() {
       return this.class;

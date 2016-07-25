@@ -11,7 +11,7 @@
 
 <script>
 import NavigationBar from 'components/navigation-bar';
-import store from '../vuex/store';
+import store from 'src/vuex/store';
 
 export default {
   components: {
@@ -19,7 +19,7 @@ export default {
   },
   vuex: {
     getters: {
-      tabbarState: (state) => state.app.tabbarState,
+      tabbarState: (state) => state.app.tabbar.state,
     },
   },
   store,
