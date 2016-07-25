@@ -1,14 +1,12 @@
 <template>
-  <div v-el:main>
-    <slot></slot>
-    <slot name="loadmore">
-      <div class="weui_btn_area" v-if="data">
-        <x-button @click="onMoreClick">
-          <span>{{ getLoadText }}</span>
-        </x-button>
-      </div>
-    </slot>
-  </div>
+  <slot></slot>
+  <slot name="loadmore">
+    <div class="weui_btn_area" v-if="data">
+      <x-button v-touch:tap="onMoreClick">
+        <span>{{ getLoadText }}</span>
+      </x-button>
+    </div>
+  </slot>
 </template>
 
 <style lang="scss">
@@ -77,7 +75,7 @@ export default {
     this.onMoreClick();
     document.querySelector(this.target).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
-      if (this.isAutoLoad) {
+      if (this.isAutoLoad && this.state !== 'loading') {
         e.preventDefault();
         e.stopPropagation();
         const totalTop = e.target.scrollTop + e.target.clientHeight;

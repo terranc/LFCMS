@@ -26,6 +26,7 @@
     "vue-head": "^1.0.5",
     "vue-resource": "^0.9.3",
     "vue-router": "^0.7.13",
+    "vue-touch": "^1.1.0",
     "vuex": "^0.6.3",
     "vuex-router-sync": "^2.0.0",
     "vux": "file:../vux",

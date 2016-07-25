@@ -5,6 +5,7 @@ if (__DEV__) {
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+import VueTouch from 'vue-touch';
 import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
@@ -28,7 +29,7 @@ Object.keys(Filters).forEach((k) => {
 });
 Vue.use(VueFilter);
 Vue.use(VueHead);
-
+Vue.use(VueTouch);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
