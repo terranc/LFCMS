@@ -1,7 +1,7 @@
 <template>
   <slot></slot>
   <slot name="loadmore">
-    <div class="weui_btn_area" v-if="data">
+    <div class="weui_btn_area" v-show="data.length > 0">
       <x-button v-touch:tap="onMoreClick">
         <span><span class="weui-loading"></span>{{ getLoadText }}</span>
       </x-button>
@@ -139,7 +139,7 @@ export default {
       this.state = 'loading';
       this.$emit('on-getmore', Action.List.get(), (query, data) => {
         this.state = 'done';
-        this.data = this.data.concat(data);
+        this.data = this.data.concat(data || []);
         Action.List.setQuery(query || {});
         return this.data;
       });
