@@ -159,7 +159,7 @@ import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 // import Validator from 'vue-validator';
-import Toptips from 'vux-extension/toptips';
+import Toptips from 'lf-components/toptips';
 
 export default {
   head: {

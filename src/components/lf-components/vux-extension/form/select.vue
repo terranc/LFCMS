@@ -9,7 +9,7 @@
 </style>
 
 <script>
-import Base from '../base';
+import Base from '../../base';
 import Mixin from './mixin';
 
 const arrayFlip = (trans) => {

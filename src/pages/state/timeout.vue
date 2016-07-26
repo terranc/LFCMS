@@ -12,7 +12,7 @@
 </style>
 
 <script>
-import Status from 'components/status';
+import Status from 'lf-components/status';
 
 export default {
   head: {

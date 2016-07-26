@@ -30,8 +30,8 @@
 </style>
 
 <script>
-import ListWrapper from 'vux-extension/list-wrapper';
-import ContentWrapper from 'vux-extension/content-wrapper';
+import ListWrapper from 'lf-components/list-wrapper';
+import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
 import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
@@ -47,15 +47,15 @@ export default {
     return {
       content: 'articles page',
       list: [{
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
         title: '如何手制一份秋意的茶？',
       }, {
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
         title: '茶包VS原叶茶',
       }, {
-        url: 'javascript',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
         title: '播下茶籽，明春可发芽？',
       }],

@@ -23,11 +23,12 @@ module.exports = {
       'components': path.resolve(__dirname, '../src/components'),
       'pages': path.resolve(__dirname, '../src/pages'),
       'vux-components': 'vux/src/components/',
-      'vux-extension': path.resolve(__dirname, '../src/components/vux-extension'),
+      'vux-extension': path.resolve(__dirname, '../src/components/lf-components/vux-extension'),
       'vue': 'vue/dist/vue.min',
       'vue-router': 'vue-router/dist/vue-router.min',
       'vue-resource': 'vue-resource/dist/vue-resource.min',
-      'weui.js': 'weui.js/dist/weui.min'
+      'weui.js': 'weui.js/dist/weui.min',
+      'lf-components': path.resolve(__dirname, '../src/components/lf-components')
     }
   },
   resolveLoader: {
@@ -54,8 +55,8 @@ module.exports = {
         loader: 'babel'
       },
       {
-          test: require.resolve('jquery'),
-          loader: 'imports'
+        test: require.resolve('jquery'),
+        loader: 'imports'
       },
       {
         test: /\.vue$/,
