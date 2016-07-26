@@ -52,6 +52,7 @@ export default {
       type: String,
       default: 'body',
     },
+    loaded: Boolean,
   },
   data() {
     return {
@@ -137,10 +138,15 @@ export default {
     // more
     onMoreClick() {
       this.state = 'loading';
-      this.$emit('on-getmore', Action.List.get(), (query, data) => {
+      this.$emit('on-getmore', Action.List.get(), (query, data, isLoaded) => {
         this.state = 'done';
-        this.data = this.data.concat(data || []);
+        if (data === undefined) {
+          this.data = Action.List.get().data; 
+        } else {
+          this.data = this.data.concat(data || []);
+        }
         Action.List.setQuery(query || {});
+        this.loaded = !!isLoaded;
         return this.data;
       });
     },

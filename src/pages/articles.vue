@@ -70,11 +70,11 @@ export default {
     fetchData(cache, loadCallback) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = loadCallback(this.query, response.data.data);
+          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.limit);
           this.query.page++;
         });
       } else {
-        this.listOfArticle = loadCallback(this.query, cache.data);
+        this.listOfArticle = loadCallback(this.query);
         this.query = cache.query;
       }
     },
