@@ -2,12 +2,17 @@
   <div class="wrapper" id="articles">
     <content-wrapper id="wrap">
       <swiper :list="list" :index="0"></swiper>
-      <list-wrapper @on-getmore="fetchData" :auto="true" target="#wrap">
-        <group v-if="listOfArticle">
-          <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
-            {{ article.title }}
-          </cell>
-        </group>
+      <list-wrapper @on-getmore="fetchData" target="#wrap">
+        <div class="weui_panel">
+          <div class="weui_panel_hd">小图文组合列表</div>
+          <div class="weui_media_box weui_media_small_appmsg">
+            <group v-if="listOfArticle">
+              <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
+                <slot slot="body">{{ article.title }}</slot>
+              </cell>
+            </group>
+          </div>
+        </div>
       </list-wrapper>
     </content-wrapper>
   </div>
@@ -65,19 +70,15 @@ export default {
     fetchData(cache, done) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          // list-wrapper 中的 data 与 this.listOfArticle 绑定，直接设置 this.listOfArticle 可更新 list-wrapper 中的 data
-          // 然后 list-wrapper 会自动缓存 data 属性，在需要的时候可通过 this.$refs.main.data 访问
-          this.listOfArticle = this.listOfArticle.concat(response.data.data);
-          done(this.query, this.listOfArticle);
+          this.listOfArticle = done(this.query, response.data.data);
           this.query.page++;
         }, (response) => {
           $.weui.toast('加载异常');
           done(this.query);
         });
       } else {
-        this.listOfArticle = cache.data; // 将 list-wrapper 中缓存的数据存入自己的 listOfArticle 中，渲染页面
-        this.query.page = cache.query.page;  // 计算页码
-        done(this.query);
+        this.listOfArticle = done(this.query, cache.data);
+        this.query = cache.query;
       }
     },
   },

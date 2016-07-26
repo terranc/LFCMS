@@ -139,8 +139,9 @@ export default {
       this.state = 'loading';
       this.$emit('on-getmore', Action.List.get(), (query, data) => {
         this.state = 'done';
-        this.data = data;
+        this.data = this.data.concat(data);
         Action.List.setQuery(query || {});
+        return this.data;
       });
     },
   },

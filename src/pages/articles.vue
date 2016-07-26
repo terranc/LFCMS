@@ -67,20 +67,15 @@ export default {
     Swiper,
   },
   methods: {
-    fetchData(cache, done) {
+    fetchData(cache, loadCallback) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = this.listOfArticle.concat(response.data.data);
-          done(this.query, this.listOfArticle);
+          this.listOfArticle = loadCallback(this.query, response.data.data);
           this.query.page++;
-        }, (response) => {
-          $.weui.toast('加载异常');
-          done(this.query);
         });
       } else {
+        this.listOfArticle = loadCallback(this.query, cache.data);
         this.query = cache.query;
-        this.listOfArticle = cache.data;
-        done(this.query);
       }
     },
   },
