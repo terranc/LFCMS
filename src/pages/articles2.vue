@@ -65,6 +65,8 @@ export default {
     fetchData(cache, done) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
+          // list-wrapper 中的 data 与 this.listOfArticle 绑定，直接设置 this.listOfArticle 可更新 list-wrapper 中的 data
+          // 然后 list-wrapper 会自动缓存 data 属性，在需要的时候可通过 this.$refs.main.data 访问
           this.listOfArticle = this.listOfArticle.concat(response.data.data);
           done(this.query, this.listOfArticle);
           this.query.page++;
@@ -73,8 +75,8 @@ export default {
           done(this.query);
         });
       } else {
-        this.query = cache.query;
-        this.listOfArticle = cache.data;
+        this.listOfArticle = cache.data; // 将 list-wrapper 中缓存的数据存入自己的 listOfArticle 中，渲染页面
+        this.query.page = cache.query.page;  // 计算页码
         done(this.query);
       }
     },

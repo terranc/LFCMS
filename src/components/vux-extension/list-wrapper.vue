@@ -42,10 +42,10 @@ export default {
       type: String,
       default: '正在加载中...',
     },
-    isAutoLoad: Boolean,
-    autoLoadDistance: {
+    auto: Boolean,
+    distance: {
       type: Number,
-      default: 1,
+      default: 0,
     },
     state: String,
     target: {
@@ -56,6 +56,7 @@ export default {
   data() {
     return {
       scrollTop: 0,
+      data: this.data,
     };
   },
   computed: {
@@ -75,11 +76,11 @@ export default {
     this.onMoreClick();
     document.querySelector(this.target).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
-      if (this.isAutoLoad && this.state !== 'loading') {
+      if (this.auto && this.state !== 'loading') {
         e.preventDefault();
         e.stopPropagation();
         const totalTop = e.target.scrollTop + e.target.clientHeight;
-        if (totalTop >= e.target.scrollHeight - this.autoLoadDistance) {
+        if (totalTop >= e.target.scrollHeight - this.distance) {
           this.onMoreClick();
         }
       }
@@ -108,38 +109,38 @@ export default {
     // scrollCache
     setScrollCache(e) {
       if (this.isCacheScrollPosition) {
-        Action.list.setScrollTop(this.scrollTop);
+        Action.List.setScrollTop(this.scrollTop);
       }
     },
     removeScrollCache() {
-      Action.list.setScrollTop(0);
+      Action.List.setScrollTop(0);
     },
     setScrollTopFromCache() {
-      if (Action.list.getScrollTop() > 0) {
-        document.querySelector(this.target).scrollTop = Action.list.getScrollTop();
+      if (Action.List.getScrollTop() > 0) {
+        document.querySelector(this.target).scrollTop = Action.List.getScrollTop();
       }
     },
     // dataCache
     setDataFromCache() {
-      if (Action.list.getData()) {
-        this.data = Action.list.getData();
+      if (Action.List.getData()) {
+        this.data = Action.List.getData();
       }
     },
     setDataCache() {
       if (this.isCacheScrollPosition) {
-        Action.list.setData(this.data);
+        Action.List.setData(this.data);
       }
     },
     removeDataCache() {
-      Action.list.removeData();
+      Action.List.removeData();
     },
     // more
     onMoreClick() {
       this.state = 'loading';
-      this.$emit('on-getmore', Action.list.get(), (query, data) => {
+      this.$emit('on-getmore', Action.List.get(), (query, data) => {
         this.state = 'done';
         this.data = data;
-        Action.list.setQuery(query || {});
+        Action.List.setQuery(query || {});
       });
     },
   },

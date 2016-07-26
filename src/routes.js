@@ -37,17 +37,18 @@ export default function (router) {
         require(['./pages/setting/general'], resolve);
       },
     },
-    '/setting/info': {
-      name: 'userinfo',
-      component: (resolve) => {
-        require(['./pages/setting/user-info'], resolve);
-      },
-    },
     '/articles': {
       name: 'articles',
       keepAlive: true,
       component: (resolve) => {
         require(['./pages/articles'], resolve);
+      },
+    },
+    '/articles2': {
+      name: 'articles2',
+      keepAlive: true,
+      component: (resolve) => {
+        require(['./pages/articles2'], resolve);
       },
     },
     '/articles/:id': {
