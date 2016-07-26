@@ -1,7 +1,7 @@
 <template>
   <slot></slot>
   <slot name="loadmore">
-    <div class="weui_btn_area" v-if="data">
+    <div class="weui_btn_area">
       <x-button v-touch:tap="onMoreClick">
         <span>{{ getLoadText }}</span>
       </x-button>

@@ -2,12 +2,25 @@
   <div class="wrapper" id="articles">
     <content-wrapper id="wrap">
       <swiper :list="list" :index="0"></swiper>
-      <list-wrapper @on-getmore="fetchData" :is-auto-load="true" target="#wrap">
+      <list-wrapper 
+        @on-getmore="fetchData" 
+        :is-auto-load="false" 
+        target="#wrap" 
+        loadText="点击加载"
+        loadingText="加载中..."
+        v-ref:list >
         <group v-if="listOfArticle">
           <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
             {{ article.title }}
           </cell>
         </group>
+
+        <div class="weui_btn_area" slot="loadmore">
+          <x-button type="primary" v-touch:tap="$refs.list.onMoreClick">
+            <span>{{ $refs.list.getLoadText }}</span>
+          </x-button>
+        </div>
+
       </list-wrapper>
     </content-wrapper>
   </div>
@@ -22,6 +35,7 @@ import ContentWrapper from 'vux-extension/content-wrapper';
 import querystring from 'querystring';
 import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
+import XButton from 'vux-components/x-button';
 
 export default {
   head: {
@@ -60,6 +74,7 @@ export default {
     ListWrapper,
     ContentWrapper,
     Swiper,
+    XButton,
   },
   methods: {
     fetchData(cache, done) {
