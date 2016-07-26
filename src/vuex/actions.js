@@ -15,7 +15,7 @@ actions.Tabbar = {
   },
 };
 
-actions.list = {
+actions.List = {
   getScrollTop() {
     return store.state.app.list.scrollTop;
   },
