@@ -4,7 +4,7 @@
     <cell-body v-if="hasBody"><slot name="body"></slot></cell-body>
     <slot></slot>
     <cell-footer v-if="!warn && hasFooter"><slot name="footer"></slot></cell-footer>
-    <cell-footer v-if="warn || vcode">
+    <cell-footer v-if="warn || vcode || href">
       <i class="weui_icon_warn" v-if="warn"></i>
       <img :src="vcode" v-if="vcode" />
     </cell-footer>
@@ -105,6 +105,9 @@ export default {
     this.$on('cell:toggle-checkbox', (val) => {
       this.checkbox = val;
     });
+    if (this.href) {
+      this.$parent.access = true;
+    }
   },
   methods: {
     onClick() {

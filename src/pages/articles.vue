@@ -2,12 +2,17 @@
   <div class="wrapper" id="articles">
     <content-wrapper id="wrap">
       <swiper :list="list" :index="0"></swiper>
-      <list-wrapper @on-getmore="fetchData" :auto="true" target="#wrap">
-        <group v-if="listOfArticle">
-          <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
-            {{ article.title }}
-          </cell>
-        </group>
+      <list-wrapper @on-getmore="fetchData" target="#wrap">
+        <div class="weui_panel">
+          <div class="weui_panel_hd">小图文组合列表</div>
+          <div class="weui_media_box weui_media_small_appmsg">
+            <group v-if="listOfArticle">
+              <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
+                <slot slot="body">{{ article.title }}</slot>
+              </cell>
+            </group>
+          </div>
+        </div>
       </list-wrapper>
     </content-wrapper>
   </div>
