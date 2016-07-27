@@ -8,7 +8,7 @@
 </style>
 
 <script>
-import Base from '../base';
+import Base from '../../base';
 export default {
   props: {
     class: String,

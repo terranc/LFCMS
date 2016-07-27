@@ -22,8 +22,8 @@
 </style>
 
 <script>
-import ListWrapper from 'vux-extension/list-wrapper';
-import ContentWrapper from 'vux-extension/content-wrapper';
+import ListWrapper from 'lf-components/list-wrapper';
+import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
 import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';

@@ -33,7 +33,7 @@
 
 <script>
 import Action from '../vuex/actions';
-import ContentWrapper from 'vux-extension/content-wrapper';
+import ContentWrapper from 'lf-components/content-wrapper';
 import 'src/validator';
 
 export default {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Base from '../base';
+import Base from '../../base';
 import CellHeader from './cell-header.vue';
 import CellBody from './cell-body.vue';
 import CellFooter from './cell-footer.vue';
