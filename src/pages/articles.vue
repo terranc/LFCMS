@@ -9,7 +9,7 @@
         loadText="点击加载"
         loadingText="加载中..."
         v-ref:list >
-        <div class="weui_panel">
+        <slot slot="body">
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
@@ -18,7 +18,7 @@
               </cell>
             </group>
           </div>
-        </div>
+        </slot>
 <!--
         <div class="weui_btn_area" slot="loadmore">
           <x-button type="primary" v-touch:tap="$refs.list.onMoreClick">

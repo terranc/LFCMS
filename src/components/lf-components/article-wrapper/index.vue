@@ -1,30 +1,33 @@
 <template>
   <div class="rich_media">
-    <div class="top_banner"></div>
     <div class="rich_media_inner">
       <div id="page-content">
-        <div id="img-content" class="rich_media_area_primary">
+        <div class="rich_media_area_primary">
           <slot name="title">
-            <h2 class="rich_media_title">
+            <h2 class="rich_media_title" v-if="title">
               {{ title }} 
             </h2>
           </slot>
 
-          <div class="rich_media_meta_list">
-            <em id="post-date" class="rich_media_meta rich_media_meta_text"><slot name="date">{{ date }}</slot></em>
-            <em class="rich_media_meta rich_media_meta_text"><slot name="author">{{ author }}</slot></em>
-            <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" href="javascript:void(0);"><slot name="author-site">{{ authorSite }}</slot></a>
+          <div class="rich_media_meta_list" v-if="date || author || authorSite">
+            <em id="post-date" class="rich_media_meta rich_media_meta_text" v-if="date"><slot name="date">{{ date }}</slot></em>
+            <em class="rich_media_meta rich_media_meta_text" v-if="author"><slot name="author">{{ author }}</slot></em>
+            <a class="rich_media_meta rich_media_meta_link rich_media_meta_nickname" v-if="authorSite" :href="authorLink"><slot name="author-site">{{ authorSite }}</slot></a>
           </div>
 
-          <div class="rich_media_content" v-html="content">
+          <div class="rich_media_content" v-html="content" v-if="content">
           </div>
+          <slot></slot>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
+a {
+  color: #607fa6;
+}
 </style>
 
 <script>
@@ -76,6 +79,10 @@ export default {
     authorSite: {
       type: String,
     },
+    authorLink: {
+      type: String,
+      default: 'javascript:;',
+    },
     date: {
       type: String,
     },
@@ -98,7 +105,6 @@ export default {
     content() {
       this.setScrollTopFromCache();
       const images = document.querySelectorAll('img');
-      console.log(images);
       if (images.length > 0) {
         replaceElementSrcToDataSrc(images);
         lazyloadElements(images, {
