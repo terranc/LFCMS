@@ -13,7 +13,7 @@
 </style>
 
 <script>
-import Base from './base';
+import Base from 'lf-components/mixins/base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
 import Action from 'src/vuex/actions';

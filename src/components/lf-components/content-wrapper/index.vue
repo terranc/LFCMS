@@ -8,8 +8,8 @@
 </style>
 
 <script>
-import Base from './base';
-import Action from '../../vuex/actions';
+import Base from 'lf-components/mixins/base';
+import Action from 'lf-vuex/actions';
 export default {
   props: {
     isSaveScrollPosition: {

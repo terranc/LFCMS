@@ -1,47 +1,47 @@
 export default [
   {
     name: 'Group',
-    module: require('vux-extension/cell/group'),
+    module: require('lf-components/cell/group'),
   },
   {
     name: 'Cell',
-    module: require('vux-extension/cell/cell'),
+    module: require('lf-components/cell/cell'),
   },
   {
     name: 'CellBody',
-    module: require('vux-extension/cell/cell-body'),
+    module: require('lf-components/cell/cell-body'),
   },
   {
     name: 'CellHeader',
-    module: require('vux-extension/cell/cell-header'),
+    module: require('lf-components/cell/cell-header'),
   },
   {
     name: 'CellFooter',
-    module: require('vux-extension/cell/cell-footer'),
+    module: require('lf-components/cell/cell-footer'),
   },
   {
     name: 'XRadio',
-    module: require('vux-extension/form/radio'),
+    module: require('lf-components/form/radio'),
   },
   {
     name: 'XSelect',
-    module: require('vux-extension/form/select'),
+    module: require('lf-components/form/select'),
   },
   {
     name: 'XSwitch',
-    module: require('vux-extension/form/switch'),
+    module: require('lf-components/form/switch'),
   },
   {
     name: 'XInput',
-    module: require('vux-extension/form/input'),
+    module: require('lf-components/form/input'),
   },
   {
     name: 'XTextarea',
-    module: require('vux-extension/form/textarea'),
+    module: require('lf-components/form/textarea'),
   },
   {
     name: 'XLabel',
-    module: require('vux-extension/label'),
+    module: require('lf-components/label'),
   },
   {
     name: 'Checklist',
