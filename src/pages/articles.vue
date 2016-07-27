@@ -19,12 +19,13 @@
             </group>
           </div>
         </div>
-
+<!--
         <div class="weui_btn_area" slot="loadmore">
           <x-button type="primary" v-touch:tap="$refs.list.onMoreClick">
             <span>{{ $refs.list.getLoadText }}</span>
           </x-button>
         </div>
+-->
       </list-wrapper>
     </content-wrapper>
   </div>
