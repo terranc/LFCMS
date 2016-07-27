@@ -1,7 +1,7 @@
 <template>
   <slot></slot>
   <slot name="loadmore">
-    <div class="weui_btn_area" v-show="data.length > 0">
+    <div class="weui_btn_area" v-show="data.length > 0 && !loaded">
       <x-button v-touch:tap="onMoreClick">
         <span><span class="weui-loading"></span>{{ getLoadText }}</span>
       </x-button>
