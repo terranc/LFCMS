@@ -19,12 +19,10 @@
 </style>
 
 <script>
-import Action from '../vuex/actions';
 import ContentWrapper from 'components/vux-extension/content-wrapper';
 
 export default {
   ready() {
-    Action.Tabbar.show();
   },
   methods: {
     showAlert: () => $.weui.alert('哈哈', { title: '提示' }),

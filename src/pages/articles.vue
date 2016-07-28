@@ -25,7 +25,6 @@
 import ListWrapper from 'vux-extension/list-wrapper';
 import ContentWrapper from 'vux-extension/content-wrapper';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
 
 export default {
@@ -59,7 +58,6 @@ export default {
     };
   },
   ready() {
-    Action.Tabbar.show();
   },
   components: {
     ListWrapper,
@@ -70,11 +68,11 @@ export default {
     fetchData(cache, loadCallback) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.limit);
+          this.listOfArticle = loadCallback(this.query, response.data.data);
           this.query.page++;
         });
       } else {
-        this.listOfArticle = loadCallback(this.query);
+        this.listOfArticle = loadCallback(this.query, cache.data);
         this.query = cache.query;
       }
     },

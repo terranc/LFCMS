@@ -53,8 +53,13 @@ Vue.http.interceptors.push((request, next) => {
   });
 });
 
-router.afterEach(() => {
-  Action.Tabbar.hide();
+router.beforeEach((transition) => {
+  if (transition.to.showTabbar) {
+    Action.Tabbar.show(transition.to.showTabbar);
+  } else {
+    Action.Tabbar.hide();
+  }
+  transition.next();
 });
 router.start(App, 'app');
 export default Vue;

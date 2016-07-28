@@ -3,12 +3,14 @@ export default function (router) {
   router.map({
     '/index': {
       name: 'index',
+      showTabbar: 'home',
       component: (resolve) => {
         require(['./pages/index'], resolve);
       },
     },
     '/setting': {
       name: 'setting',
+      showTabbar: 'setting',
       component: (resolve) => {
         require(['./pages/setting/index'], resolve);
       },
@@ -40,6 +42,7 @@ export default function (router) {
     '/articles': {
       name: 'articles',
       keepAlive: true,
+      showTabbar: 'article',
       component: (resolve) => {
         require(['./pages/articles'], resolve);
       },
@@ -59,6 +62,7 @@ export default function (router) {
     },
     '/form': {
       name: 'form',
+      showTabbar: 'form',
       component: (resolve) => {
         require(['./pages/form'], resolve);
       },
