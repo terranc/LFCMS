@@ -4,8 +4,8 @@ import 'weui.js';
 
 const actions = {};
 actions.Tabbar = {
-  show() {
-    store.dispatch(types.SHOW_TABBAR);
+  show(selected) {
+    store.dispatch(types.SHOW_TABBAR, selected);
   },
   hide() {
     store.dispatch(types.HIDE_TABBAR);

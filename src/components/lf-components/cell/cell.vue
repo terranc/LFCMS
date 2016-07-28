@@ -49,9 +49,6 @@ export default {
     vcode: String,
   },
   mixins: [Base],
-  detached() {
-    delete this.$els.cell.vm;
-  },
   computed: {
     component() {
       if (this.href) {

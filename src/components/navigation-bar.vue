@@ -26,6 +26,7 @@
 <script>
 import { Tabbar, TabbarItem } from 'vux-components/tabbar';
 import FIcon from 'vue-awesome';
+import store from 'src/vuex/store';
 
 export default {
   props: {
@@ -43,6 +44,11 @@ export default {
     FIcon,
   },
   ready() {
+  },
+  attached() {
+    if (store.state.app.tabbar.selected) {
+      this.selected = store.state.app.tabbar.selected;
+    }
   },
 };
 </script>

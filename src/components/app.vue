@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view keep-alive></router-view>
+    <router-view v-ref:view keep-alive></router-view>
     <navigation-bar v-if="tabbarState" keep-alive></navigation-bar>
   </div>
 </template>
