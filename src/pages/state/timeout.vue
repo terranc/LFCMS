@@ -1,29 +1,25 @@
 <template>
-  <div class="weui_msg">
-    <div class="weui_icon_area"><i class="weui_icon_warn weui_icon_msg"></i></div>
-    <div class="weui_text_area">
-      <h2 class="weui_msg_title">网络异常</h2>
-      <p class="weui_msg_desc">数据请求超时</p>
-    </div>
-    <div class="weui_opr_area">
-      <p class="weui_btn_area">
-        <x-button type="primary" @click="reload">返回重试</x-button> 
-      </p>
-    </div>
-  </div>
+  <status :message="message" :text="text">
+    <a class="weui_btn weui_btn_primary" @click="reload" slot="buttons">重新加载</a>
+  </status>
 </template>
 
 <style lang="scss">
 </style>
 
 <script>
-import Status from 'components/status';
-
+import Status from 'lf-components/status';
 export default {
   head: {
     title: {
-      inner: '网络异常',
+      inner: '找不到页面',
     },
+  },
+  data() {
+    return {
+      message: '请求超时',
+      text: '网络异常',
+    };
   },
   components: {
     Status,

@@ -1,7 +1,11 @@
 <template>
   <slot></slot>
-  <slot name="loadmore">
-    <div class="weui_btn_area" v-show="data.length > 0">
+  <div class="weui_panel weui_panel_access" v-if="hasBody">
+    <slot name="body"></slot>
+    <a href="javascript:;" v-show="data.length > 0 && !loaded" class="weui_panel_ft" v-touch:tap="onMoreClick">{{ getLoadText }}</a>
+  </div>
+  <slot name="loadmore" v-if="!hasBody">
+    <div class="weui_btn_area" v-show="data.length > 0 && !loaded">
       <x-button v-touch:tap="onMoreClick">
         <span><span class="weui-loading"></span>{{ getLoadText }}</span>
       </x-button>
@@ -13,7 +17,7 @@
 </style>
 
 <script>
-import Base from './base';
+import Base from 'lf-components/mixins/base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
 import Action from 'src/vuex/actions';
@@ -66,6 +70,9 @@ export default {
         return this.loadingText;  
       }
       return this.loadText;
+    },
+    hasBody() {
+      return 'body' in this._slotContents;
     },
   },
   components: {

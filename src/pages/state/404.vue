@@ -1,17 +1,32 @@
 <template>
-  <vue-helmet :title='404' v-ref:head></vue-helmet>
-  <h1>404</h1>
+  <status :message="message" :text="text">
+    <a class="weui_btn weui_btn_primary" @click="back" slot="buttons">回到首页</a>
+  </status>
 </template>
 
 <style lang="scss">
 </style>
 
-
 <script>
+import Status from 'lf-components/status';
 export default {
   head: {
     title: {
-      inner: '404',
+      inner: '找不到页面',
+    },
+  },
+  data() {
+    return {
+      message: '404',
+      text: '找不到当前页面',
+    };
+  },
+  components: {
+    Status,
+  },
+  methods: {
+    back() {
+      this.$route.router.go('index');
     },
   },
 };

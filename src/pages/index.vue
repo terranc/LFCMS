@@ -19,7 +19,7 @@
 </style>
 
 <script>
-import ContentWrapper from 'components/vux-extension/content-wrapper';
+import ContentWrapper from 'lf-components/content-wrapper';
 
 export default {
   ready() {
