@@ -1,4 +1,5 @@
 /* eslint global-require:off */
+import Action from './vuex/actions';
 export default function (router) {
   router.map({
     '/index': {
@@ -93,6 +94,14 @@ export default function (router) {
     },
   });
 
+  router.beforeEach((transition) => {
+    if (transition.to.showTabbar) {
+      Action.Tabbar.show(transition.to.showTabbar);
+    } else {
+      Action.Tabbar.hide();
+    }
+    transition.next();
+  });
   router.redirect({
     '/': 'index',
   });

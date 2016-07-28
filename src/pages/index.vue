@@ -1,16 +1,26 @@
 <template>
   <div  class="wrapper" id="index">
     <content-wrapper>
-      <h1>{{ content }}</h1>
-      <f-icon name="code"></f-icon>
-      <h2>当前URL</h2>
-      <p>{{ $route.path }}</p>
-      <h2>当前query</h2>
-      <p>{{ $route.query | json 4 }}</p>
-      <h2>当前params</h2>
-      <p>{{ $route.params | json 4 }}</p>
-      <p>{{ create_time | date '%Y-%m-%d' }}</p>
-      <x-button @click="showAlert">adasd</x-button>
+      <div class="weui_panel">
+        <div class="weui_panel_hd">{{ content }}</div>
+        <div class="weui_panel_bd">
+            <div class="weui_media_box weui_media_text">
+                <h4 class="weui_media_title">当前URL</h4>
+                <p class="weui_media_desc">{{ $route.path }}</p>
+            </div>
+            <div class="weui_media_box weui_media_text">
+                <h4 class="weui_media_title">当前query</h4>
+                <p class="weui_media_desc">{{ $route.query | json 4 }}</p>
+            </div>
+            <div class="weui_media_box weui_media_text">
+                <h4 class="weui_media_title">当前params</h4>
+                <p class="weui_media_desc">{{ $route.params | json 4 }}</p>
+            </div>
+        </div>
+      </div>
+      <div class="weui_btn_area">
+        <x-button type="primary" @click="showAlert">alert</x-button>
+      </div>
     </content-wrapper>
   </div>
 </template>

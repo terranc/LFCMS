@@ -16,9 +16,10 @@ export default {
   },
   computed: {
   },
-  ready() {
-    this.$emit('cell:toggle-checkbox', true);
-    this.$emit('cells:toggle-checkbox', true);
+  attached() {
+    this.$dispatch('cell:toggle-checkbox', true);
+    this.$dispatch('group:toggle-checkbox', true);
+    this.$dispatch('group:toggle-form', true);
   },
 };
 </script>

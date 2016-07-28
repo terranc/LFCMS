@@ -10,7 +10,6 @@ import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
 import { sync } from 'vuex-router-sync';
-import Action from './vuex/actions';
 import Filters from './filter';
 import modules from './modules';  // 常用组件加载
 import VueHead from 'vue-head';
@@ -53,13 +52,5 @@ Vue.http.interceptors.push((request, next) => {
   });
 });
 
-router.beforeEach((transition) => {
-  if (transition.to.showTabbar) {
-    Action.Tabbar.show(transition.to.showTabbar);
-  } else {
-    Action.Tabbar.hide();
-  }
-  transition.next();
-});
 router.start(App, 'app');
 export default Vue;
