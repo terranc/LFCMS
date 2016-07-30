@@ -32,7 +32,6 @@
 </style>
 
 <script>
-import Action from '../vuex/actions';
 import ContentWrapper from 'lf-components/content-wrapper';
 import 'src/validator';
 
@@ -46,7 +45,6 @@ export default {
       },
       vm: this,
     });
-    Action.Tabbar.show();
   },
   head: {
     title: {

@@ -18,6 +18,7 @@ html {
 }
 
 a {
+  color: #607fa6;
   transition: color .3s, opacity .3s, background-color .3s;
 }
 a:hover {
@@ -39,4 +40,8 @@ a img {
     margin-right: 5px;
     display: block;
   }
+}
+// vue解析完成前隐藏 <div v-cloak>{{message}}</div>
+[v-cloak]{
+    display:none;
 }

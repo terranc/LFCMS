@@ -10,7 +10,6 @@ import routerMap from './routes';
 import App from './components/app';
 import store from './vuex/store';
 import { sync } from 'vuex-router-sync';
-import Action from './vuex/actions';
 import Filters from './filter';
 import modules from './modules';  // 常用组件加载
 import VueHead from 'vue-head';
@@ -37,7 +36,7 @@ const router = new VueRouter({
   hashbang: true,
   history: false,
   abstract: false,
-  saveScrollPosition: true,
+  saveScrollPosition: false,
   transitionOnLoad: false,
   linkActiveClass: 'active',  // 链接活跃时附带的class
 });
@@ -53,8 +52,5 @@ Vue.http.interceptors.push((request, next) => {
   });
 });
 
-router.afterEach(() => {
-  Action.Tabbar.hide();
-});
 router.start(App, 'app');
 export default Vue;

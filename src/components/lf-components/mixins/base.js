@@ -1,6 +1,8 @@
 export default {
   created () {
-    this.uuid = + new Date();
+    if (!this.uuid) {
+      this.uuid = + new Date();
+    }
   },
   methods: {
   },

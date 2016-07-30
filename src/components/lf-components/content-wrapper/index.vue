@@ -1,5 +1,5 @@
 <template>
-  <div :="attributes" :class="className" :style="style" @scroll="onScroll" v-el:main>
+  <div :="attributes" :class="className" :style="style" @scroll="onScroll" :id="id" v-el:main>
     <slot></slot>
   </div>
 </template>
@@ -12,6 +12,10 @@ import Base from 'lf-components/mixins/base';
 import Action from 'lf-vuex/actions';
 export default {
   props: {
+    id: {
+      type: String,
+      default: 'wrap',
+    },
     isSaveScrollPosition: {
       type: Boolean,
       default: true,

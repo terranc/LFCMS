@@ -2,8 +2,14 @@
   <div class="wrapper" id="articles">
     <content-wrapper id="wrap">
       <swiper :list="list" :index="0"></swiper>
-      <list-wrapper @on-getmore="fetchData" target="#wrap">
-        <div class="weui_panel">
+      <list-wrapper 
+        @on-getmore="fetchData" 
+        :auto="false" 
+        target="#wrap" 
+        load-text="点击加载"
+        loading-text="加载中..."
+        >
+        <div class="weui_panel weui_panel_access">
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
@@ -25,7 +31,6 @@
 import ListWrapper from 'lf-components/list-wrapper';
 import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
 
 export default {
@@ -38,15 +43,15 @@ export default {
     return {
       content: 'articles page',
       list: [{
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
         title: '如何手制一份秋意的茶？',
       }, {
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
         title: '茶包VS原叶茶',
       }, {
-        url: 'javascript',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
         title: '播下茶籽，明春可发芽？',
       }],
@@ -58,8 +63,7 @@ export default {
       url: 'https://cnodejs.org/api/v1/topics',
     };
   },
-  ready() {
-    Action.Tabbar.show();
+  route: {
   },
   components: {
     ListWrapper,
@@ -67,18 +71,16 @@ export default {
     Swiper,
   },
   methods: {
-    fetchData(cache, done) {
+    fetchData(cache, loadCallback) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = done(this.query, response.data.data);
+          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.query.limit);
           this.query.page++;
-        }, (response) => {
-          $.weui.toast('加载异常');
-          done(this.query);
         });
       } else {
-        this.listOfArticle = done(this.query, cache.data);
+        this.listOfArticle = loadCallback(cache.query);
         this.query = cache.query;
+        this.query.page++;
       }
     },
   },

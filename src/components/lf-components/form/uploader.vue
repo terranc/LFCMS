@@ -49,6 +49,9 @@ export default {
     },
   },
   mixins: [Base, Mixin],
+  created() {
+    this.$dispatch('group:toggle-form', true);
+  },
   ready() {
     $('#' + this.id).uploader({
       auto: this.auto,

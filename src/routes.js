@@ -1,14 +1,17 @@
 /* eslint global-require:off */
+import Action from './vuex/actions';
 export default function (router) {
   router.map({
     '/index': {
       name: 'index',
+      showTabbar: 'home',
       component: (resolve) => {
         require(['./pages/index'], resolve);
       },
     },
     '/setting': {
       name: 'setting',
+      showTabbar: 'setting',
       component: (resolve) => {
         require(['./pages/setting/index'], resolve);
       },
@@ -39,7 +42,7 @@ export default function (router) {
     },
     '/articles': {
       name: 'articles',
-      keepAlive: true,
+      showTabbar: 'article',
       component: (resolve) => {
         require(['./pages/articles'], resolve);
       },
@@ -47,18 +50,21 @@ export default function (router) {
     '/articles2': {
       name: 'articles2',
       keepAlive: true,
+      savePrevScrollPosition: true,
       component: (resolve) => {
         require(['./pages/articles2'], resolve);
       },
     },
     '/articles/:id': {
       name: 'article',
+      savePrevScrollPosition: true,
       component: (resolve) => {
         require(['./pages/article'], resolve);
       },
     },
     '/form': {
       name: 'form',
+      showTabbar: 'form',
       component: (resolve) => {
         require(['./pages/form'], resolve);
       },
@@ -89,6 +95,19 @@ export default function (router) {
     },
   });
 
+  router.beforeEach((trans) => {
+    if (!trans.to.savePrevScrollPosition) {
+      setTimeout(() => {
+        Action.List.remove();
+      }, 100);
+    }
+    if (trans.to.showTabbar) {
+      Action.Tabbar.show(trans.to.showTabbar);
+    } else {
+      Action.Tabbar.hide();
+    }
+    trans.next();
+  });
   router.redirect({
     '/': 'index',
   });
