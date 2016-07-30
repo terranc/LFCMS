@@ -1,15 +1,37 @@
 <template>
-  <slot></slot>
-  <slot name="loadmore">
-    <div class="weui_btn_area" v-show="data.length > 0">
-      <x-button v-touch:tap="onMoreClick">
-        <span><span class="weui-loading"></span>{{ getLoadText }}</span>
-      </x-button>
-    </div>
-  </slot>
+  <div>
+    <slot></slot>
+    <slot name="loadmore">
+      <div class="dropload_down" :class="moreClassName" v-show="data.length > 0 && !loaded" v-touch:tap="onMoreClick">
+        <div class="dropload_load">
+          <spinner type="ios-small" v-show="state === 'loading'"></spinner>
+          {{ loadText }}
+        </div>
+      </div>
+    </slot>
+    <loading :show="state === 'loading'" text="数据加载中..."></loading>
+  </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
+.dropload_down {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    font-size: 0.9rem;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.dropload_down {
+    height: 50px
+}
+
+.dropload_loading, .dropload_load {
+    height: 50px;
+    line-height: 50px;
+    text-align: center
+}
 </style>
 
 <script>
@@ -17,6 +39,7 @@ import Base from 'lf-components/mixins/base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
 import Action from 'src/vuex/actions';
+import Spinner from 'vux-components/spinner';
 
 // const getScrollCacheName = (uuid) => `contentWrapperscrollTopCache_${uuid}`;
 // const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
@@ -61,19 +84,16 @@ export default {
     };
   },
   computed: {
-    getLoadText() {
-      if (this.state === 'loading') {
-        return this.loadingText;  
-      }
-      return this.loadText;
-    },
   },
   components: {
     Group,
     XButton,
+    Spinner,
   },
   mixins: [Base],
   ready() {
+    this.reset();
+    Action.List.setQuery({});
     this.onMoreClick();
     document.querySelector(this.target).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
@@ -86,15 +106,21 @@ export default {
         }
       }
     });
-    this.setDataFromCache();
+  },
+  attached() {
+    console.log('attached');
+    // this.setDataFromCache();
     this.$nextTick(() => {
       this.setScrollTopFromCache();
       this.reset();
     });
   },
-  attached() {
+  detached() {
+    console.log('detached');
+    this.cache();
   },
-  destroyed() {
+  beforeDestroy() {
+    console.log('destroyed');
     this.cache();
   },
   methods: {
@@ -138,7 +164,9 @@ export default {
     // more
     onMoreClick() {
       this.state = 'loading';
+      this.loadingState = true;
       this.$emit('on-getmore', Action.List.get(), (query, data, isLoaded) => {
+        this.loadingState = false;
         this.state = 'done';
         if (data === undefined) {
           this.data = Action.List.get().data; 
@@ -149,6 +177,18 @@ export default {
         this.loaded = !!isLoaded;
         return this.data;
       });
+    },
+  },
+  watch: {
+    state(newVal) {
+      if (newVal === 'loading') {
+        this.loadTextDefaultValue = this.loadText;
+        this.loadText = this.loadingText;
+        this.moreClassName = 'dropload_loading';
+      } else {
+        this.loadText = this.loadTextDefaultValue;
+        this.moreClassName = 'dropload_load';
+      }
     },
   },
 };

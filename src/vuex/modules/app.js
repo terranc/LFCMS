@@ -3,6 +3,7 @@ import * as types from '../mutation-types';
 const state = {
   tabbar: {
     state: false,
+    selected: '',
   },
   list: {
     data: [],
@@ -11,8 +12,9 @@ const state = {
   },
 };
 const mutations = {
-  [types.SHOW_TABBAR](state) {
+  [types.SHOW_TABBAR](state, selected) {
     state.tabbar.state = true;
+    state.tabbar.selected = selected;
   },
   [types.HIDE_TABBAR](state) {
     state.tabbar.state = false;

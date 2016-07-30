@@ -1,14 +1,17 @@
 /* eslint global-require:off */
+import Action from './vuex/actions';
 export default function (router) {
   router.map({
     '/index': {
       name: 'index',
+      showTabbar: 'home',
       component: (resolve) => {
         require(['./pages/index'], resolve);
       },
     },
     '/setting': {
       name: 'setting',
+      showTabbar: 'setting',
       component: (resolve) => {
         require(['./pages/setting/index'], resolve);
       },
@@ -40,6 +43,7 @@ export default function (router) {
     '/articles': {
       name: 'articles',
       keepAlive: true,
+      showTabbar: 'article',
       component: (resolve) => {
         require(['./pages/articles'], resolve);
       },
@@ -59,6 +63,7 @@ export default function (router) {
     },
     '/form': {
       name: 'form',
+      showTabbar: 'form',
       component: (resolve) => {
         require(['./pages/form'], resolve);
       },
@@ -89,6 +94,14 @@ export default function (router) {
     },
   });
 
+  router.beforeEach((transition) => {
+    if (transition.to.showTabbar) {
+      Action.Tabbar.show(transition.to.showTabbar);
+    } else {
+      Action.Tabbar.hide();
+    }
+    transition.next();
+  });
   router.redirect({
     '/': 'index',
   });

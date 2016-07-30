@@ -15,5 +15,8 @@ export default {
   mixins: [Base, Mixin],
   computed: {
   },
+  created() {
+    this.$dispatch('group:toggle-form', true);
+  },
 };
 </script>

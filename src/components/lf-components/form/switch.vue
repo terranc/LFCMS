@@ -11,9 +11,10 @@ import Mixin from './mixin';
 export default {
   props: {
   },
-  ready() {
-    this.$emit('cell:toggle-switch', true);
-    this.$emit('cells:toggle-switch', true);
+  created() {
+    this.$dispatch('cell:toggle-switch', true);
+    this.$dispatch('group:toggle-switch', true);
+    this.$dispatch('group:toggle-form', true);
   },
   mixins: [Base, Mixin],
   computed: {

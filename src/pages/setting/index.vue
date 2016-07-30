@@ -28,11 +28,9 @@
 <script>
 import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
-import Action from '../../vuex/actions';
 
 export default {
   ready() {
-    Action.Tabbar.show();
   },
   head: {
     title: {

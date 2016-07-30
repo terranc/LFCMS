@@ -19,6 +19,9 @@ export default {
   mixins: [Base, Mixin],
   computed: {
   },
+  created() {
+    this.$dispatch('group:toggle-form', true);
+  },
   watch: {
     value(newVal) {
       this.$emit('on-input', newVal);

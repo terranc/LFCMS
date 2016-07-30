@@ -2,9 +2,15 @@
   <div class="wrapper" id="articles">
     <content-wrapper id="wrap">
       <swiper :list="list" :index="0"></swiper>
-      <list-wrapper @on-getmore="fetchData" target="#wrap">
-        <div class="weui_panel">
-          <div class="weui_panel_hd">小图文组合列表</div>
+      <list-wrapper 
+        @on-getmore="fetchData" 
+        :is-auto-load="false" 
+        target="#wrap" 
+        loadText="点击加载"
+        loadingText="加载中..."
+        v-ref:list>
+        <div class="weui_panel weui_panel_access">
+          <div class="weui_panel_hd">小图文组合列表2</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
               <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
@@ -13,6 +19,13 @@
             </group>
           </div>
         </div>
+<!--
+        <div class="weui_btn_area" slot="loadmore">
+          <x-button type="primary" v-touch:tap="$refs.list.onMoreClick">
+            <span>{{ $refs.list.getLoadText }}</span>
+          </x-button>
+        </div>
+-->
       </list-wrapper>
     </content-wrapper>
   </div>
@@ -25,8 +38,8 @@
 import ListWrapper from 'lf-components/list-wrapper';
 import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
+import XButton from 'vux-components/x-button';
 
 export default {
   head: {
@@ -38,15 +51,15 @@ export default {
     return {
       content: 'articles page',
       list: [{
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/1.jpg',
         title: '如何手制一份秋意的茶？',
       }, {
-        url: 'javascript:',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/2.jpg',
         title: '茶包VS原叶茶',
       }, {
-        url: 'javascript',
+        url: 'javascript:;',
         img: 'http://7xqzw4.com2.z0.glb.qiniucdn.com/3.jpg',
         title: '播下茶籽，明春可发芽？',
       }],
@@ -58,28 +71,18 @@ export default {
       url: 'https://cnodejs.org/api/v1/topics',
     };
   },
-  ready() {
-    Action.Tabbar.show();
-  },
   components: {
     ListWrapper,
     ContentWrapper,
     Swiper,
+    XButton,
   },
   methods: {
-    fetchData(cache, done) {
-      if (cache.data.length === 0) {
-        this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = done(this.query, response.data.data);
-          this.query.page++;
-        }, (response) => {
-          $.weui.toast('加载异常');
-          done(this.query);
-        });
-      } else {
-        this.listOfArticle = done(this.query, cache.data);
-        this.query = cache.query;
-      }
+    fetchData(cache, loadCallback) {
+      this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
+        this.listOfArticle = loadCallback(this.query, response.data.data);
+        this.query.page++;
+      });
     },
   },
 };

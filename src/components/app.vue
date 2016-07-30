@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <navigation-bar v-if="tabbarState"></navigation-bar>
+    <router-view v-ref:view keep-alive></router-view>
+    <navigation-bar v-if="tabbarState" keep-alive></navigation-bar>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ import store from 'src/vuex/store';
 export default {
   components: {
     NavigationBar,
+  },
+  route: {
+    canReuse: false,
   },
   vuex: {
     getters: {

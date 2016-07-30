@@ -8,12 +8,12 @@
         target="#wrap" 
         loadText="点击加载"
         loadingText="加载中..."
-        v-ref:list >
-        <div class="weui_panel">
+        v-ref:list>
+        <div class="weui_panel weui_panel_access">
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
-              <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
+              <cell v-for="article in listOfArticle" :href="{name: 'articles2', params: {id: article.id}, query: {t: 123}}">
                 <slot slot="body">{{ article.title }}</slot>
               </cell>
             </group>
@@ -38,7 +38,6 @@
 import ListWrapper from 'lf-components/list-wrapper';
 import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
 import XButton from 'vux-components/x-button';
 
@@ -72,9 +71,6 @@ export default {
       url: 'https://cnodejs.org/api/v1/topics',
     };
   },
-  ready() {
-    Action.Tabbar.show();
-  },
   components: {
     ListWrapper,
     ContentWrapper,
@@ -83,15 +79,10 @@ export default {
   },
   methods: {
     fetchData(cache, loadCallback) {
-      if (cache.data.length === 0) {
-        this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.limit);
-          this.query.page++;
-        });
-      } else {
-        this.listOfArticle = loadCallback(this.query);
-        this.query = cache.query;
-      }
+      this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
+        this.listOfArticle = loadCallback(this.query, response.data.data);
+        this.query.page++;
+      });
     },
   },
 };
