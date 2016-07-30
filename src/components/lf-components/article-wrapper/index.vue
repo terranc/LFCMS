@@ -28,21 +28,10 @@
 </style>
 
 <script>
-// import Action from 'lf-vuex/actions';
 import lazyload from 'lazyloadjs';
-
-/* eslint global-require:off */
-const placeholder = require('assets/images/b.gif');
 
 const makeArray = exports.makeArray = Array.from || function (args) {
   return Array.prototype.slice.call(args, 0);
-};
-
-const replaceElementSrcToDataSrc = (elms) => {
-  makeArray(elms).forEach((elm) => {
-    elm.setAttribute('data-src', elm.getAttribute('src'));
-    elm.setAttribute('src', placeholder);
-  });
 };
 
 const lazyloadElements = (elms, opt) => {
@@ -82,6 +71,10 @@ export default {
     content: {
       type: String,
     },
+    isImagesLazyLoad: {
+      type: Boolean,
+      default: true,
+    }
   },
   data() {
     return {
@@ -98,9 +91,7 @@ export default {
     content() {
       this.setScrollTopFromCache();
       const images = document.querySelectorAll('img');
-      console.log(images);
-      if (images.length > 0) {
-        replaceElementSrcToDataSrc(images);
+      if (images.length > 0 && this.isImagesLazyLoad) {
         lazyloadElements(images, {
           offset: 0,
         });
