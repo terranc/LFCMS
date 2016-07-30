@@ -14,9 +14,10 @@ export default {
     name: String,
     value: String,
   },
-  ready() {
-    this.$emit('cell:toggle-radio', true);
-    this.$emit('cells:toggle-radio', true);
+  created() {
+    this.$dispatch('cell:toggle-radio', true);
+    this.$dispatch('group:toggle-radio', true);
+    this.$dispatch('group:toggle-form', true);
   },
   mixins: [Base, Mixin],
   computed: {

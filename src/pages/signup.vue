@@ -79,7 +79,6 @@ import Toptips from 'vux-extension/toptips';
 export default {
   ready() {
     this.$refs.toptips.show = true;
-    Action.Tabbar.show();
   },
   head: {
     title: {

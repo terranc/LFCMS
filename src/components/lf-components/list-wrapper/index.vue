@@ -1,15 +1,37 @@
 <template>
-  <slot></slot>
-  <slot name="loadmore">
-    <div class="weui_btn_area" v-show="data.length > 0">
-      <x-button v-touch:tap="onMoreClick">
-        <span><span class="weui-loading"></span>{{ getLoadText }}</span>
-      </x-button>
-    </div>
-  </slot>
+  <div v-el:list>
+    <slot></slot>
+    <slot name="loadmore">
+      <div class="dropload_down" :class="moreClassName" v-show="data.length > 0 && !loaded" v-touch:tap="onMoreClick">
+        <div class="dropload_load">
+          <spinner type="ios-small" v-show="state === 'loading'"></spinner>
+          {{ moreText }}
+        </div>
+      </div>
+    </slot>
+    <loading :show="state === 'loading'" text="数据加载中..."></loading>
+  </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scope>
+.dropload_down {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    font-size: 0.9rem;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+.dropload_down {
+    height: 50px
+}
+
+.dropload_loading, .dropload_load {
+    height: 50px;
+    line-height: 50px;
+    text-align: center
+}
 </style>
 
 <script>
@@ -17,12 +39,18 @@ import Base from 'lf-components/mixins/base';
 import Group from 'vux-components/group';
 import XButton from 'vux-components/x-button';
 import Action from 'src/vuex/actions';
+import Spinner from 'vux-components/spinner';
 
-// const getScrollCacheName = (uuid) => `contentWrapperscrollTopCache_${uuid}`;
-// const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
+const getScrollCacheName = (uuid) => `list-scroll-top-cache: ${uuid}`;
+const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
 
-// const getDataCacheName = (uuid) => `contentWrapperDataCache_${uuid}`;
-// const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
+const getDataCacheName = (uuid) => `list-data-cache: ${uuid}`;
+const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
+
+const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
+const hasQueryCache = (uuid) => !!sessionStorage[getQueryCacheName(uuid)];
+
+// const getTextCacheName = (uuid) => `list-text-cache: ${uuid}`;
 
 export default {
   props: {
@@ -53,6 +81,7 @@ export default {
       default: 'body',
     },
     loaded: Boolean,
+    moreText: String,
   },
   data() {
     return {
@@ -61,94 +90,122 @@ export default {
     };
   },
   computed: {
-    getLoadText() {
-      if (this.state === 'loading') {
-        return this.loadingText;  
-      }
-      return this.loadText;
-    },
+  },
+  created() {
+    Action.List.remove = this.removeCache;
+    this.uuid = this.$route.path;
   },
   components: {
     Group,
     XButton,
+    Spinner,
   },
   mixins: [Base],
   ready() {
-    this.onMoreClick();
     document.querySelector(this.target).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
       if (this.auto && this.state !== 'loading') {
+        const totalTop = e.target.scrollTop + e.target.clientHeight;
         e.preventDefault();
         e.stopPropagation();
-        const totalTop = e.target.scrollTop + e.target.clientHeight;
         if (totalTop >= e.target.scrollHeight - this.distance) {
           this.onMoreClick();
         }
       }
     });
-    this.setDataFromCache();
+  },
+  attached() {
+    this.onMoreClick();
     this.$nextTick(() => {
       this.setScrollTopFromCache();
       this.reset();
     });
   },
-  attached() {
-  },
-  destroyed() {
+  beforeDestroy() {
+    this.state = '';
     this.cache();
   },
   methods: {
     // api
     reset() {
-      this.removeScrollCache();
-      this.removeDataCache();
+      this.removeCache();
     },
     cache() {
-      this.setScrollCache();
-      this.setDataCache();
+      this.setCache();
     },
     // scrollCache
-    setScrollCache(e) {
+    setCache(e) {
       if (this.isCacheScrollPosition) {
-        Action.List.setScrollTop(this.scrollTop);
+        sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
       }
-    },
-    removeScrollCache() {
-      Action.List.setScrollTop(0);
+      if (this.isCacheScrollPosition) {
+        sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
+      }
     },
     setScrollTopFromCache() {
-      if (Action.List.getScrollTop() > 0) {
-        document.querySelector(this.target).scrollTop = Action.List.getScrollTop();
+      if (hasScrollCache(this.uuid)) {
+        document.querySelector(this.target).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
       }
     },
-    // dataCache
     setDataFromCache() {
-      if (Action.List.getData()) {
-        this.data = Action.List.getData();
+      if (hasDataCache(this.uuid)) {
+        this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
       }
     },
-    setDataCache() {
-      if (this.isCacheScrollPosition) {
-        Action.List.setData(this.data);
+    getDataCache() {
+      if (hasDataCache(this.uuid)) {
+        return JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
+      } else {
+        return [];
       }
     },
-    removeDataCache() {
-      Action.List.removeData();
+    setQueryCache(query) {
+      sessionStorage[getQueryCacheName(this.uuid)] = JSON.stringify(query || {});
+    },
+    getQueryCache() {
+      if (hasQueryCache(this.uuid)) {
+        return JSON.parse(sessionStorage[getQueryCacheName(this.uuid)]);
+      } else {
+        return {};
+      }
+    },
+    removeCache() {
+      sessionStorage.removeItem(getDataCacheName(this.uuid));
+      sessionStorage.removeItem(getScrollCacheName(this.uuid));
+      sessionStorage.removeItem(getQueryCacheName(this.uuid));
     },
     // more
     onMoreClick() {
-      this.state = 'loading';
-      this.$emit('on-getmore', Action.List.get(), (query, data, isLoaded) => {
-        this.state = 'done';
+      this.$set('state', 'loading');
+      this.loadingState = true;
+      this.$emit('on-getmore', {
+        data: this.getDataCache(),
+        query: this.getQueryCache(),
+      }, (query, data, isLoaded) => {
+        this.loadingState = false;
+        this.$set('state', 'done');
+        // this.state = 'done';
         if (data === undefined) {
-          this.data = Action.List.get().data; 
+          this.data = this.getDataCache(); 
         } else {
           this.data = this.data.concat(data || []);
         }
-        Action.List.setQuery(query || {});
+        this.setQueryCache(query);
         this.loaded = !!isLoaded;
         return this.data;
       });
+    },
+  },
+  watch: {
+    state(newVal) {
+      console.log(newVal);
+      if (newVal === 'loading') {
+        this.moreText = this.loadingText;
+        this.moreClassName = 'dropload_loading';
+      } else {
+        this.moreText = this.loadText;
+        this.moreClassName = 'dropload_load';
+      }
     },
   },
 };

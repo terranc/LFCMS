@@ -29,9 +29,10 @@ export default {
     },
     value: String,
   },
-  ready() {
-    this.$emit('cell:toggle-select', true);
-    this.$emit('cells:toggle-select', true);
+  created() {
+    this.$dispatch('cell:toggle-select', true);
+    this.$dispatch('group:toggle-select', true);
+    this.$dispatch('group:toggle-form', true);
   },
   mixins: [Base, Mixin],
   computed: {

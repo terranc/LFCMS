@@ -4,28 +4,21 @@
       <swiper :list="list" :index="0"></swiper>
       <list-wrapper 
         @on-getmore="fetchData" 
-        :is-auto-load="false" 
+        :auto="false" 
         target="#wrap" 
-        loadText="点击加载"
-        loadingText="加载中..."
-        v-ref:list >
-        <div class="weui_panel">
+        load-text="点击加载"
+        loading-text="加载中..."
+        >
+        <div class="weui_panel weui_panel_access">
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
-              <cell v-for="article in listOfArticle" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
+              <cell v-for="article in listOfArticle" :href="{name: 'articles2', params: {id: article.id}, query: {t: 123}}">
                 <slot slot="body">{{ article.title }}</slot>
               </cell>
             </group>
           </div>
         </div>
-<!--
-        <div class="weui_btn_area" slot="loadmore">
-          <x-button type="primary" v-touch:tap="$refs.list.onMoreClick">
-            <span>{{ $refs.list.getLoadText }}</span>
-          </x-button>
-        </div>
--->
       </list-wrapper>
     </content-wrapper>
   </div>
@@ -38,9 +31,7 @@
 import ListWrapper from 'lf-components/list-wrapper';
 import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
-import Action from '../vuex/actions';
 import Swiper from 'vux-components/swiper';
-import XButton from 'vux-components/x-button';
 
 export default {
   head: {
@@ -72,25 +63,24 @@ export default {
       url: 'https://cnodejs.org/api/v1/topics',
     };
   },
-  ready() {
-    Action.Tabbar.show();
+  route: {
   },
   components: {
     ListWrapper,
     ContentWrapper,
     Swiper,
-    XButton,
   },
   methods: {
     fetchData(cache, loadCallback) {
       if (cache.data.length === 0) {
         this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.limit);
+          this.listOfArticle = loadCallback(this.query, response.data.data, response.data.data.length < this.query.limit);
           this.query.page++;
         });
       } else {
-        this.listOfArticle = loadCallback(this.query);
+        this.listOfArticle = loadCallback(cache.query);
         this.query = cache.query;
+        this.query.page++;
       }
     },
   },
