@@ -72,17 +72,25 @@ export default {
     };
   },
   components: {
-    ListWrapper,
+    Group,
+    Cell,
+    Load,
     ContentWrapper,
-    Swiper,
-    XButton,
+  },
+  route: {
+    canReuse: true,
   },
   methods: {
     fetchData(cache, loadCallback) {
-      this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
-        this.listOfArticle = loadCallback(this.query, response.data.data);
-        this.query.page++;
-      });
+      if (cache.data.length === 0) {
+        this.$http.get(`${this.url}?${querystring.stringify(this.query)}`).then((response) => {
+          this.listOfArticle = loadCallback(this.query, response.data.data);
+          this.query.page++;
+        });
+      } else {
+        this.listOfArticle = loadCallback(cache.query, cache.data);
+        this.query = cache.query;
+      }
     },
   },
 };
