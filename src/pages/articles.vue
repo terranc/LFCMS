@@ -31,7 +31,6 @@
 import ListWrapper from 'lf-components/list-wrapper';
 import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
-import Swiper from 'vux-components/swiper';
 
 export default {
   head: {
@@ -66,9 +65,8 @@ export default {
   route: {
   },
   components: {
-    ListWrapper,
     ContentWrapper,
-    Swiper,
+    ListWrapper,
   },
   methods: {
     fetchData(cache, loadCallback) {
