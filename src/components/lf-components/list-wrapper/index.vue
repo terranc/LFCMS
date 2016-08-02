@@ -76,7 +76,7 @@ export default {
       default: 0,
     },
     state: String,
-    target: {
+    wrapper: {
       type: String,
       default: 'body',
     },
@@ -102,7 +102,7 @@ export default {
   },
   mixins: [Base],
   ready() {
-    document.querySelector(this.target).addEventListener('scroll', (e) => {
+    document.querySelector(this.wrapper).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
       if (this.auto && this.state !== 'loading') {
         const totalTop = e.target.scrollTop + e.target.clientHeight;
@@ -137,21 +137,19 @@ export default {
     setCache(e) {
       if (this.isCacheScrollPosition) {
         sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
-      }
-      if (this.isCacheScrollPosition) {
         sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
       }
     },
     setScrollTopFromCache() {
       if (hasScrollCache(this.uuid)) {
-        document.querySelector(this.target).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
+        document.querySelector(this.wrapper).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
       }
     },
-    setDataFromCache() {
-      if (hasDataCache(this.uuid)) {
-        this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
-      }
-    },
+    // setDataFromCache() {
+    //   if (hasDataCache(this.uuid)) {
+    //     this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
+    //   }
+    // },
     getDataCache() {
       if (hasDataCache(this.uuid)) {
         return JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);

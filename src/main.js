@@ -36,7 +36,7 @@ const router = new VueRouter({
   hashbang: true,
   history: false,
   abstract: false,
-  saveScrollPosition: false,
+  saveScrollPosition: true,
   transitionOnLoad: false,
   linkActiveClass: 'active',  // 链接活跃时附带的class
 });

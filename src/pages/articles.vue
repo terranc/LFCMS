@@ -5,7 +5,7 @@
       <list-wrapper 
         @on-getmore="fetchData" 
         :auto="false" 
-        target="#wrap" 
+        wrapper="#wrap" 
         load-text="点击加载"
         loading-text="加载中..."
         >
@@ -13,7 +13,7 @@
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
             <group v-if="listOfArticle">
-              <cell v-for="article in listOfArticle" :href="{name: 'articles2', params: {id: article.id}, query: {t: 123}}">
+              <cell v-for="article in listOfArticle" track-by="id" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
                 <slot slot="body">{{ article.title }}</slot>
               </cell>
             </group>

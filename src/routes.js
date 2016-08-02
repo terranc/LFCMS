@@ -49,7 +49,6 @@ export default function (router) {
     },
     '/articles2': {
       name: 'articles2',
-      keepAlive: true,
       savePrevScrollPosition: true,
       component: (resolve) => {
         require(['./pages/articles2'], resolve);
@@ -96,6 +95,7 @@ export default function (router) {
   });
 
   router.beforeEach((trans) => {
+    $.weui.hideTopTips();
     if (!trans.to.savePrevScrollPosition) {
       setTimeout(() => {
         Action.List.remove();
