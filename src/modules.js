@@ -76,6 +76,12 @@ export default [
     module: require('vux-components/card'),
   },
   {
+    name: 'Swiper',
+    module: (resolve) => {
+      require(['vux-components/swiper'], resolve);
+    },
+  },
+  {
     name: 'Actionsheet',
     module: (resolve) => {
       require(['vux-components/actionsheet'], resolve);
