@@ -1,5 +1,5 @@
 <template>
-  <tabbar id="navigation-bar">
+  <tabbar id="navigation-bar" v-show="show">
     <tabbar-item v-link="{name: 'index'}" :selected="selected === 'home'">
       <f-icon slot="icon" name="home" scale="1.6"></f-icon>
       <span slot="label">首页</span>
@@ -30,6 +30,7 @@ import store from 'src/vuex/store';
 
 export default {
   props: {
+    show: [String, Boolean],
     selected: {
       type: String,
       required: false,

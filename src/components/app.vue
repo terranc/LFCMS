@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <navigation-bar v-if="tabbarState" keep-alive></navigation-bar>
+    <navigation-bar :show="tabbarState" keep-alive></navigation-bar>
   </div>
 </template>
 
