@@ -50,10 +50,13 @@ const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
 const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
 const hasQueryCache = (uuid) => !!sessionStorage[getQueryCacheName(uuid)];
 
-// const getTextCacheName = (uuid) => `list-text-cache: ${uuid}`;
 
 export default {
   props: {
+    uuid: {
+      type: [String, Number],
+      required: true,
+    },
     isCacheScrollPosition: {
       type: Boolean,
       default: true,
@@ -126,14 +129,12 @@ export default {
     this.cache();
   },
   methods: {
-    // api
     reset() {
       this.removeCache();
     },
     cache() {
       this.setCache();
     },
-    // scrollCache
     setCache(e) {
       if (this.isCacheScrollPosition) {
         sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
@@ -145,11 +146,6 @@ export default {
         document.querySelector(this.wrapper).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
       }
     },
-    // setDataFromCache() {
-    //   if (hasDataCache(this.uuid)) {
-    //     this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
-    //   }
-    // },
     getDataCache() {
       if (hasDataCache(this.uuid)) {
         return JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
@@ -182,7 +178,6 @@ export default {
       }, (query, data, isLoaded) => {
         this.loadingState = false;
         this.$set('state', 'done');
-        // this.state = 'done';
         if (data === undefined) {
           this.data = this.getDataCache(); 
         } else {

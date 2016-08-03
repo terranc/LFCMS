@@ -31,6 +31,7 @@ a {
 </style>
 
 <script>
+import Base from 'lf-components/mixins/base';
 import lazyload from 'lazyloadjs';
 
 const makeArray = exports.makeArray = Array.from || function (args) {
@@ -88,6 +89,7 @@ export default {
       scrollTop: 0,
     };
   },
+  mixins: [Base],
   ready() {
     document.querySelector(this.target).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;

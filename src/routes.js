@@ -95,7 +95,7 @@ export default function (router) {
   });
 
   router.beforeEach((trans) => {
-    $.weui.hideTopTips();
+    $.weui.hideTopTips();   // 关闭所有toptips
     if (!trans.to.savePrevScrollPosition) {
       setTimeout(() => {
         Action.List.remove();
