@@ -95,7 +95,8 @@ export default function (router) {
   });
 
   router.beforeEach((trans) => {
-    $.weui.hideTopTips();   // 关闭所有toptips
+    // TODO: Uncaught TypeError: $.weui.hideTopTips is not a function
+    // $.weui.hideTopTips();   // 关闭所有toptips 
     if (!trans.to.savePrevScrollPosition) {
       setTimeout(() => {
         Action.List.remove();

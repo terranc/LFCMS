@@ -18,7 +18,7 @@
 </style>
 
 <script>
-import Base from './base';
+import Base from 'lf-components/mixins/base';
 export default {
   props: {
     show: {

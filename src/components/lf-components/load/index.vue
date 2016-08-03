@@ -11,7 +11,7 @@
 </style>
 
 <script>
-import Base from './base';
+import Base from 'lf-components/mixins/base';
 import Loading from 'vux-components/loading';
 import Confirm from 'vux-components/confirm';
 

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Base from '../base';
+import Base from 'lf-components/mixins/base';
 import Mixin from './mixin';
 export default {
   props: {
