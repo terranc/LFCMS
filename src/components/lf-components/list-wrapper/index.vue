@@ -50,10 +50,13 @@ const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
 const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
 const hasQueryCache = (uuid) => !!sessionStorage[getQueryCacheName(uuid)];
 
-// const getTextCacheName = (uuid) => `list-text-cache: ${uuid}`;
 
 export default {
   props: {
+    uuid: {
+      type: [String, Number],
+      required: true,
+    },
     isCacheScrollPosition: {
       type: Boolean,
       default: true,
@@ -76,7 +79,7 @@ export default {
       default: 0,
     },
     state: String,
-    target: {
+    wrapper: {
       type: String,
       default: 'body',
     },
@@ -102,7 +105,7 @@ export default {
   },
   mixins: [Base],
   ready() {
-    document.querySelector(this.target).addEventListener('scroll', (e) => {
+    document.querySelector(this.wrapper).addEventListener('scroll', (e) => {
       this.scrollTop = e.target.scrollTop;
       if (this.auto && this.state !== 'loading') {
         const totalTop = e.target.scrollTop + e.target.clientHeight;
@@ -126,30 +129,21 @@ export default {
     this.cache();
   },
   methods: {
-    // api
     reset() {
       this.removeCache();
     },
     cache() {
       this.setCache();
     },
-    // scrollCache
     setCache(e) {
       if (this.isCacheScrollPosition) {
         sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
-      }
-      if (this.isCacheScrollPosition) {
         sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
       }
     },
     setScrollTopFromCache() {
       if (hasScrollCache(this.uuid)) {
-        document.querySelector(this.target).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
-      }
-    },
-    setDataFromCache() {
-      if (hasDataCache(this.uuid)) {
-        this.data = JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
+        document.querySelector(this.wrapper).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
       }
     },
     getDataCache() {
@@ -184,7 +178,6 @@ export default {
       }, (query, data, isLoaded) => {
         this.loadingState = false;
         this.$set('state', 'done');
-        // this.state = 'done';
         if (data === undefined) {
           this.data = this.getDataCache(); 
         } else {
