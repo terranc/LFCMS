@@ -17,6 +17,7 @@
     "form-serializer": "^2.5.0",
     "jquery": "^2.2.4",
     "lazyloadjs": "^3.2.2",
+    "material-design-icons": "^2.2.3",
     "nice-validator": "^0.10.11",
     "node-sass": "^3.7.0",
     "validator": "^5.5.0",
