@@ -95,7 +95,7 @@
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.8.3",
-    "weui": "''0.4.3"
+    "weui": "0.4.3"
   },
   "main": ".eslintrc.js",
   "directories": {
