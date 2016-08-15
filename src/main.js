@@ -27,7 +27,10 @@ Object.keys(Filters).forEach((k) => {
   Vue.filter(k, Filters[k]);
 });
 Vue.use(VueFilter);
-Vue.use(VueHead);
+Vue.use(VueHead, {
+  separator: '',
+  complement: '',
+});
 Vue.use(VueTouch);
 Vue.use(VueRouter);
 Vue.use(VueResource);
