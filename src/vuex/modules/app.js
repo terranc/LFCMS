@@ -5,12 +5,7 @@ const state = {
     state: false,
     selected: '',
   },
-  list: {
-    data: [],
-    scrollTop: 0,
-    query: {},
-    remove() {},
-  },
+  list: {},
 };
 const mutations = {
   [types.SHOW_TABBAR](state, selected) {

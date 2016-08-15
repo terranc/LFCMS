@@ -41,14 +41,47 @@ import XButton from 'vux-components/x-button';
 import Action from 'src/vuex/actions';
 import Spinner from 'vux-components/spinner';
 
-const getScrollCacheName = (uuid) => `list-scroll-top-cache: ${uuid}`;
-const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
+// const getScrollCacheName = (uuid) => `list-scroll-top-cache: ${uuid}`;
+// const getScrollCache = (uuid) => sessionStorage[getScrollCacheName(uuid)];
+// const setScrollCache = (uuid, value) => {
+//   sessionStorage[getScrollCacheName(uuid)] = value;
+// };
+// const hasScrollCache = (uuid) => !!sessionStorage[getScrollCacheName(uuid)];
 
-const getDataCacheName = (uuid) => `list-data-cache: ${uuid}`;
-const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
+// const getDataCacheName = (uuid) => `list-data-cache: ${uuid}`;
+// const getDataCache = (uuid) => JSON.parse(sessionStorage[getDataCacheName(uuid)]);
+// const setDataCache = (uuid, value) => {
+//   sessionStorage[getDataCacheName(uuid)] = JSON.stringify(value);
+// };
+// const hasDataCache = (uuid) => !!sessionStorage[getDataCacheName(uuid)];
 
-const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
-const hasQueryCache = (uuid) => !!sessionStorage[getQueryCacheName(uuid)];
+// const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
+// const getQueryCache = (uuid) => JSON.parse(sessionStorage[getQueryCacheName(uuid)]);
+// const setQueryCache = (uuid, value) => {
+//   sessionStorage[getQueryCacheName(uuid)] = JSON.stringify(value);
+// };
+// const hasQueryCache = (uuid) => !!sessionStorage[getQueryCacheName(uuid)];
+// const getScrollCacheName = (uuid) => `list-scroll-top-cache: ${uuid}`;
+// 
+const getScrollCache = (uuid) => Action.List.getScrollTop(uuid);
+const setScrollCache = (uuid, value) => {
+  Action.List.setScrollTop(uuid, value);
+};
+const hasScrollCache = (uuid) => !!Action.List.getScrollTop(uuid);
+
+// const getDataCacheName = (uuid) => `list-data-cache: ${uuid}`;
+const getDataCache = (uuid) => Action.List.getData(uuid);
+const setDataCache = (uuid, value) => {
+  Action.List.setData(uuid, value);
+};
+const hasDataCache = (uuid) => !!Action.List.getData(uuid);
+
+// const getQueryCacheName = (uuid) => `list-query-cache: ${uuid}`;
+const getQueryCache = (uuid) => Action.List.getQuery(uuid);
+const setQueryCache = (uuid, value) => {
+  Action.List.setQuery(uuid, value);
+};
+const hasQueryCache = (uuid) => !!Action.List.getQuery(uuid);
 
 
 export default {
@@ -111,7 +144,7 @@ export default {
         const totalTop = e.target.scrollTop + e.target.clientHeight;
         e.preventDefault();
         e.stopPropagation();
-        if (totalTop >= e.target.scrollHeight - this.distance) {
+        if (totalTop >= e.target.scrollHeight - this.distance - 1) {
           this.onMoreClick();
         }
       }
@@ -125,7 +158,6 @@ export default {
     });
   },
   beforeDestroy() {
-    this.state = '';
     this.cache();
   },
   methods: {
@@ -137,36 +169,40 @@ export default {
     },
     setCache(e) {
       if (this.isCacheScrollPosition) {
-        sessionStorage[getScrollCacheName(this.uuid)] = this.scrollTop;
-        sessionStorage[getDataCacheName(this.uuid)] = JSON.stringify(this.data);
+        setScrollCache(this.uuid, this.scrollTop);
+        setDataCache(this.uuid, this.data);
+        setQueryCache(this.uuid, this.query);
       }
     },
     setScrollTopFromCache() {
       if (hasScrollCache(this.uuid)) {
-        document.querySelector(this.wrapper).scrollTop = sessionStorage[getScrollCacheName(this.uuid)];
+        document.querySelector(this.wrapper).scrollTop = getScrollCache(this.uuid);
       }
     },
     getDataCache() {
       if (hasDataCache(this.uuid)) {
-        return JSON.parse(sessionStorage[getDataCacheName(this.uuid)]);
+        return getDataCache(this.uuid);
       } else {
         return [];
       }
     },
     setQueryCache(query) {
-      sessionStorage[getQueryCacheName(this.uuid)] = JSON.stringify(query || {});
+      setQueryCache(this.uuid, query || {});
     },
     getQueryCache() {
       if (hasQueryCache(this.uuid)) {
-        return JSON.parse(sessionStorage[getQueryCacheName(this.uuid)]);
+        return getQueryCache(this.uuid);
       } else {
         return {};
       }
     },
     removeCache() {
-      sessionStorage.removeItem(getDataCacheName(this.uuid));
-      sessionStorage.removeItem(getScrollCacheName(this.uuid));
-      sessionStorage.removeItem(getQueryCacheName(this.uuid));
+      // sessionStorage.removeItem(getDataCacheName(this.uuid));
+      // sessionStorage.removeItem(getScrollCacheName(this.uuid));
+      // sessionStorage.removeItem(getQueryCacheName(this.uuid));
+      Action.List.removeScrollTop(this.uuid);
+      Action.List.removeData(this.uuid);
+      Action.List.removeQuery(this.uuid);
     },
     // more
     onMoreClick() {
@@ -183,7 +219,7 @@ export default {
         } else {
           this.data = this.data.concat(data || []);
         }
-        this.setQueryCache(query);
+        this.query = query;
         this.loaded = !!isLoaded;
         return this.data;
       });
@@ -191,7 +227,6 @@ export default {
   },
   watch: {
     state(newVal) {
-      console.log(newVal);
       if (newVal === 'loading') {
         this.moreText = this.loadingText;
         this.moreClassName = 'dropload_loading';

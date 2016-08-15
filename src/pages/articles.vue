@@ -4,7 +4,7 @@
       <swiper :list="list" :index="0"></swiper>
       <list-wrapper 
         @on-getmore="fetchData" 
-        :auto="false" 
+        :auto="true" 
         wrapper="#wrap" 
         load-text="点击加载"
         loading-text="加载中..."
@@ -78,7 +78,6 @@ export default {
       } else {
         this.listOfArticle = loadCallback(cache.query);
         this.query = cache.query;
-        this.query.page++;
       }
     },
   },

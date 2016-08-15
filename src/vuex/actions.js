@@ -16,29 +16,40 @@ actions.Tabbar = {
 };
 
 actions.List = {
-  getScrollTop() {
-    return store.state.app.list.scrollTop;
+  getScrollTop(uuid) {
+    if (!store.state.app.list[uuid]) store.state.app.list[uuid] = {};
+    return store.state.app.list[uuid]['scrollTop'];
   },
-  setScrollTop(top) {
-    store.state.app.list.scrollTop = top;
+  setScrollTop(uuid, top) {
+    store.state.app.list[uuid]['scrollTop'] = top;
   },
-  getData() {
-    return store.state.app.list.data;
+  removeScrollTop(uuid) {
+    delete store.state.app.list[uuid]['scrollTop'];
   },
-  setData(data) {
-    store.state.app.list.data = data;
+  getData(uuid) {
+    if (!store.state.app.list[uuid]) store.state.app.list[uuid] = {};
+    return store.state.app.list[uuid]['data'];
   },
-  removeData(data) {
-    store.state.app.list.data = [];
+  setData(uuid, data) {
+    store.state.app.list[uuid]['data'] = data;
   },
-  getQuery() {
-    return store.state.app.list.query;
+  removeData(uuid) {
+    console.log(uuid);
+    store.state.app.list[uuid]['data'] = [];
   },
-  setQuery(obj) {
-    store.state.app.list.query = obj;
+  getQuery(uuid) {
+    if (!store.state.app.list[uuid]) store.state.app.list[uuid] = {};
+    return store.state.app.list[uuid]['query'];
   },
-  get() {
-    return store.state.app.list;
+  setQuery(uuid, obj) {
+    store.state.app.list[uuid]['query'] = obj;
+  },
+  removeQuery(uuid) {
+    delete store.state.app.list[uuid]['query'];
+  },
+  get(uuid) {
+    if (!store.state.app.list[uuid]) store.state.app.list[uuid] = {};
+    return store.state.app.list[uuid];
   },
   remove() {},
 };

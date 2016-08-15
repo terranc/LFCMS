@@ -78,7 +78,6 @@ export default {
       } else {
         this.listOfArticle = loadCallback(cache.query);
         this.query = cache.query;
-        this.query.page++;
       }
     },
   },
