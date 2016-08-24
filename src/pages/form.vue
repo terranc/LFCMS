@@ -19,6 +19,9 @@
               <x-input name="repassword" type="password"></x-input>
             </cell-body>
           </cell>
+          <cell>
+            <uploader id="asd"></uploader>
+          </cell>
         </group>
         <div class="weui_btn_area">
           <x-button type="primary">提交</x-button>
@@ -33,6 +36,7 @@
 
 <script>
 import ContentWrapper from 'lf-components/content-wrapper';
+import Uploader from 'lf-components/form/uploader';
 import 'src/validator';
 
 export default {
@@ -65,6 +69,7 @@ export default {
   },
   components: {
     ContentWrapper,
+    Uploader,
     // Validator,
   },
 };

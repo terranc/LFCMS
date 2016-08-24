@@ -22,7 +22,7 @@ module.exports = {
       'libs': path.resolve(__dirname, '../src/assets/js/libs'),
       'components': path.resolve(__dirname, '../src/components'),
       'pages': path.resolve(__dirname, '../src/pages'),
-      'vux-components': 'vux/src/components/',
+      'vux-components': 'vux/src/components',
       'vue': 'vue/dist/vue.min',
       'vue-router': 'vue-router/dist/vue-router.min',
       'vue-resource': 'vue-resource/dist/vue-resource.min',
