@@ -15,6 +15,10 @@ export default {
     },
     field: String,
     url: String,
+    data: {
+      type: Object,
+      default: {},
+    },
     multiple: {
       type: Boolean,
       coerce: (val) => !!val,
@@ -57,6 +61,7 @@ export default {
       auto: this.auto,
       accept: this.accept,
       url: this.url,
+      data: this.data,
       field: this.field,
       title: this.title,
       maxCount: this.maxCount,
