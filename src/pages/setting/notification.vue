@@ -43,7 +43,7 @@ import Group from 'vux-components/group';
 import Cell from 'vux-components/cell';
 import Switch from 'vux-components/switch';
 import Flexbox from 'vux-components/flexbox';
-import FlexboxItem from 'vux-components/flexbox-item';
+import FlexboxItem from 'vux-components/flexbox/flexbox-item';
 import Tip from 'vux-components/tip';
 
 export default {
