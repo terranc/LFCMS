@@ -20,7 +20,9 @@
             </cell-body>
           </cell>
           <cell>
-            <uploader id="asd"></uploader>
+            <cell-body>
+              <uploader id="uploader"></uploader>
+            </cell-body>
           </cell>
         </group>
         <div class="weui_btn_area">

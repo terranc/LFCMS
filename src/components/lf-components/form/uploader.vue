@@ -2,6 +2,13 @@
   <div :id="getId"></div>
 </template>
 
+<style>
+.weui_uploader_hd {
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+</style>
 <script>
 import Base from 'lf-components/mixins/base';
 import Mixin from './mixin';
