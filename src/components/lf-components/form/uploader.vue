@@ -51,6 +51,22 @@ export default {
       type: Function,
       default: (file) => {},
     },
+    onSuccess: {
+      type: Function,
+      default: (res) => {},
+    },
+    onRemovedfile: {
+      type: Function,
+      default: (index) => {},
+    },
+    onError: {
+      type: Function,
+      default: (err) => {},
+    },
+    onComplete: {
+      type: Function,
+      default: () => {},
+    },
   },
   mixins: [Base, Mixin],
   created() {
@@ -67,6 +83,11 @@ export default {
       maxCount: this.maxCount,
       maxWidth: this.maxWidth,
       onAddedFile: this.onChange,
+      onSuccess: this.onSuccess,
+      onAddedFile: this.onChange,
+      onError: this.onError,
+      onComplete: this.onComplete,
+      onRemovedfile: this.onRemovedfile,
     });
   },
   computed: {
