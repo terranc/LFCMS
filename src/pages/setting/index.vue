@@ -11,7 +11,7 @@
         <cell title="通用" v-link="{name: 'general'}" is-link></cell>
       </group>
       <group>
-        <cell title="帮助与反馈" is-link></cell>
+        <cell title="帮助与反馈" v-link="{name: 'feedback'}" is-link></cell>
         <cell title="关于微信" is-link></cell>
       </group>
       <group>
