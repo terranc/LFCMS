@@ -1,27 +1,23 @@
 <template>
-  <div class="wrapper" id="articles">
-    <content-wrapper id="wrap">
-      <swiper :list="list" :index="0"></swiper>
-      <list-wrapper 
-        @on-getmore="fetchData" 
-        :auto="true" 
-        wrapper="#wrap" 
-        load-text="点击加载"
-        loading-text="加载中..."
-        >
-        <div class="weui_panel weui_panel_access">
-          <div class="weui_panel_hd">小图文组合列表</div>
-          <div class="weui_media_box weui_media_small_appmsg">
-            <x-group v-if="listOfArticle">
-              <x-cell v-for="article in listOfArticle" track-by="id" :href="{name: 'articles2', params: {id: article.id}, query: {t: 123}}">
-                <slot slot="body">{{ article.title }}</slot>
-              </x-cell>
-            </x-group>
-          </div>
-        </div>
-      </list-wrapper>
-    </content-wrapper>
-  </div>
+  <swiper :list="list" :index="0"></swiper>
+  <list-wrapper 
+    @on-getmore="fetchData" 
+    :auto="true" 
+    wrapper="#wrap" 
+    load-text="点击加载"
+    loading-text="加载中..."
+    >
+    <div class="weui_panel weui_panel_access">
+      <div class="weui_panel_hd">小图文组合列表</div>
+      <div class="weui_media_box weui_media_small_appmsg">
+        <x-group v-if="listOfArticle">
+          <x-cell v-for="article in listOfArticle" track-by="id" :href="{name: 'articles2', params: {id: article.id}, query: {t: 123}}">
+            <slot slot="body">{{ article.title }}</slot>
+          </x-cell>
+        </x-group>
+      </div>
+    </div>
+  </list-wrapper>
 </template>
 
 <style lang="scss">
@@ -29,7 +25,6 @@
 
 <script>
 import ListWrapper from 'lf-components/list-wrapper';
-import ContentWrapper from 'lf-components/content-wrapper';
 import querystring from 'querystring';
 
 export default {
@@ -65,7 +60,6 @@ export default {
   route: {
   },
   components: {
-    ContentWrapper,
     ListWrapper,
   },
   methods: {

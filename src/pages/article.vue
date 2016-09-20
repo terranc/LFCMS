@@ -1,24 +1,19 @@
 <template>
-  <div class="wrapper" id="article">
-    <content-wrapper id="wrap">
-      <article-wrapper 
-        :uuid="$route.params.id"
-        :author="article.author.loginname"
-        :date="article.create_at | friendlyTime"
-        :content="article.content"
-        target="#wrap"
-        >
-        <h2 slot="title">{{ article.title }}</h2>
-      </article-wrapper>
-    </content-wrapper>
-  </div>
+  <article-wrapper 
+    :uuid="$route.params.id"
+    :author="article.author.loginname"
+    :date="article.create_at | friendlyTime"
+    :content="article.content"
+    target="#wrap"
+    >
+    <h2 slot="title">{{ article.title }}</h2>
+  </article-wrapper>
 </template>
 
 <style lang="scss" scoped>
 </style>
 
 <script>
-import ContentWrapper from 'lf-components/content-wrapper';
 import ArticleWrapper from 'lf-components/article-wrapper';
 
 export default {
@@ -47,7 +42,6 @@ export default {
     },
   },
   components: {
-    ContentWrapper,
     ArticleWrapper,
   },
 };
