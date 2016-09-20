@@ -40,12 +40,6 @@ export default function (router) {
         require(['./pages/setting/general'], resolve);
       },
     },
-    '/setting/feedback': {
-      name: 'feedback',
-      component: (resolve) => {
-        require(['./pages/setting/feedback'], resolve);
-      },
-    },
     '/articles': {
       name: 'articles',
       showTabbar: 'article',
@@ -102,7 +96,7 @@ export default function (router) {
 
   router.beforeEach((trans) => {
     // TODO: Uncaught TypeError: $.weui.hideTopTips is not a function
-    // $.weui.hideTopTips();   // 关闭所有toptips
+    $.weui.hideTopTips();   // 关闭所有toptips
     if (!trans.to.savePrevScrollPosition) {
       setTimeout(() => {
         Action.List.remove();

@@ -1,5 +1,5 @@
 <template>
-  <input class="weui_check" type="radio" :class="className" :value="value" :name="name" />
+  <input class="weui_check" type="radio" :class="className" :value="value" :name="name" :checked="checked" />
   <span class="weui_icon_checked"></span>
 </template>
 
@@ -11,6 +11,7 @@ import Base from 'lf-components/mixins/base';
 import Mixin from './mixin';
 export default {
   props: {
+    checked: Boolean,
     name: String,
     value: String,
   },

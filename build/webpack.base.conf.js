@@ -77,6 +77,10 @@ module.exports = {
         loader: 'vue-html'
       },
       {
+        test: /\.scss$/,
+        loader: 'scss-loader'
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url',
         query: {

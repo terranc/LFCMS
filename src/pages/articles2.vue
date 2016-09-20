@@ -12,11 +12,11 @@
         <div class="weui_panel weui_panel_access">
           <div class="weui_panel_hd">小图文组合列表</div>
           <div class="weui_media_box weui_media_small_appmsg">
-            <group v-if="listOfArticle">
-              <cell v-for="article in listOfArticle" track-by="id" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
+            <x-group v-if="listOfArticle">
+              <x-cell v-for="article in listOfArticle" track-by="id" :href="{name: 'article', params: {id: article.id}, query: {t: 123}}">
                 <slot slot="body">{{ article.title }}</slot>
-              </cell>
-            </group>
+              </x-cell>
+            </x-group>
           </div>
         </div>
       </list-wrapper>

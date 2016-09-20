@@ -1,7 +1,5 @@
 <template>
-  <label class="weui_label" :class="className" :style="styleObject">
-    <slot></slot>
-  </label>
+  <i class="icon material-icons" :class="className" style="styleObject"><slot></slot></i>
 </template>
 
 <style lang="scss">
@@ -12,7 +10,6 @@ import Base from 'lf-components/mixins/base';
 export default {
   props: {
     size: [String, Number],
-    class: String,
   },
   mixins: [Base],
   computed: {
@@ -21,7 +18,7 @@ export default {
     },
     styleObject() {
       return {
-        width: this.size ? (this.size + 'em') : (this._slotContents.default.textContent.replace(/[^x00-xff]/g, '00').length / 2 + 1) + 'em',
+        fontSize: this.size ? (this.size + 'rem') : '1rem',
       };
     },
   },

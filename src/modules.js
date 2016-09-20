@@ -1,10 +1,10 @@
 export default [
   {
-    name: 'Group',
+    name: 'XGroup',
     module: require('lf-components/cell/group'),
   },
   {
-    name: 'Cell',
+    name: 'XCell',
     module: require('lf-components/cell/cell'),
   },
   {
@@ -44,8 +44,12 @@ export default [
     module: require('lf-components/label'),
   },
   {
-    name: 'Checklist',
-    module: require('vux-components/checklist'),
+    name: 'XIcon',
+    module: require('lf-components/icon'),
+  },
+  {
+    name: 'XCheckbox',
+    module: require('lf-components/form/checkbox'),
   },
   {
     name: 'XButton',

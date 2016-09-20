@@ -3,7 +3,7 @@
   <div class="wrapper" id="account">
     <main class="main">
       <group>
-        <cell title="微信号" >sugarlamb</cell>
+        <cell title="微信号">sugarlamb</cell>
       </group>
       <group>
         <cell title="QQ 号" is-link>10000</cell>

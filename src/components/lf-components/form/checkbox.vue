@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input class="weui_check" type="checkbox" :value="value" :name="name" />
+    <input class="weui_check" type="checkbox" :value="value" :name="name" :checked="checked" />
     <span class="weui_icon_checked"></span>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script>
 export default {
   props: {
+    checked: Boolean,
     name: String,
     value: String,
   },
